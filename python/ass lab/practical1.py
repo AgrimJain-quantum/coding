@@ -24,3 +24,23 @@ x = float(x)
 y = float(y)
 average = (x + y) / 2
 print("Average =", average)
+
+# 4 Simple Engineering Example
+
+voltage = float(input("Enter voltage (V): "))
+current = float(input("Enter current (A): "))
+power = voltage * current
+print("Electrical Power =", power, "Watts")
+
+'''Electrical Energy Consumption Calculation'''
+
+device_name = "Electric Heater" # string
+voltage = 230.0 # float (Volts)
+current = 4.5 # float (Amperes)
+hours = 5 # integer (hours)
+power = voltage * current # Power in Watts
+energy = power * hours # Energy in Watt-hours
+print("Device Name:", device_name)
+print("Power =", power, "Watts")
+print("Energy Consumed =", energy, "Watt-hours")
+
