@@ -121,7 +121,7 @@ lr_model.fit(X_train, y_train)
 lr_pred = lr_model.predict(X_test)
 print("   ✅ Linear Regression trained.")
 
-# ── 5b. Random Forest ──
+# ── 5b. Random Forest ──   
 rf_model = RandomForestRegressor(
     n_estimators=100,
     max_depth=12,
