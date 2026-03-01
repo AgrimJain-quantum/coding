@@ -9,3 +9,4 @@ print("Bus Numbers:", bus_numbers)
 print("Voltage Levels:", voltage)
 print("Devices:", devices)
 print("Mixed Data:", data)
+
