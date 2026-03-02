@@ -86,6 +86,8 @@ df["lag_96h"] = df["load"].shift(96)  # 24 hours ago (96 × 15 min)
 df.dropna(inplace=True)   # remove rows with NaN from lag creation
 df.reset_index(drop=True, inplace=True)
 
+df["Season"] = df["Season"].map({"Summer": 0, "Spring": 1, "Fall": 2, "Winter": 3})
+
 FEATURES = [
     # Time-based (pre-built in your dataset)
     "Hour of Day", "Day of Week", "Month", "Season", "Public Event",
