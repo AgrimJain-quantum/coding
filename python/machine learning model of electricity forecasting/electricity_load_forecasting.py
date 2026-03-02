@@ -86,7 +86,20 @@ df["lag_96h"] = df["load"].shift(96)  # 24 hours ago (96 × 15 min)
 df.dropna(inplace=True)   # remove rows with NaN from lag creation
 df.reset_index(drop=True, inplace=True)
 
-FEATURES = ["hour", "day", "month", "weekday", "weekend", "lag_1h", "lag_24h"]
+FEATURES = [
+    # Time-based (pre-built in your dataset)
+    "Hour of Day", "Day of Week", "Month", "Season", "Public Event",
+
+    # Weather
+    "Temperature (°C)", "Humidity (%)", "Wind Speed (m/s)",
+    "Rainfall (mm)", "Solar Irradiance (W/m²)",
+
+    # Economic
+    "GDP (USD)", "Per Capita Energy Use (kWh)", "Electricity Price (LKR/kWh)",
+
+    # Lag features (autocorrelation)
+    "lag_1h", "lag_4h", "lag_96h"
+]
 TARGET   = "load"
 
 print(f"✅ Features used: {FEATURES}")
