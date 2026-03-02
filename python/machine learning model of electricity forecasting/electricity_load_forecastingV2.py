@@ -20,7 +20,7 @@ print("✅ All libraries imported successfully.\n")
 
 
 # ── SECTION 2: Load Dataset ─────────────────────────────────
-CSV_PATH = "load_forecasting_dataset_corrected.csv"   # ← your file path
+CSV_PATH = r"C:\Users\Agrim Jain\Desktop\Coding\coding\python\machine learning model of electricity forecasting\load_forecasting_dataset_corrected.csv"   # ← your file path
 
 df = pd.read_csv(CSV_PATH)
 
