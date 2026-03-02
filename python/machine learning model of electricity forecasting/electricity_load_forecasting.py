@@ -33,7 +33,7 @@ print("✅ All libraries imported successfully.\n")
 # A synthetic dataset is generated automatically if the file
 # is not found, so you can run the script immediately.
 
-CSV_PATH = ""   # ← change to your file path
+CSV_PATH = "load_forecasting_dataset_corrected.csv"   # ← change to your file path
 
 try:
     df = pd.read_csv(CSV_PATH, parse_dates=["Timestamp"])
@@ -79,8 +79,9 @@ df["weekday"] = df["datetime"].dt.weekday          # 0 = Monday … 6 = Sunday
 df["weekend"] = (df["weekday"] >= 5).astype(int)   # 1 if Saturday or Sunday
 
 # Optional: lag features (previous hour load) – useful for capturing autocorrelation
-df["lag_1h"]  = df["load"].shift(1)   # load 1 hour ago
-df["lag_24h"] = df["load"].shift(24)  # load same hour yesterday
+df["lag_1h"]  = df["load"].shift(1)   # 15-min intervals → shift(1) = 15 mins ago
+df["lag_4h"]  = df["load"].shift(4)   # 1 hour ago (4 × 15 min)
+df["lag_96h"] = df["load"].shift(96)  # 24 hours ago (96 × 15 min)
 
 df.dropna(inplace=True)   # remove rows with NaN from lag creation
 df.reset_index(drop=True, inplace=True)
