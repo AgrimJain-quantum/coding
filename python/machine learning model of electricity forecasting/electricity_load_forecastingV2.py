@@ -41,7 +41,7 @@ df = df.rename(columns={
     "Wind Speed (m/s)":            "wind_speed",
     "Rainfall (mm)":               "rainfall",
     "Solar Irradiance (W/m²)":     "solar_irradiance",
-    "GDP (USD)":                   "gdp",
+    "GDP (LKR)":                   "gdp",
     "Per Capita Energy Use (kWh)": "per_capita_energy",
     "Electricity Price (LKR/kWh)": "electricity_price",
     "Day of Week":                 "day_of_week",
@@ -52,7 +52,7 @@ df = df.rename(columns={
 })
 
 # Step 2d: Parse datetime and sort
-df["datetime"] = pd.to_datetime(df["datetime"])
+df["datetime"] = pd.to_datetime(df["datetime"], format="%m-%d-%Y %H:%M")
 df = df.sort_values("datetime").reset_index(drop=True)
 
 print(f"\n📂 Loaded: {len(df):,} rows")
