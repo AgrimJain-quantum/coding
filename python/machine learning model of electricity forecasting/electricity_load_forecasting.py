@@ -33,10 +33,11 @@ print("✅ All libraries imported successfully.\n")
 # A synthetic dataset is generated automatically if the file
 # is not found, so you can run the script immediately.
 
-CSV_PATH = "electricity_load.csv"   # ← change to your file path
+CSV_PATH = ""   # ← change to your file path
 
 try:
-    df = pd.read_csv(CSV_PATH, parse_dates=["datetime"])
+    df = pd.read_csv(CSV_PATH, parse_dates=["Timestamp"])
+    df = df.rename(columns={"Timestamp": "datetime", "Load Demand (kW)": "load"})
     df = df.sort_values("datetime").reset_index(drop=True)
     print(f"📂 Loaded dataset: {len(df):,} rows from '{CSV_PATH}'")
 
