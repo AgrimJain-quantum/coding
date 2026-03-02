@@ -52,7 +52,7 @@ df = df.rename(columns={
 })
 
 # Step 2d: Parse datetime and sort
-df["datetime"] = pd.to_datetime(df["datetime"], format="%m-%d-%Y %H:%M")
+df["datetime"] = pd.to_datetime(df["datetime"], format="mixed")
 df = df.sort_values("datetime").reset_index(drop=True)
 
 print(f"\n📂 Loaded: {len(df):,} rows")
