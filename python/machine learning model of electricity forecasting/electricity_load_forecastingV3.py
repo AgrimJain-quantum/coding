@@ -212,16 +212,16 @@ ax2.legend(loc="upper right")
 ax2.xaxis.set_major_formatter(mdates.DateFormatter("%b %d '%y"))
 ax2.grid(alpha=0.3)
 
-# # ── Plot 3: Feature Importances ──
-# ax3 = axes[2]
-# top_n   = importances_sorted.head(12)
-# colors  = ["#2980B9" if i < 3 else "#85C1E9" for i in range(len(top_n))]
-# bars    = ax3.barh(top_n.index, top_n.values, color=colors, edgecolor="white")
-# ax3.bar_label(bars, fmt="%.3f", padding=3, fontsize=9)
-# ax3.set_title("Random Forest — Top 12 Feature Importances", fontsize=11)
-# ax3.set_xlabel("Importance Score")
-# ax3.invert_yaxis()
-# ax3.grid(axis="x", alpha=0.3)
+# ── Plot 3: Feature Importances ──
+ax3 = axes[2]
+top_n   = importances_sorted.head(12)
+colors  = ["#2980B9" if i < 3 else "#85C1E9" for i in range(len(top_n))]
+bars    = ax3.barh(top_n.index, top_n.values, color=colors, edgecolor="white")
+ax3.bar_label(bars, fmt="%.3f", padding=3, fontsize=9)
+ax3.set_title("Random Forest — Top 12 Feature Importances", fontsize=11)
+ax3.set_xlabel("Importance Score")
+ax3.invert_yaxis()
+ax3.grid(axis="x", alpha=0.3)
 
 # ── Plot 4: Model comparison bar chart ──
 ax4 = axes[3]
