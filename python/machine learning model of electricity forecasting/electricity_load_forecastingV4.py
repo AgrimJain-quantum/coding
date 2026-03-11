@@ -26,7 +26,7 @@ print("✅ All libraries imported successfully.\n")
 
 
 # ── SECTION 2: Load Dataset ─────────────────────────────────
-CSV_PATH = "historic_demand_2009_2024_noNaN.csv"   # ← place CSV in same folder as script
+CSV_PATH = r"C:\Users\Agrim Jain\Desktop\Coding\coding\python\machine learning model of electricity forecasting\datasets\historic_demand_2009_2024_noNaN.csv"   # ← place CSV in same folder as script
 
 df = pd.read_csv(CSV_PATH)
 print(f"📂 Raw dataset loaded: {df.shape[0]:,} rows × {df.shape[1]} columns")
