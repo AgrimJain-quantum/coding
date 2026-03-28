@@ -30,7 +30,7 @@ print("✅ All libraries imported successfully.\n")
 # ============================================================
 # SECTION 2: LOAD & CLEAN DATASET
 # ============================================================
-CSV_PATH = r""
+CSV_PATH = r"C:\Users\Agrim Jain\Desktop\Coding\coding\python\machine learning model of electricity forecasting\datasets\powerdemand_5min_2021_to_2024_with weather.csv"
 
 df = pd.read_csv(CSV_PATH)
 df.columns = df.columns.str.strip()
