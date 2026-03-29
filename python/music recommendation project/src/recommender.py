@@ -13,7 +13,7 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 
-from preprocess import FEATURE_COLUMNS, FEATURE_DESCRIPTIONS
+from src.preprocess import FEATURE_COLUMNS, FEATURE_DESCRIPTIONS
 
 
 # ──────────────────────────────────────────────
