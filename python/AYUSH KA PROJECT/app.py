@@ -18,15 +18,14 @@ import matplotlib.patches as mpatches
 
 # ── path setup so src/ imports work regardless of CWD ──────────────────────
 ROOT = pathlib.Path(__file__).parent
-sys.path.insert(0, str(ROOT / "src"))
 
-from preprocess  import preprocess
-from recommender import (
+
+from src.preprocess import preprocess
+from src.recommender import (
     recommend,
     recommend_from_history,
     explain_recommendation,
 )
-
 # ───────────────────────────────────────────────────────────────────────────
 # Config & constants
 # ───────────────────────────────────────────────────────────────────────────
