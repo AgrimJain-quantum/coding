@@ -1,46 +1,35 @@
-#1 Printing Output
-
+# Printing
 print("Welcome to Python Programming Lab")
 print("This is Practical 1")
 
-#2 Variables and Arithmetic Operations
-
+# Arithmetic Operations
 a = 10
 b = 5
-sum_value = a + b
-difference = a - b
-product = a * b
-division = a / b
-print("Sum =", sum_value)
-print("Difference =", difference)
-print("Product =", product)
-print("Division =", division)
+print("Sum =", a + b)
+print("Difference =", a - b)
+print("Product =", a * b)
+print("Division =", a / b)
 
-#User Input and Type Conversion
-
-x = input("Enter first number: ")
-y = input("Enter second number: ")
-x = float(x)
-y = float(y)
+# User Input
+x = float(input("Enter first number: "))
+y = float(input("Enter second number: "))
 average = (x + y) / 2
 print("Average =", average)
 
-# 4 Simple Engineering Example
-
+# Power Calculation
 voltage = float(input("Enter voltage (V): "))
 current = float(input("Enter current (A): "))
 power = voltage * current
 print("Electrical Power =", power, "Watts")
 
-'''Electrical Energy Consumption Calculation'''
+# Energy Calculation
+device_name = "Electric Heater"
+voltage = 230.0
+current = 4.5
+hours = 5
+power = voltage * current
+energy = power * hours
 
-device_name = "Electric Heater" # string
-voltage = 230.0 # float (Volts)
-current = 4.5 # float (Amperes)
-hours = 5 # integer (hours)
-power = voltage * current # Power in Watts
-energy = power * hours # Energy in Watt-hours
 print("Device Name:", device_name)
 print("Power =", power, "Watts")
-print("Energy Consumed =", energy, "Watt-hours")
-
+print("Energy Consumed =", energy, "Wh")
