@@ -1,87 +1,39 @@
-# ==============================
-# Experiment 3: Control Structures & Functions
-# ==============================
-
-# -------- Conditional Statements --------
-
-voltage = 235
-if voltage > 230:
-    print("Voltage is above safe limit")
-else:
-    print("Voltage is within safe limit")
-
-voltage = 215
-if voltage < 220:
-    print("Low Voltage Condition")
-elif voltage > 230:
-    print("High Voltage Condition")
-else:
-    print("Voltage within normal range")
-
-# -------- Loops --------
-
-voltages = [220, 225, 230, 228]
-for v in voltages:
-    print("Voltage reading:", v)
+# A. Store system information
+feeder_name = "Feeder A"
+rated_voltage = 400
+rated_frequency = 50
 
 voltage = [220, 225, 230]
 current = [5, 5.2, 4.8]
-for i in range(3):
-    power = voltage[i] * current[i]
-    print("Power:", power, "W")
 
-voltage = [220, 225, 230]
-current = [5, 5.2, 4.8]
-for v, i in zip(voltage, current):
-    power = v * i
-    print("Power:", power, "W")
+operating_time = 4
 
-numbers = list(range(5))
-print(numbers)
+bus_load = {
+    "Bus1": 120,
+    "Bus2": 150,
+    "Bus3": 100
+}
 
-numbers = list(range(2, 6))
-print(numbers)
-
-voltage = [220, 225, 230]
-current = [5, 5.2, 4.8]
-pairs = list(zip(voltage, current))
-print(pairs)
-
-voltages = [220, 225, 230]
-total = 0
-for v in voltages:
-    total = total + v
-print("Total voltage:", total)
-
-# -------- Functions --------
-
-def calculate_power(v, i):
-    return v * i
-
-def energy(power, time):
-    return power * time
-
-def average_voltage(voltage_list):
-    return sum(voltage_list) / len(voltage_list)
-
-def maximum_voltage(v_list):
-    return max(v_list)
-
-# -------- Main Execution --------
-
-voltages = [220, 225, 230]
-currents = [5, 5.2, 4.8]
-
-print("Power Readings:")
-for k in range(len(voltages)):
-    p = calculate_power(voltages[k], currents[k])
+# B & C. Calculate power using P = V * I
+power = []
+for i in range(len(voltage)):
+    p = voltage[i] * current[i]
+    power.append(p)
     print("Power:", p, "W")
 
-avg_v = average_voltage(voltages)
-print("Average Voltage:", avg_v)
+# D. Average voltage
+avg_voltage = sum(voltage) / len(voltage)
+print("Average Voltage =", avg_voltage, "V")
 
-max_v = maximum_voltage(voltages)
-print("Maximum Voltage:", max_v)
+# E. Total energy consumption
+average_power = sum(power) / len(power)
+energy = average_power * operating_time
+print("Total Energy =", energy, "Wh")
 
-E = energy(1000, 5)
-print("Energy:", E, "Wh")
+# F. Max and Min voltage
+print("Maximum Voltage =", max(voltage))
+print("Minimum Voltage =", min(voltage))
+
+# G. Display bus loads using loop
+for bus in bus_load:
+    print(bus, "=", bus_load[bus], "kW")
