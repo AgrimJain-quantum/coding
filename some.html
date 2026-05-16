@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vedic Astrology — 5-Year Forecast</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0E0A06;
+    --paper: #18100A;
+    --card: #1E1208;
+    --border: #4A2C10;
+    --gold: #C8940A;
+    --gold-light: #E8B840;
+    --saffron: #D4651A;
+    --cream: #F0DFB8;
+    --cream-dim: #B8A880;
+    --red: #8B1A1A;
+    --green: #2D6A4F;
+    --blue: #1A4A6B;
+    --white: #FFF8EC;
+    --accent: #7B4F1E;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--bg);
+    color: var(--cream);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.75;
+    min-height: 100vh;
+  }
+
+  /* === BACKGROUND MANDALA TEXTURE === */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(ellipse at 20% 10%, rgba(200,148,10,0.07) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 90%, rgba(212,101,26,0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(139,26,26,0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; position: relative; z-index: 1; }
+
+  /* === HEADER === */
+  .masthead {
+    text-align: center;
+    padding: 3.5rem 2rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  .masthead::before {
+    content: '☉  ☽  ♃  ♄  ♂  ♀  ☿  ☊  ☋';
+    display: block;
+    font-size: 1rem;
+    color: var(--gold);
+    letter-spacing: 0.4em;
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+  }
+
+  .masthead-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    color: var(--saffron);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .masthead h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.4rem, 4vw, 2.4rem);
+    color: var(--gold-light);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 40px rgba(200,148,10,0.4);
+  }
+
+  .masthead h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.75rem, 2vw, 1rem);
+    letter-spacing: 0.2em;
+    color: var(--cream-dim);
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+
+  .birth-badge {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    background: rgba(74,44,16,0.25);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.85rem;
+    color: var(--cream-dim);
+    letter-spacing: 0.05em;
+  }
+
+  .birth-badge span { color: var(--gold); }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.5rem 0;
+    color: var(--gold);
+    font-size: 1rem;
+    opacity: 0.5;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+  }
+
+  /* === SECTION HEADERS === */
+  .section {
+    margin-bottom: 3.5rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-icon {
+    width: 36px; height: 36px;
+    background: linear-gradient(135deg, var(--saffron), var(--gold));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 12px rgba(200,148,10,0.3);
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 0.18em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* === IMPORTANT NOTE === */
+  .note-box {
+    background: rgba(74,44,16,0.2);
+    border-left: 3px solid var(--saffron);
+    padding: 0.9rem 1.2rem;
+    font-size: 0.875rem;
+    color: var(--cream-dim);
+    font-style: italic;
+    margin-bottom: 2rem;
+    border-radius: 0 4px 4px 0;
+  }
+
+  /* === CHART TABLE === */
+  .chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 600px) { .chart-grid { grid-template-columns: 1fr; } }
+
+  .chart-panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .chart-panel-header {
+    background: linear-gradient(90deg, var(--accent), var(--border));
+    padding: 0.5rem 1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+  }
+
+  .planet-table { width: 100%; border-collapse: collapse; }
+  .planet-table th {
+    background: rgba(74,44,16,0.3);
+    padding: 0.5rem 0.8rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--saffron);
+    text-transform: uppercase;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .planet-table td {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.875rem;
+    border-bottom: 1px solid rgba(74,44,16,0.3);
+    color: var(--cream);
+  }
+  .planet-table tr:last-child td { border-bottom: none; }
+  .planet-table tr:hover td { background: rgba(74,44,16,0.15); }
+
+  .house-num { color: var(--cream-dim); font-size: 0.75rem; }
+  .planet-symbol { color: var(--gold); font-weight: 600; }
+  .deg { color: var(--cream-dim); font-size: 0.8rem; }
+  .yoga-tag {
+    display: inline-block;
+    background: rgba(200,148,10,0.15);
+    border: 1px solid rgba(200,148,10,0.3);
+    color: var(--gold);
+    font-size: 0.65rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+    margin-left: 0.4rem;
+  }
+
+  /* === YOGA CARDS === */
+  .yoga-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .yoga-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem 1.1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .yoga-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), var(--saffron));
+  }
+
+  .yoga-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .yoga-desc { font-size: 0.875rem; color: var(--cream-dim); }
+
+  /* === DASHA TIMELINE === */
+  .dasha-bar {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .dasha-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(74,44,16,0.3);
+  }
+  .dasha-row:last-child { border-bottom: none; }
+
+  .dasha-planet {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--gold-light);
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .dasha-period {
+    font-size: 0.8rem;
+    color: var(--cream-dim);
+    width: 130px;
+    flex-shrink: 0;
+  }
+
+  .dasha-bar-fill {
+    flex: 1;
+    height: 6px;
+    background: rgba(74,44,16,0.4);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .dasha-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--saffron), var(--gold));
+    border-radius: 3px;
+    transition: width 0.3s ease;
+  }
+
+  .dasha-active {
+    background: rgba(200,148,10,0.1);
+    border: 1px solid rgba(200,148,10,0.25) !important;
+    border-radius: 4px;
+    padding: 0.6rem;
+  }
+
+  .dasha-label {
+    font-size: 0.75rem;
+    color: var(--cream-dim);
+    flex-shrink: 0;
+  }
+
+  .current-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--bg);
+    font-family: 'Cinzel', serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.4rem;
+    border-radius: 2px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    margin-left: 0.4rem;
+  }
+
+  /* === YEAR FORECAST CARDS === */
+  .forecast-year {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  .forecast-year-header {
+    background: linear-gradient(90deg, rgba(74,44,16,0.8), rgba(30,18,8,0.6));
+    padding: 1rem 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .year-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.05rem;
+    color: var(--gold-light);
+  }
+
+  .year-dasha {
+    font-size: 0.75rem;
+    color: var(--saffron);
+    font-style: italic;
+    text-align: right;
+  }
+
+  .forecast-year-body {
+    padding: 1.2rem 1.4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  @media (max-width: 600px) { .forecast-year-body { grid-template-columns: 1fr; } }
+
+  .forecast-column h4 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    color: var(--saffron);
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(74,44,16,0.5);
+  }
+
+  .forecast-column p, .forecast-column li {
+    font-size: 0.9rem;
+    color: var(--cream);
+    line-height: 1.6;
+    margin-bottom: 0.4rem;
+  }
+
+  .forecast-column ul { list-style: none; padding: 0; }
+  .forecast-column li::before { content: '◆ '; color: var(--gold); font-size: 0.55rem; vertical-align: middle; }
+
+  .intensity-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 0.8rem;
+    font-size: 0.75rem;
+    color: var(--cream-dim);
+  }
+
+  .intensity-dots { display: flex; gap: 3px; }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: rgba(74,44,16,0.6);
+    border: 1px solid var(--border);
+  }
+  .dot.on { background: var(--gold); border-color: var(--gold-light); }
+  .dot.half { background: var(--saffron); border-color: var(--saffron); }
+
+  .highlight-box {
+    background: rgba(200,148,10,0.08);
+    border: 1px solid rgba(200,148,10,0.2);
+    border-radius: 4px;
+    padding: 0.7rem 0.9rem;
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  /* === REMEDIES === */
+  .remedy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .remedy-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .remedy-gem {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .remedy-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.08em;
+  }
+
+  .remedy-detail { font-size: 0.8rem; color: var(--cream-dim); }
+
+  /* === MANTRA BLOCK === */
+  .mantra-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1.2rem;
+    align-items: flex-start;
+  }
+
+  .mantra-symbol {
+    font-size: 1.8rem;
+    width: 50px;
+    text-align: center;
+    flex-shrink: 0;
+    line-height: 1;
+    color: var(--gold);
+  }
+
+  .mantra-text { flex: 1; }
+
+  .mantra-devanagari {
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    margin-bottom: 0.2rem;
+    letter-spacing: 0.03em;
+  }
+
+  .mantra-transliteration {
+    font-size: 0.8rem;
+    color: var(--saffron);
+    font-style: italic;
+    margin-bottom: 0.3rem;
+  }
+
+  .mantra-instruction { font-size: 0.82rem; color: var(--cream-dim); }
+
+  /* === TIMING TABLE === */
+  .timing-table { width: 100%; border-collapse: collapse; }
+  .timing-table th {
+    background: rgba(74,44,16,0.4);
+    padding: 0.6rem 1rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    color: var(--saffron);
+    text-transform: uppercase;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .timing-table td {
+    padding: 0.6rem 1rem;
+    font-size: 0.875rem;
+    border-bottom: 1px solid rgba(74,44,16,0.25);
+    color: var(--cream);
+    vertical-align: top;
+  }
+  .timing-table tr:last-child td { border-bottom: none; }
+  .timing-table tr:hover td { background: rgba(74,44,16,0.1); }
+
+  .favorable { color: #6DBF8A; }
+  .challenging { color: #D67C6A; }
+  .neutral { color: var(--cream-dim); }
+
+  /* === FOOTER === */
+  .report-footer {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+    font-size: 0.8rem;
+    color: var(--cream-dim);
+    font-style: italic;
+  }
+
+  .report-footer strong {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-style: normal;
+  }
+
+  /* === GENERAL === */
+  p { margin-bottom: 0.8rem; }
+  strong { color: var(--gold-light); }
+
+  .subsection-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--saffron);
+    text-transform: uppercase;
+    margin: 1.5rem 0 0.7rem;
+  }
+
+  .info-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .big-highlight {
+    background: linear-gradient(135deg, rgba(139,26,26,0.15), rgba(200,148,10,0.12));
+    border: 1px solid rgba(200,148,10,0.3);
+    border-radius: 6px;
+    padding: 1.2rem 1.4rem;
+    margin: 1rem 0;
+  }
+
+  .big-highlight-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- MASTHEAD -->
+  <div class="masthead">
+    <div class="masthead-subtitle">Parashara Jyotish · Vimshottari Dasha · Lahiri Ayanamsa</div>
+    <h1>Vedic Birth Chart & Five-Year Forecast</h1>
+    <h2>Janma Kundali — Career, Wealth & Life Destiny</h2>
+    <div class="birth-badge">
+      <span>28 June 2005</span> ·
+      <span>01:00 AM IST</span> ·
+      <span>Meerut, Uttar Pradesh, India</span> ·
+      <span>28.98°N, 77.71°E</span>
+    </div>
+  </div>
+
+  <!-- IMPORTANT NOTE -->
+  <div class="note-box">
+    <strong>Scholarly Note:</strong> Planetary positions below are computed manually using classical astronomical formulae with Lahiri (Chitrapaksha) ayanamsa ≈ 23°55' for 2005. Minor positional variations of 1°–2° are possible. Please cross-verify with software such as Jagannath Hora or Parashara's Light. All interpretations follow Parashara's Brihat Parashara Hora Shastra. The Ascendant is at 28°43' Virgo (Kanya) — extremely close to the Virgo–Libra cusp; a birth-time adjustment of merely 5–6 minutes would shift the Lagna to early Libra. This reading is presented for Kanya Lagna.
+  </div>
+
+  <!-- SECTION 1: BIRTH CHART -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">☽</div>
+      <div class="section-title">Birth Chart Foundation · Rashi & Navamsa</div>
+    </div>
+
+    <div class="chart-grid">
+      <!-- Rashi Chart -->
+      <div class="chart-panel">
+        <div class="chart-panel-header">Rashi Chart (D-1) · Planetary Positions</div>
+        <table class="planet-table">
+          <thead>
+            <tr>
+              <th>Planet</th>
+              <th>Rashi / House</th>
+              <th>Degree</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="planet-symbol">ASC</span> Lagna</td>
+              <td>Virgo (Kanya) · 1st</td>
+              <td class="deg">28°43'</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">☉</span> Sun</td>
+              <td>Gemini (Mithuna) · 10th <span class="yoga-tag">Rajyoga</span></td>
+              <td class="deg">~13°</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">☽</span> Moon</td>
+              <td>Aquarius (Kumbha) · 6th</td>
+              <td class="deg">~28°</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">♂</span> Mars</td>
+              <td>Taurus (Vrishabha) · 9th</td>
+              <td class="deg">~10°</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">☿</span> Mercury</td>
+              <td>Gemini (Mithuna) · 10th <span class="yoga-tag">Own Sign</span></td>
+              <td class="deg">~25°</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">♃</span> Jupiter</td>
+              <td>Virgo (Kanya) · 1st <span class="yoga-tag">Auspicious</span></td>
+              <td class="deg">~22°</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">♀</span> Venus</td>
+              <td>Taurus (Vrishabha) · 9th</td>
+              <td class="deg">~25°</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">♄</span> Saturn</td>
+              <td>Cancer (Karka) · 11th</td>
+              <td class="deg">~12°</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">☊</span> Rahu</td>
+              <td>Aries (Mesha) · 8th</td>
+              <td class="deg">~15°</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">☋</span> Ketu</td>
+              <td>Libra (Tula) · 2nd</td>
+              <td class="deg">~15°</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Navamsa Chart -->
+      <div class="chart-panel">
+        <div class="chart-panel-header">Navamsa Chart (D-9) · Soul Blueprint</div>
+        <table class="planet-table">
+          <thead>
+            <tr>
+              <th>Planet</th>
+              <th>Navamsa Sign · House</th>
+              <th>Note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="planet-symbol">ASC</span> Lagna</td>
+              <td>Gemini (Mithuna)</td>
+              <td class="deg">—</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">☉</span> Sun</td>
+              <td>Capricorn · 8th</td>
+              <td class="deg">Career karma</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">☽</span> Moon</td>
+              <td>Virgo · 4th</td>
+              <td class="deg">Emotional stability</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">♂</span> Mars</td>
+              <td>Pisces · 10th</td>
+              <td class="deg">Career action</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">☿</span> Mercury</td>
+              <td>Taurus · 12th</td>
+              <td class="deg">Research/foreign</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">♃</span> Jupiter</td>
+              <td>Aries · 11th</td>
+              <td class="deg">Gains &amp; wisdom</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">♀</span> Venus</td>
+              <td>Leo · 3rd</td>
+              <td class="deg">Creative skills</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">♄</span> Saturn</td>
+              <td>Cancer · 2nd <span class="yoga-tag">Vargottama</span></td>
+              <td class="deg">Strengthened!</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">☊</span> Rahu</td>
+              <td>Leo · 3rd</td>
+              <td class="deg">—</td>
+            </tr>
+            <tr>
+              <td><span class="planet-symbol">☋</span> Ketu</td>
+              <td>Aquarius · 9th</td>
+              <td class="deg">Spiritual depth</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Key Identifiers -->
+    <div class="info-block">
+      <table style="width:100%; font-size:0.9rem;">
+        <tr>
+          <td style="padding:0.3rem 0.8rem 0.3rem 0; color:var(--saffron); font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase; width:160px;">Lagna (Ascendant)</td>
+          <td><strong>Virgo (Kanya)</strong> — Lord: Mercury · You are analytical, methodical, detail-oriented, and driven by service and mastery</td>
+        </tr>
+        <tr>
+          <td style="padding:0.3rem 0.8rem 0.3rem 0; color:var(--saffron); font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;">Moon Sign (Rashi)</td>
+          <td><strong>Aquarius (Kumbha)</strong> — Nakshatra: Purva Bhadrapada (Jupiter-ruled, Pada 4) · Intellectual, idealistic, reform-minded, unconventional thinker</td>
+        </tr>
+        <tr>
+          <td style="padding:0.3rem 0.8rem 0.3rem 0; color:var(--saffron); font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;">Sun Sign</td>
+          <td><strong>Gemini (Mithuna)</strong> — Brilliant communicator, quick learner, multi-talented, adaptable</td>
+        </tr>
+        <tr>
+          <td style="padding:0.3rem 0.8rem 0.3rem 0; color:var(--saffron); font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;">Atmakaraka (Soul)</td>
+          <td><strong>Moon</strong> (28° Aquarius — highest degree planet) · Soul purpose: emotional fulfillment through service, knowledge, and humanitarian ideals</td>
+        </tr>
+        <tr>
+          <td style="padding:0.3rem 0.8rem 0.3rem 0; color:var(--saffron); font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.1em; text-transform:uppercase;">Vargottama Planet</td>
+          <td><strong>Saturn in Cancer</strong> — Saturn in Cancer in both D-1 and D-9 is Vargottama, greatly amplifying Saturn's influence over income, discipline, and results</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <!-- SECTION 2: KEY YOGAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">✦</div>
+      <div class="section-title">Key Planetary Yogas · Power Combinations</div>
+    </div>
+
+    <div class="yoga-grid">
+      <div class="yoga-card">
+        <div class="yoga-name">Budha-Aditya Yoga ★★★★★</div>
+        <div class="yoga-desc">Sun and Mercury conjunct in the 10th house (Gemini, own sign for Mercury). This is the <em>crown yoga</em> of this chart. It bestows extraordinary intelligence, eloquence, analytical brilliance, and fame through professional excellence. Placed in the career house, it points toward a life where intellect IS the career.</div>
+      </div>
+      <div class="yoga-card">
+        <div class="yoga-name">Lagna–Karma Rajyoga ★★★★★</div>
+        <div class="yoga-desc">Mercury rules both the 1st house (Lagna) and the 10th house (career/Karma bhava) for Kanya Lagna. Mercury placed in the 10th in its own sign creates a supreme Rajyoga — the self and the career are one and the same. Peak career achievement is a near certainty.</div>
+      </div>
+      <div class="yoga-card">
+        <div class="yoga-name">Jupiter in Lagna ★★★★</div>
+        <div class="yoga-desc">As lord of the 4th and 7th houses (both kendra lords), Jupiter in the 1st kendra creates great fortune, wisdom, and nobility of character. This blesses the native with a good ethical compass, protection from severe misfortune, and expansion in all life departments over time.</div>
+      </div>
+      <div class="yoga-card">
+        <div class="yoga-name">Dhana Yoga (Venus) ★★★★</div>
+        <div class="yoga-desc">Venus rules both the 2nd house (wealth) and the 9th house (fortune, Bhagya) for Kanya Lagna. Venus placed in the 9th house (Taurus, its own sign) creates a powerful Dhana Yoga — wealth through fortune and luck, especially after age 28–30 when Venus matures.</div>
+      </div>
+      <div class="yoga-card">
+        <div class="yoga-name">Saturn in 11th (Upachaya) ★★★</div>
+        <div class="yoga-desc">Saturn (natural significator of hard work and discipline) placed in the 11th house of gains creates steady, accumulative wealth. Vargottama Saturn makes this even stronger. Income grows steadily over time — this is a "slow but certain" wealth pattern.</div>
+      </div>
+      <div class="yoga-card">
+        <div class="yoga-name">Mars–Venus Conjunction (9th) ★★★</div>
+        <div class="yoga-desc">Mars and Venus in the 9th house in Taurus (Venus's own sign) gives extraordinary luck from travel, higher education, and foreign connections. Venus in own sign tempers Mars's aggression, creating a powerful drive balanced with charm — excellent for international business and negotiations.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <!-- SECTION 3: MAHADASHA TIMELINE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">♄</div>
+      <div class="section-title">Vimshottari Dasha Timeline · Life Periods</div>
+    </div>
+
+    <p style="font-size:0.9rem; color:var(--cream-dim); margin-bottom:1.2rem;">
+      The Moon at ~28° Aquarius (Purva Bhadrapada nakshatra, Jupiter-ruled) indicates approximately 40% of Jupiter Mahadasha was remaining at birth (6.4 years). The major dasha sequence and current sub-periods are:
+    </p>
+
+    <div class="dasha-bar">
+      <div class="dasha-row">
+        <div class="dasha-planet">♃ Jupiter</div>
+        <div class="dasha-period">Jun 2005 – Oct 2011</div>
+        <div class="dasha-bar-fill"><div class="dasha-fill" style="width:100%; opacity:0.4;"></div></div>
+        <div class="dasha-label">6.4 yrs (balance) · Childhood & early education</div>
+      </div>
+      <div class="dasha-row dasha-active">
+        <div class="dasha-planet">♄ Saturn <span class="current-badge">Active</span></div>
+        <div class="dasha-period">Oct 2011 – Oct 2030</div>
+        <div class="dasha-bar-fill"><div class="dasha-fill" style="width:75%;"></div></div>
+        <div class="dasha-label">19 years · Foundation, discipline, career</div>
+      </div>
+      <div class="dasha-row">
+        <div class="dasha-planet">☿ Mercury</div>
+        <div class="dasha-period">Oct 2030 – Oct 2047</div>
+        <div class="dasha-bar-fill"><div class="dasha-fill" style="width:100%; background: linear-gradient(90deg, #2D6A4F, #6DBF8A);"></div></div>
+        <div class="dasha-label">17 yrs · PEAK CAREER PERIOD (Lagna + 10th lord!)</div>
+      </div>
+    </div>
+
+    <div class="subsection-title">Saturn Mahadasha — Antardasha Sub-Periods (Oct 2011 – Oct 2030)</div>
+
+    <div class="info-block" style="padding:0.5rem 0;">
+      <table class="planet-table">
+        <thead>
+          <tr>
+            <th>Antardasha</th>
+            <th>Period</th>
+            <th>Duration</th>
+            <th>Key Theme</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Saturn–Saturn</td>
+            <td>Oct 2011 – Oct 2014</td>
+            <td>3 yr</td>
+            <td class="deg">Discipline, school — Karmic foundation laid</td>
+          </tr>
+          <tr>
+            <td>Saturn–Mercury</td>
+            <td>Oct 2014 – Aug 2017</td>
+            <td>2 yr 10 mo</td>
+            <td class="deg">Education, communication, intellectual growth</td>
+          </tr>
+          <tr>
+            <td>Saturn–Ketu</td>
+            <td>Aug 2017 – Sep 2018</td>
+            <td>13 mo</td>
+            <td class="deg">Detachment, focus, spiritual undertones</td>
+          </tr>
+          <tr>
+            <td>Saturn–Venus</td>
+            <td>Sep 2018 – Nov 2021</td>
+            <td>3 yr 2 mo</td>
+            <td class="deg">Relationships, arts, gradual wealth</td>
+          </tr>
+          <tr>
+            <td>Saturn–Sun</td>
+            <td>Nov 2021 – Oct 2022</td>
+            <td>11 mo</td>
+            <td class="deg">Authority, father, identity — some pressures</td>
+          </tr>
+          <tr>
+            <td>Saturn–Moon</td>
+            <td>Oct 2022 – May 2024</td>
+            <td>19 mo</td>
+            <td class="deg">Emotional, nurturing, Sade Sati peak</td>
+          </tr>
+          <tr>
+            <td>Saturn–Mars</td>
+            <td>May 2024 – Jun 2025</td>
+            <td>13 mo</td>
+            <td class="deg">Drive, conflict, action, independence urges</td>
+          </tr>
+          <tr style="background:rgba(200,148,10,0.08);">
+            <td><strong>Saturn–Rahu</strong> <span class="current-badge">Now</span></td>
+            <td><strong>Jun 2025 – Feb 2028</strong></td>
+            <td><strong>2 yr 8 mo</strong></td>
+            <td><strong style="color:var(--saffron);">Intense ambition, foreign/tech, rapid changes</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Saturn–Jupiter</strong></td>
+            <td><strong>Feb 2028 – Aug 2030</strong></td>
+            <td><strong>2 yr 6 mo</strong></td>
+            <td><strong style="color:var(--favorable);">BEST PERIOD — career pinnacle, marriage, wealth!</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="big-highlight">
+      <div class="big-highlight-title">⚡ Your Sade Sati Status (Very Important)</div>
+      Saturn transited over your Moon sign (Aquarius) from January 2023 – March 2025 — the most intense phase of your 7.5-year Sade Sati cycle. <strong>The worst is now behind you.</strong> Saturn is currently in its <em>exit phase</em> through Pisces (2025–May 2027). Relief, clarity, and opportunity unfold progressively. By mid-2027, Sade Sati is completely over, and the chart opens up dramatically.
+    </div>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <!-- SECTION 4: FIVE-YEAR CAREER & WEALTH FORECAST -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">☉</div>
+      <div class="section-title">Five-Year Career & Wealth Forecast · 2026–2031</div>
+    </div>
+
+    <!-- YEAR 1 -->
+    <div class="forecast-year">
+      <div class="forecast-year-header">
+        <div>
+          <div class="year-title">Year 1 · May 2026 – May 2027 · Age 21</div>
+          <div style="font-size:0.8rem;color:var(--cream-dim);margin-top:0.2rem;">Transit highlight: Jupiter enters exalted Cancer (11th house) · Sade Sati exit phase continues</div>
+        </div>
+        <div class="year-dasha">Saturn–Rahu Antardasha<br>Dasha ends Feb 2028</div>
+      </div>
+      <div class="forecast-year-body">
+        <div class="forecast-column">
+          <h4>Career Outlook</h4>
+          <ul>
+            <li>This is your entry-level or early-professional phase. Expect to be establishing your ground through learning, proving yourself, and building a network.</li>
+            <li>Rahu's influence in the 8th brings <em>unconventional, fast-track opportunities</em> — openings in technology, research, data, or international companies that arrive suddenly or through unexpected channels.</li>
+            <li>There may be 1–2 job shifts or role changes; this is normal. Don't cling to positions that limit your growth.</li>
+            <li><strong>From June 2026:</strong> Jupiter enters exalted Cancer (your 11th house of gains) — a major positive transit that amplifies income, recognition, and opens doors through senior contacts.</li>
+            <li>Avoid risky entrepreneurship yet. Build skills and credentials this year.</li>
+          </ul>
+          <div class="intensity-bar">
+            Career Growth: 
+            <div class="intensity-dots">
+              <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot half"></div><div class="dot"></div>
+            </div> Moderate
+          </div>
+        </div>
+        <div class="forecast-column">
+          <h4>Wealth & Finance</h4>
+          <ul>
+            <li>Jupiter exalted in your 11th house (Cancer) from June 2026 is a direct blessing on income streams — one of the best income transits possible for Virgo Lagna.</li>
+            <li>Expect a meaningful increase in earnings or a financial windfall (scholarship, bonus, family gift, job offer with higher package) between <strong>June–December 2026</strong>.</li>
+            <li>Rahu in the 8th can bring sudden small gains but also unexpected expenses. Keep 3–6 months of expenses as a buffer.</li>
+            <li>Begin systematic SIP or recurring savings — the habit formed now compounds over the next decade.</li>
+            <li>Avoid cryptocurrency or speculative investments during Rahu period.</li>
+          </ul>
+          <div class="highlight-box">⭐ June–December 2026: Jupiter exalted in 11th — strongest income window of the year. Job offer, salary hike, or financial gain highly indicated.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YEAR 2 -->
+    <div class="forecast-year">
+      <div class="forecast-year-header">
+        <div>
+          <div class="year-title">Year 2 · May 2027 – May 2028 · Age 22</div>
+          <div style="font-size:0.8rem;color:var(--cream-dim);margin-top:0.2rem;">Key shift: Sade Sati ENDS May 2027 · Saturn enters Aries · Jupiter moves to Leo · Saturn-Rahu ends Feb 2028 → Saturn-Jupiter begins</div>
+        </div>
+        <div class="year-dasha">Saturn–Rahu ending (Feb 2028)<br>Saturn–Jupiter begins (Feb 2028)</div>
+      </div>
+      <div class="forecast-year-body">
+        <div class="forecast-column">
+          <h4>Career Outlook</h4>
+          <ul>
+            <li><strong>May 2027: Sade Sati ends completely.</strong> A fog lifts. Mental clarity, confidence, and direction return with force. This milestone is deeply significant.</li>
+            <li>Jupiter transits Leo (your 12th house, Jun 2027–Jun 2028) — this activates foreign opportunities, work behind the scenes, research, or spiritually/intellectually significant projects. An overseas assignment, remote work for a foreign client, or relocation for a better role is very possible.</li>
+            <li>Saturn moving into Aries (your 8th house) from May 2027 creates pressure to transform — old professional patterns break down to make room for something bigger.</li>
+            <li><strong>February 2028:</strong> Saturn-Jupiter Antardasha begins — feel the energy shift immediately. Confidence, opportunity, and doors opening.</li>
+          </ul>
+          <div class="intensity-bar">
+            Career Growth: 
+            <div class="intensity-dots">
+              <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div>
+            </div> Strong (accelerating)
+          </div>
+        </div>
+        <div class="forecast-column">
+          <h4>Wealth & Finance</h4>
+          <ul>
+            <li>First half of 2027 (until Sade Sati ends in May) may have modest financial strain from Saturn's heavy hand. Avoid taking large loans or commitments before May 2027.</li>
+            <li>Jupiter in Leo (12th house) can indicate investment in education, travel for work, or expenditures that yield long-term returns — these are worthwhile even if they feel expensive now.</li>
+            <li><strong>From February 2028:</strong> Saturn-Jupiter antardasha begins — a rapid improvement in financial situation. Wealth that was delayed starts flowing.</li>
+            <li>This year, prioritize clearing debts, building savings, and upgrading skills (courses, certifications).</li>
+          </ul>
+          <div class="highlight-box">⭐ February 2028 onward: Saturn–Jupiter Antardasha begins — one of the most auspicious sub-periods in your entire horoscope. The upgrade of a lifetime begins here.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YEAR 3 - THE PEAK -->
+    <div class="forecast-year" style="border-color: var(--gold); box-shadow: 0 0 20px rgba(200,148,10,0.15);">
+      <div class="forecast-year-header" style="background: linear-gradient(90deg, rgba(200,148,10,0.2), rgba(30,18,8,0.8));">
+        <div>
+          <div class="year-title" style="color:var(--gold-light); font-size:1.15rem;">★ Year 3 · May 2028 – May 2029 · Age 23 · PEAK PERIOD ★</div>
+          <div style="font-size:0.8rem;color:var(--gold);margin-top:0.2rem;">Jupiter returns to Virgo (YOUR LAGNA) — Jupiter Return — the most auspicious transit in your 12-year cycle</div>
+        </div>
+        <div class="year-dasha">Saturn–Jupiter Antardasha<br>Feb 2028 – Aug 2030</div>
+      </div>
+      <div class="forecast-year-body">
+        <div class="forecast-column">
+          <h4>Career Outlook</h4>
+          <ul>
+            <li><strong>June 2028: Jupiter enters Virgo — your Lagna (ascendant sign).</strong> This is your "Jupiter Return" — the first since childhood. Jupiter is also in the same position as your <em>natal Jupiter</em>, amplifying all of its natal promise. This is the single most powerful career transit in the 5-year window.</li>
+            <li>Expect a <strong>major promotion, leadership role, significant business opportunity, or career breakthrough</strong> between June 2028 and May 2029. This is not vague — Jupiter transiting the 1st house expands identity, visibility, and opportunity on all fronts simultaneously.</li>
+            <li>Jupiter (as your 7th lord) in the 1st also strongly activates partnerships — a business partner, mentor, or influential professional relationship formed now could define your trajectory.</li>
+            <li>Your Budha-Aditya yoga in the 10th reaches its highest expression during this period. Recognition, awards, or institutional acknowledgment of your intellect and skills is strongly indicated.</li>
+            <li>Best time to: take on leadership, start a business venture, seek significant career moves.</li>
+          </ul>
+          <div class="intensity-bar">
+            Career Growth: 
+            <div class="intensity-dots">
+              <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+            </div> EXCEPTIONAL ★
+          </div>
+        </div>
+        <div class="forecast-column">
+          <h4>Wealth & Finance</h4>
+          <ul>
+            <li>Jupiter in Lagna (1st house) while in Saturn-Jupiter antardasha creates a <em>double Jupiter activation</em>. Financial gains, often significant and life-changing, are strongly indicated during this 12-month window.</li>
+            <li>Salary increase of 40–100% possible through promotion or role change. Business revenues could double if self-employed.</li>
+            <li>Excellent period for investments — stocks, mutual funds, or real estate — especially from June–September 2028. Jupiter's aspect on the 5th house (speculation/investments) from the 1st house supports smart investment gains.</li>
+            <li>The Venus Dhana Yoga begins to manifest powerfully — wealth through luck, positive karma, and aligned effort.</li>
+            <li>If planning a major purchase (vehicle, property downpayment), <strong>June–October 2028</strong> is among the most auspicious windows of your life.</li>
+          </ul>
+          <div class="highlight-box">★ MOST AUSPICIOUS WINDOW: June–October 2028. Start a business, seek promotions, make investments, and initiate major financial decisions. Jupiter in your Lagna will not repeat for 12 years.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YEAR 4 -->
+    <div class="forecast-year">
+      <div class="forecast-year-header">
+        <div>
+          <div class="year-title">Year 4 · May 2029 – May 2030 · Age 24</div>
+          <div style="font-size:0.8rem;color:var(--cream-dim);margin-top:0.2rem;">Jupiter enters Libra (2nd house of wealth) · Saturn moves to Taurus (9th house) — dual fortune activation</div>
+        </div>
+        <div class="year-dasha">Saturn–Jupiter Antardasha<br>Continues through Aug 2030</div>
+      </div>
+      <div class="forecast-year-body">
+        <div class="forecast-column">
+          <h4>Career Outlook</h4>
+          <ul>
+            <li>Harvesting the seeds planted in Year 3. The career breakthrough of 2028 now delivers consistent, compounding results.</li>
+            <li>Jupiter entering Libra (your 2nd house) from June 2029 — Jupiter's aspect on the 6th house brings additional income streams from service/work; aspect on 8th brings possible windfall; aspect on 10th directly blesses the career house from the 2nd.</li>
+            <li>Saturn transiting Taurus (your 9th house of fortune) from June 2029 brings disciplined luck — hard work during this period yields exceptional returns. Travel or higher education for career development is strongly favored.</li>
+            <li>Leadership consolidation: if you rose to a managerial or senior role in 2028, this year you build systems, a team, or institutional strength around it.</li>
+            <li>Strong possibility of international career expansion or lucrative foreign project between <strong>August 2029 – March 2030.</strong></li>
+          </ul>
+          <div class="intensity-bar">
+            Career Growth: 
+            <div class="intensity-dots">
+              <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot half"></div>
+            </div> Very Strong
+          </div>
+        </div>
+        <div class="forecast-column">
+          <h4>Wealth & Finance</h4>
+          <ul>
+            <li>Jupiter in your 2nd house (Libra) directly blesses Dhana Bhava — the house of accumulated wealth. This is the <em>savings and accumulation phase</em> following the income surge of 2028.</li>
+            <li>Focus on wealth preservation and growth: index funds, PPF/NPS top-up, or real estate in this period compounds excellently.</li>
+            <li>Possibility of financial windfall from inheritance, bonus, or hidden/unexpected source (Jupiter aspecting the 8th from 2nd).</li>
+            <li>Your Venus Dhana Yoga delivers — gains through partnerships, joint ventures, or creative/arts-related income possible.</li>
+            <li>By end of Year 4, aim to have 2–3× your annual salary saved/invested. The chart supports reaching this milestone.</li>
+          </ul>
+          <div class="highlight-box">⭐ Best period for long-term financial planning and wealth compounding. Decisions made in 2029–2030 set the foundation for your 30s. Don't rush — also don't be conservative to a fault.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- YEAR 5 -->
+    <div class="forecast-year">
+      <div class="forecast-year-header">
+        <div>
+          <div class="year-title">Year 5 · May 2030 – May 2031 · Age 25 · HISTORIC TRANSITION</div>
+          <div style="font-size:0.8rem;color:var(--gold);margin-top:0.2rem;">Saturn Mahadasha ends Oct 2030 · Mercury Mahadasha begins · Your peak life chapter opens</div>
+        </div>
+        <div class="year-dasha">Saturn–Jupiter ends Aug 2030<br>☿ Mercury Mahadasha begins Oct 2030</div>
+      </div>
+      <div class="forecast-year-body">
+        <div class="forecast-column">
+          <h4>Career Outlook</h4>
+          <ul>
+            <li><strong>October 2030: Mercury Mahadasha begins at age 25.</strong> This is the single most significant astrological event of your young adult life. Mercury rules both your Lagna (self) and your 10th house (career). Mercury sits in the 10th house in its own sign (Gemini), conjunct the Sun creating Budha-Aditya Yoga. You are entering a 17-year period of career mastery and recognition.</li>
+            <li>The initial sub-period Mercury-Mercury (first ~2.8 years of Mercury MD) is often the most electric — sudden rise, multiple opportunities, the world recognizing your talent.</li>
+            <li>Entrepreneurship, consulting, media, technology leadership, or highly specialized intellectual work that you have been developing since 2026 now reaches a tipping point of external validation.</li>
+            <li>Multiple income streams and career verticals become possible simultaneously.</li>
+          </ul>
+          <div class="intensity-bar">
+            Career Growth: 
+            <div class="intensity-dots">
+              <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+            </div> ★ TRANSFORMATIVE ★
+          </div>
+        </div>
+        <div class="forecast-column">
+          <h4>Wealth & Finance</h4>
+          <ul>
+            <li>Mercury Mahadasha for Kanya Lagna is known to bring <em>significant wealth acceleration</em>, especially through intellectual work, business, trading, and communication-driven careers.</li>
+            <li>Mercury's natural significations — commerce, calculation, communication, skill — all translate to financial channels that open during this period.</li>
+            <li>Saturn-Jupiter antardasha (ending August 2030) leaves behind a stable, well-organized financial base. Mercury Mahadasha builds exponentially on this.</li>
+            <li>Possible significant wealth milestone by age 27–28 (Mercury-Mercury sub-period peak).</li>
+            <li>Investment in technology stocks, business building, or skills-based assets pays off massively in Mercury MD.</li>
+          </ul>
+          <div class="highlight-box">★ October 2030 marks the beginning of a 17-year period that is, by any Vedic astrological measure, the most powerful career and wealth phase of your entire life. The groundwork of 2026–2030 makes this chapter possible.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <!-- SECTION 5: CAREER DIRECTION -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">☿</div>
+      <div class="section-title">Career Direction · Suitable Domains & Industries</div>
+    </div>
+
+    <p style="font-size:0.9rem; margin-bottom:1.2rem; color:var(--cream-dim);">
+      Your chart's planetary combination — Mercury + Sun in the 10th, Jupiter in the 1st, Saturn in the 11th, Venus in the 9th — points strongly toward intellectual, communication-driven, and analysis-intensive careers. Your Navamsa also shows Mars in the 10th house, adding technical execution and leadership drive to pure intellect.
+    </p>
+
+    <div class="info-block">
+      <table class="timing-table">
+        <thead>
+          <tr><th>Domain</th><th>Planetary Basis</th><th>Strength</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Information Technology / Software / AI</strong></td>
+            <td>Mercury in 10th (own sign), Mars in 10th navamsa</td>
+            <td class="favorable">★★★★★ Highest</td>
+          </tr>
+          <tr>
+            <td><strong>Finance, Banking, Investment Analysis</strong></td>
+            <td>Mercury (calculation), Venus Dhana Yoga, Saturn 11th</td>
+            <td class="favorable">★★★★★ Highest</td>
+          </tr>
+          <tr>
+            <td><strong>Data Science / Analytics / Research</strong></td>
+            <td>Budha-Aditya Yoga, Rahu in 8th (hidden knowledge)</td>
+            <td class="favorable">★★★★½ Excellent</td>
+          </tr>
+          <tr>
+            <td><strong>Consulting / Strategy / Business</strong></td>
+            <td>Jupiter in 1st (wisdom + advice), Mercury 10th lord</td>
+            <td class="favorable">★★★★ Very Good</td>
+          </tr>
+          <tr>
+            <td><strong>Media / Journalism / Content / Publishing</strong></td>
+            <td>Sun + Mercury in Gemini (communication sign) in 10th</td>
+            <td class="favorable">★★★★ Very Good</td>
+          </tr>
+          <tr>
+            <td><strong>Education / Teaching / Coaching</strong></td>
+            <td>Jupiter in Lagna (guru energy), Mercury (knowledge)</td>
+            <td class="favorable">★★★½ Good</td>
+          </tr>
+          <tr>
+            <td><strong>Law / Compliance / Policy</strong></td>
+            <td>Jupiter (justice), Saturn 11th, Ketu 2nd (discipline)</td>
+            <td class="neutral">★★★ Good</td>
+          </tr>
+          <tr>
+            <td><strong>International / Foreign-Connected Work</strong></td>
+            <td>Rahu in 8th, Venus + Mars in 9th, Jupiter 7th lord</td>
+            <td class="favorable">★★★★ Very Good</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note-box">
+      <strong>Key Insight:</strong> The synergy of Mercury (your ascendant lord in own sign in 10th) with the Budha-Aditya Yoga makes <em>technology and finance</em> your highest-alignment fields. If you can combine both — fintech, quantitative finance, data science, financial technology consulting — you unlock the chart's maximum potential. Foreign or multinational environments accelerate your growth further (Venus + Mars in 9th, Rahu in 8th).
+    </div>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <!-- SECTION 6: SUPPORTING LIFE AREAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">☽</div>
+      <div class="section-title">Supporting Life Areas · Health, Relationships & Spirituality</div>
+    </div>
+
+    <div class="subsection-title">Health · Key Periods of Care</div>
+    <div class="info-block">
+      <p>Moon in the 6th house (Aquarius) indicates a constitution that is generally capable of overcoming illness through willpower and discipline, but there is a tendency toward <strong>anxiety, overthinking, sleep disturbances, and nervous exhaustion</strong> when under stress — particularly during intense dasha periods (like Saturn-Rahu now).</p>
+      <ul style="list-style:none; padding:0; font-size:0.9rem; color:var(--cream);">
+        <li style="margin-bottom:0.5rem;">◆ <strong>2026–2027 (Sade Sati exit):</strong> Monitor digestive health, stress levels, and sleep hygiene. Rahu's influence in the 8th can create mysterious or hard-to-diagnose complaints — trust reputable physicians. Yoga and pranayama are strongly recommended.</li>
+        <li style="margin-bottom:0.5rem;">◆ <strong>2027–2028 (Saturn in Aries / 8th house transit):</strong> Head, blood pressure, and immune system may need attention. Regular health checkups advised.</li>
+        <li style="margin-bottom:0.5rem;">◆ <strong>2028 onwards:</strong> Health significantly improves with Jupiter in Lagna (transiting Virgo) — vitality, enthusiasm, and natural immunity are boosted. This is also the time to establish excellent lifelong health habits.</li>
+        <li>◆ Jupiter in Lagna in the natal chart is a lifetime health protector. Your constitution is fundamentally resilient. Avoid overwork and maintain sleep regularity.</li>
+      </ul>
+    </div>
+
+    <div class="subsection-title">Relationships & Marriage</div>
+    <div class="info-block">
+      <p>The 7th house (Pisces) is ruled by Jupiter, who sits powerfully in your Lagna — this is an <em>excellent indicator</em> of a wise, fortunate, and broadly compatible life partner. Jupiter as 7th lord in the 1st house suggests marriage brings expansion, spiritual alignment, and social elevation.</p>
+      <ul style="list-style:none; padding:0; font-size:0.9rem; color:var(--cream);">
+        <li style="margin-bottom:0.5rem;">◆ <strong>2026–2027:</strong> Social circles expand with Jupiter exalted in 11th. New significant connections possible, but Saturn-Rahu period is not ideal for finalizing commitments.</li>
+        <li style="margin-bottom:0.5rem;">◆ <strong>2028–2029 (Saturn-Jupiter Antardasha, Jupiter in Lagna):</strong> Highest probability window for a serious relationship or marriage. Jupiter activates the 7th house powerfully. The partner indicated is likely intellectually accomplished, from a good family, and possibly from a different city or culture.</li>
+        <li>◆ Ketu in the 2nd house can cause some disruption in immediate family harmony during early years, but this settles significantly by 2028. Venus in 9th (fortune/luck house) promises a loving, fortunate marriage overall.</li>
+      </ul>
+    </div>
+
+    <div class="subsection-title">Spiritual Growth & Life Themes</div>
+    <div class="info-block">
+      <p>Your chart is fundamentally a chart of <em>intellect in service of the world</em>. Jupiter in Lagna and Ketu in the 2nd house reveal a soul that, despite worldly ambitions, is pulled toward meaning, ethics, and something beyond material accumulation. The Purva Bhadrapada nakshatra — associated with the two-faced deity Aja Ekapada — speaks of a person who must integrate the material and spiritual worlds rather than choosing between them.</p>
+      <p>The Mercury Mahadasha beginning at age 25 is not just a career peak — it is also the period of writing, teaching, and sharing knowledge that will shape others. Your highest purpose may ultimately be to <em>communicate ideas that transform how people think</em>: through technology, writing, teaching, or business that serves a broader good.</p>
+    </div>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <!-- SECTION 7: KEY DATES & TIMING -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">☊</div>
+      <div class="section-title">Critical Timing · Most Auspicious Periods & Caution Zones</div>
+    </div>
+
+    <div class="info-block" style="padding:0.5rem 0;">
+      <table class="timing-table">
+        <thead>
+          <tr><th>Period</th><th>Type</th><th>Key Actions / Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>June–Dec 2026</strong></td>
+            <td class="favorable">★★★★ Favorable</td>
+            <td>Jupiter exalted in Cancer (11th). Best window for: salary negotiations, job applications, financial investments. Act boldly.</td>
+          </tr>
+          <tr>
+            <td><strong>Jan–May 2027</strong></td>
+            <td class="neutral">Mixed</td>
+            <td>Saturn still in Pisces (7th house). Careful with partnerships and contracts. Avoid joint ventures without due diligence.</td>
+          </tr>
+          <tr>
+            <td><strong>May–Aug 2027</strong></td>
+            <td class="favorable">★★★ Turning Point</td>
+            <td>Sade Sati ends. Feel the shift — initiate new projects, update your professional profiles, and re-engage dormant opportunities.</td>
+          </tr>
+          <tr>
+            <td><strong>Feb–Jun 2028</strong></td>
+            <td class="favorable">★★★★★ Exceptional</td>
+            <td>Saturn-Jupiter AD begins + Jupiter enters Virgo (Lagna). Most powerful window of the 5-year period. Major career moves, promotions, investments, and relationship decisions.</td>
+          </tr>
+          <tr>
+            <td><strong>Jun 2028 – May 2029</strong></td>
+            <td class="favorable">★★★★★ Peak Year</td>
+            <td>Jupiter in Virgo (Jupiter Return). Act on every significant opportunity. Launch businesses, seek leadership, apply for dream positions. Manifesting potential is at maximum.</td>
+          </tr>
+          <tr>
+            <td><strong>Jun 2029 – Mar 2030</strong></td>
+            <td class="favorable">★★★★ Excellent</td>
+            <td>Jupiter in Libra (2nd house wealth). Focus on savings, property, and long-term financial decisions. International expansion favored.</td>
+          </tr>
+          <tr>
+            <td><strong>Aug–Oct 2030</strong></td>
+            <td class="neutral">Transitional</td>
+            <td>Dasha transition from Saturn to Mercury MD. A quiet month of integration before the new chapter accelerates. Reflect and plan.</td>
+          </tr>
+          <tr>
+            <td><strong>Oct 2030 onward</strong></td>
+            <td class="favorable">★★★★★ New Era</td>
+            <td>Mercury Mahadasha begins. Begin entrepreneurial ventures, leadership roles, or major intellectual projects you have been preparing. The universe is behind you.</td>
+          </tr>
+          <tr>
+            <td><strong>Caution: Sep–Dec 2027</strong></td>
+            <td class="challenging">⚠ Caution</td>
+            <td>Saturn enters Aries (your 8th house). Avoid unnecessary risks, legal disputes, and large financial commitments during this transit. Health check-up recommended.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <!-- SECTION 8: REMEDIES & GEMSTONES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">♀</div>
+      <div class="section-title">Gemstone Recommendations · Strengthening Your Planetary Matrix</div>
+    </div>
+
+    <div class="remedy-grid">
+      <div class="remedy-card" style="border-top:3px solid #3CB371;">
+        <div class="remedy-gem">💚</div>
+        <div class="remedy-name">Emerald (Panna) — PRIMARY</div>
+        <div class="remedy-detail">For Mercury, your Lagna lord and 10th house lord. 3–5 carats, natural Colombian or Zambian, set in gold or silver. Wear on the <strong>little finger of right hand on a Wednesday</strong> after Vedic purification. Enhances intellect, communication, career success, and clarity of thought. Most important gem for Kanya Lagna.</div>
+      </div>
+      <div class="remedy-card" style="border-top:3px solid #E8E8E8;">
+        <div class="remedy-gem">💎</div>
+        <div class="remedy-name">White Sapphire / Diamond — SECONDARY</div>
+        <div class="remedy-detail">For Venus, your 2nd and 9th lord (wealth + fortune). A diamond of 0.5–1 carat or white sapphire of 3–5 carats set in gold. Wear on the <strong>ring finger on a Friday.</strong> Activates the Dhana Yoga and brings good luck, wealth, and relational harmony. Especially powerful for wealth from age 25 onward.</div>
+      </div>
+      <div class="remedy-card" style="border-top:3px solid #4169E1;">
+        <div class="remedy-gem">💙</div>
+        <div class="remedy-name">Blue Sapphire (Neelam) — OPTIONAL</div>
+        <div class="remedy-detail">For Saturn, your Vargottama 5th/6th lord in the 11th house. <strong>Test for 3 days before committing:</strong> wear on Saturday in silver or gold on middle finger. If positive — increased income, stability, and fortune. If negative — remove immediately. Saturn's role as 5th lord (beneficial) but also 6th lord (dust) means this stone requires careful testing.</div>
+      </div>
+      <div class="remedy-card" style="border-top:3px solid #DC143C;">
+        <div class="remedy-gem">❌</div>
+        <div class="remedy-name">Avoid: Ruby (Manik)</div>
+        <div class="remedy-detail">Sun is your 12th house lord (house of losses). Wearing a Ruby strengthens a planet whose natural role in your chart leads to expenditure, foreign residence, and potential loss of career position. <strong>Strictly avoid</strong> unless advised by an expert in rare circumstances.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">✦</div>
+
+  <!-- SECTION 9: MANTRAS & REMEDIES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">☿</div>
+      <div class="section-title">Mantras, Remedies & Practical Guidance</div>
+    </div>
+
+    <div class="mantra-block">
+      <div class="mantra-symbol">☿</div>
+      <div class="mantra-text">
+        <div class="mantra-devanagari">ॐ बुं बुधाय नमः</div>
+        <div class="mantra-transliteration">Om Bum Budhaya Namah</div>
+        <div class="mantra-instruction"><strong>Mercury Mantra</strong> — Recite 108 times every Wednesday morning, ideally at sunrise. Mercury is your most powerful benefic (Lagna + 10th lord). This mantra strengthens intellectual clarity, communication, career progression, and business acumen. Keep a tulsi mala or emerald mala for counting.</div>
+      </div>
+    </div>
+
+    <div class="mantra-block">
+      <div class="mantra-symbol">♄</div>
+      <div class="mantra-text">
+        <div class="mantra-devanagari">ॐ शं शनैश्चराय नमः</div>
+        <div class="mantra-transliteration">Om Sham Shanaischaraya Namah</div>
+        <div class="mantra-instruction"><strong>Saturn Mantra</strong> — Recite 108 times every Saturday evening. You are in Saturn's Mahadasha until 2030. Propitiating Saturn with this mantra and genuine service to the elderly and underprivileged transforms Saturn's karmic weight into tangible rewards. Feed sesame seeds to birds and light sesame oil lamps on Saturdays.</div>
+      </div>
+    </div>
+
+    <div class="mantra-block">
+      <div class="mantra-symbol">♃</div>
+      <div class="mantra-text">
+        <div class="mantra-devanagari">ॐ ग्रां ग्रीं ग्रौं सः गुरवे नमः</div>
+        <div class="mantra-transliteration">Om Gram Grim Graum Sah Guruve Namah</div>
+        <div class="mantra-instruction"><strong>Jupiter (Guru) Mantra</strong> — Recite 108 times on Thursdays. Jupiter in your Lagna is a great protector and source of wisdom. This mantra deepens that protection, supports decision-making, and strengthens the 7th house (partnerships, marriage). Wear yellow on Thursdays and donate yellow foods (banana, turmeric, gram dal).</div>
+      </div>
+    </div>
+
+    <div class="mantra-block">
+      <div class="mantra-symbol">🕉</div>
+      <div class="mantra-text">
+        <div class="mantra-devanagari">ॐ त्र्यम्बकं यजामहे...</div>
+        <div class="mantra-transliteration">Mahamrityunjaya Mantra</div>
+        <div class="mantra-instruction"><strong>For Health & Protection</strong> — Recite 11–21 times daily, especially during Rahu periods. This mantra is also powerful for neutralizing negative planetary influences (particularly Saturn-Rahu antardasha, ongoing until Feb 2028) and for protection during health-sensitive transits.</div>
+      </div>
+    </div>
+
+    <div class="subsection-title">Practical Daily Remedies</div>
+    <div class="info-block">
+      <ul style="list-style:none; padding:0;">
+        <li style="padding:0.4rem 0; border-bottom:1px solid rgba(74,44,16,0.3);">◆ <strong>Wednesday:</strong> Feed green mung dal to birds or donate it. Wear green or emerald-toned clothing. Recite Mercury mantra at sunrise. Avoid arguments and miscommunication.</li>
+        <li style="padding:0.4rem 0; border-bottom:1px solid rgba(74,44,16,0.3);">◆ <strong>Saturday:</strong> Serve the elderly, underprivileged, or disabled in any capacity (even small acts count karmically). Light a sesame oil lamp in the evening. Avoid meat and alcohol.</li>
+        <li style="padding:0.4rem 0; border-bottom:1px solid rgba(74,44,16,0.3);">◆ <strong>Thursday:</strong> Worship a Peepal or Banana tree. Donate yellow items. Seek the blessings of elders, teachers, and mentors.</li>
+        <li style="padding:0.4rem 0; border-bottom:1px solid rgba(74,44,16,0.3);">◆ <strong>Daily:</strong> Offer water to the rising Sun (Surya Arghya) — this simultaneously honors your 10th house
