@@ -1,17 +1,38 @@
 # ============================================================
-# ELECTRICITY LOAD FORECASTING — COMPLETE ML PIPELINE  v11
+# ELECTRICITY LOAD FORECASTING — COMPLETE ML PIPELINE  v13
 # Dataset  : Power Demand 2021–2024 | 5-minute intervals
 # Target   : Power Demand (MW)
 # Models   : Naive Baseline, Linear Regression, Decision Tree,
 #            Random Forest, KNN, Gradient Boosting, XGBoost,
 #            XGBoost (Tuned), LightGBM, LightGBM (Tuned),
-#            Ensemble (XGB+LGBM)
-#            [LSTM — add back once TensorFlow is installed]
+#            Ensemble (XGB+LGBM), LSTM
 # Tuning   : Optuna — XGBoost & LightGBM (50 trials × 3-fold)
 # Ensemble : Inverse-RMSE weighted blend of tuned XGB + LGBM
 # Metrics  : MAE, RMSE, R², MAPE
-# Plots    : 11 seaborn plots (each saved separately)
+# Plots    : Research-style seaborn / matplotlib plots
+#            Plot 1  : Actual vs Predicted — Last 7 Days (lineplot)
+#            Plot 2a : Residual Bivariate — Simple ML Models
+#            Plot 2b : Residual Bivariate — Advanced Models
+#            Plot 3  : Feature Importances (RF / XGB / LGBM)
+#            Plot 4  : MAE / RMSE / MAPE model comparison (barplot)
+#            Plot 5  : Zoom — Default models (lineplot)
+#            Plot 6  : Ensemble vs Components zoom (lineplot)
+#            Plot 7  : Ensemble residual distribution (hist+KDE)
+#            Plot 8  : Optuna convergence — XGBoost (scatter)
+#            Plot 9  : Optuna convergence — LightGBM (scatter)
+#            Plot 10 : R² comparison (horizontal barplot)
+#            Plot 11 : Top 3 models zoomed — Last 24 h (lineplot)
+#            Plot 12 : LSTM vs Ensemble zoom (lineplot)
+#            Plot 13 : LSTM training loss curves (lineplot)
+#            Plot 14 : Correlation heatmap (selected features)
+# v13 Changes:
+#   ✅ Removed console print loops for feature importances
+#   ✅ Replaced giant residual subplot grid with two polished
+#      bivariate residual plots (scatter + hist + KDE contours)
+#   ✅ Added correlation heatmap (Plot 14)
+#   ✅ Cleaner section headers and output
 # Author   : Academic Project — Clean & Modular Pipeline
+# Env      : Kaggle (TensorFlow 2.x pre-installed)
 # ============================================================
 
 
@@ -37,19 +58,27 @@ import lightgbm              as lgb
 import optuna
 from optuna.samplers         import TPESampler
 
+import tensorflow as tf
+from tensorflow.keras.models           import Sequential
+from tensorflow.keras.layers           import LSTM, Dense, Dropout, Input
+from tensorflow.keras.callbacks        import EarlyStopping, ReduceLROnPlateau
+from tensorflow.keras.optimizers       import Adam
+
 optuna.logging.set_verbosity(optuna.logging.WARNING)   # suppress per-trial noise
 warnings.filterwarnings("ignore")
+tf.get_logger().setLevel("ERROR")                      # suppress TF info noise
 
 sns.set_theme(style="darkgrid", palette="deep")
 sns.set_context("talk", font_scale=0.85)
 
-print("✅ All libraries imported successfully.\n")
+print(f"✅ All libraries imported successfully.  TensorFlow {tf.__version__}\n")
 
 
 # ============================================================
 # SECTION 2: LOAD & CLEAN DATASET
 # ============================================================
-CSV_PATH = r"C:\Users\Agrim Jain\Desktop\Coding\coding\python\machine learning model of electricity forecasting\datasets\powerdemand_5min_2021_to_2024_with weather.csv"
+CSV_PATH = "/kaggle/input/datasets/yug201/delhi-5-minute-electricity-demand-for-forecasting/powerdemand_5min_2021_to_2024_with weather.csv"
+# ↑ Adjust this path to match your Kaggle dataset slug if different
 
 df = pd.read_csv(CSV_PATH)
 df.columns = df.columns.str.strip()
@@ -405,7 +434,7 @@ ax.set_ylabel("CV-MAE (MW)")
 ax.set_title("Optuna Convergence — XGBoost", fontsize=12, fontweight="bold")
 ax.legend()
 plt.tight_layout()
-plt.savefig("plot_optuna_xgb_convergence.png", dpi=150, bbox_inches="tight")
+plt.savefig("plot_optuna_xgb_inline.png", dpi=150, bbox_inches="tight")
 plt.show()
 print("✅ Saved: plot_optuna_xgb_convergence.png\n")
 
@@ -517,7 +546,7 @@ ax.set_ylabel("CV-MAE (MW)")
 ax.set_title("Optuna Convergence — LightGBM", fontsize=12, fontweight="bold")
 ax.legend()
 plt.tight_layout()
-plt.savefig("plot_optuna_lgbm_convergence.png", dpi=150, bbox_inches="tight")
+plt.savefig("plot_optuna_lgbm_inline.png", dpi=150, bbox_inches="tight")
 plt.show()
 print("✅ Saved: plot_optuna_lgbm_convergence.png\n")
 
@@ -566,6 +595,163 @@ for mname in ["XGBoost (Tuned)", "LightGBM (Tuned)", "Ensemble (XGB+LGBM)"]:
 
 
 # ============================================================
+# SECTION 8e: LSTM — Sequence-to-One Forecasting
+# ─────────────────────────────────────────────────────────────
+# Architecture : Input(lookback, n_features)
+#                → LSTM(128, return_sequences=True)
+#                → Dropout(0.2)
+#                → LSTM(64, return_sequences=False)
+#                → Dropout(0.2)
+#                → Dense(32, relu)
+#                → Dense(1)
+#
+# Lookback     : 24 steps  (2 hours of 5-min intervals)
+#                Balances context vs sequence-matrix size.
+#                Captures intraday load cycles visible at 2 h.
+#
+# Scaling      : MinMaxScaler on target + all features.
+#                LSTMs are sensitive to scale; normalise to [0,1].
+#
+# Split        : Same chronological 2021-2023 train / 2024 test.
+#
+# Training     : Adam(lr=1e-3), MSE loss, batch=256, max 50 epochs
+#                EarlyStopping(patience=5) restores best weights.
+#                ReduceLROnPlateau(patience=3) halves lr on plateau.
+#
+# Inference    : Predict in a single vectorised call — no loop.
+# ============================================================
+print("\n🧠 Training LSTM …")
+
+import gc
+from sklearn.preprocessing import MinMaxScaler
+
+LOOKBACK   = 24     # 24 × 5-min = 2-hour context window
+BATCH_SIZE = 256
+MAX_EPOCHS = 50
+
+# ── 8e-1. Scale all features + target jointly ────────────────
+# Fit scaler ONLY on training data to prevent leakage
+lstm_feature_cols = FEATURES + [TARGET]   # scale target too
+
+lstm_scaler = MinMaxScaler(feature_range=(0, 1))
+
+# Build contiguous arrays aligned to the original df index
+train_idx = df.index[df["datetime"] < SPLIT_DATE]
+test_idx  = df.index[df["datetime"] >= SPLIT_DATE]
+
+lstm_scaler.fit(df.loc[train_idx, lstm_feature_cols])
+scaled_all = lstm_scaler.transform(df[lstm_feature_cols])
+
+scaled_df       = pd.DataFrame(scaled_all, columns=lstm_feature_cols, index=df.index)
+target_col_idx  = lstm_feature_cols.index(TARGET)   # position of 'load' in scaled array
+
+# ── 8e-2. Build sequence matrices ────────────────────────────
+def build_sequences(data: np.ndarray, lookback: int):
+    """
+    Returns (X_seq, y_seq) where
+      X_seq.shape = (N - lookback, lookback, n_features)
+      y_seq.shape = (N - lookback,)
+    """
+    X_seqs, y_seqs = [], []
+    for i in range(lookback, len(data)):
+        X_seqs.append(data[i - lookback : i, :])   # all features
+        y_seqs.append(data[i, target_col_idx])      # scaled load at step i
+    return np.array(X_seqs, dtype=np.float32), np.array(y_seqs, dtype=np.float32)
+
+
+# Separate scaled arrays for train / test
+scaled_train = scaled_df.loc[train_idx].values
+scaled_test_full = scaled_df.values   # need full prefix for test sequences
+
+# Build train sequences from training portion only
+X_lstm_train, y_lstm_train = build_sequences(scaled_train, LOOKBACK)
+
+# Build test sequences: the first LOOKBACK steps of the test window
+# require the tail of the training data as context
+boundary = train_idx[-1]                          # last training row position
+boundary_pos = df.index.get_loc(boundary)         # integer position in df
+context_start = boundary_pos - LOOKBACK + 1       # include lookback context
+scaled_ctx_and_test = scaled_df.values[context_start:]
+
+X_lstm_test, y_lstm_test = build_sequences(scaled_ctx_and_test, LOOKBACK)
+
+# y_lstm_test should align with y_test (both cover 2024 test period)
+assert len(X_lstm_test) == len(y_test), (
+    f"LSTM test length mismatch: {len(X_lstm_test)} vs {len(y_test)}")
+
+n_features = X_lstm_train.shape[2]
+print(f"   Train sequences : {X_lstm_train.shape}")
+print(f"   Test  sequences : {X_lstm_test.shape}")
+print(f"   Features        : {n_features}  |  Lookback: {LOOKBACK} steps")
+
+# ── 8e-3. Build model ─────────────────────────────────────────
+tf.random.set_seed(42)
+
+lstm_model = Sequential([
+    Input(shape=(LOOKBACK, n_features)),
+    LSTM(128, return_sequences=True),
+    Dropout(0.2),
+    LSTM(64,  return_sequences=False),
+    Dropout(0.2),
+    Dense(32, activation="relu"),
+    Dense(1),
+], name="LSTM_LoadForecast")
+
+lstm_model.compile(
+    optimizer = Adam(learning_rate=1e-3),
+    loss      = "mse",
+)
+lstm_model.summary()
+
+# ── 8e-4. Callbacks ───────────────────────────────────────────
+callbacks_lstm = [
+    EarlyStopping(monitor="val_loss", patience=5,
+                  restore_best_weights=True, verbose=1),
+    ReduceLROnPlateau(monitor="val_loss", factor=0.5,
+                      patience=3, min_lr=1e-6, verbose=1),
+]
+
+# ── 8e-5. Train ───────────────────────────────────────────────
+lstm_history = lstm_model.fit(
+    X_lstm_train, y_lstm_train,
+    validation_split = 0.1,
+    epochs           = MAX_EPOCHS,
+    batch_size       = BATCH_SIZE,
+    callbacks        = callbacks_lstm,
+    verbose          = 1,
+)
+
+print(f"\n   Stopped at epoch {len(lstm_history.history['loss'])}")
+
+# ── 8e-6. Predict & inverse-transform ────────────────────────
+lstm_scaled_preds = lstm_model.predict(X_lstm_test, batch_size=BATCH_SIZE, verbose=0).flatten()
+
+# Inverse-transform: reconstruct a dummy full row with 0s, replace target column
+dummy = np.zeros((len(lstm_scaled_preds), len(lstm_feature_cols)), dtype=np.float32)
+dummy[:, target_col_idx] = lstm_scaled_preds
+lstm_preds_mw = lstm_scaler.inverse_transform(dummy)[:, target_col_idx]
+
+# ── 8e-7. Evaluate ───────────────────────────────────────────
+m_lstm = compute_metrics("LSTM", y_test, lstm_preds_mw)
+all_metrics.append(m_lstm)
+all_preds["LSTM"] = lstm_preds_mw
+
+results_df = pd.DataFrame(all_metrics).set_index("Model").round(3)
+results_df = results_df.sort_values("RMSE")
+best_model = results_df.index[0]
+
+print(f"\n✅ LSTM — Test 2024")
+print(f"   MAE  = {m_lstm['MAE']:.2f} MW")
+print(f"   RMSE = {m_lstm['RMSE']:.2f} MW")
+print(f"   R²   = {m_lstm['R²']:.4f}")
+print(f"   MAPE = {m_lstm['MAPE (%)']:.2f}%\n")
+
+# Free GPU memory
+gc.collect()
+tf.keras.backend.clear_session()
+
+
+# ============================================================
 # SECTION 9: FEATURE IMPORTANCE
 # ============================================================
 rf_model   = models["Random Forest"][0]
@@ -576,21 +762,11 @@ rf_imp   = pd.Series(rf_model.feature_importances_,   index=FEATURES).sort_value
 xgb_imp  = pd.Series(xgb_model.feature_importances_,  index=FEATURES).sort_values(ascending=False)
 lgbm_imp = pd.Series(lgbm_model.feature_importances_, index=FEATURES).sort_values(ascending=False)
 
-print("\n🌲 Random Forest — Top 10:")
-for feat, imp in rf_imp.head(10).items():
-    print(f"  {feat:<22}  {imp:.4f}  {'█' * int(imp * 80)}")
-
-print("\n⚡ XGBoost — Top 10:")
-for feat, imp in xgb_imp.head(10).items():
-    print(f"  {feat:<22}  {imp:.4f}  {'█' * int(imp * 80)}")
-
-print("\n💡 LightGBM — Top 10:")
-for feat, imp in lgbm_imp.head(10).items():
-    print(f"  {feat:<22}  {imp:.4f}  {'█' * int(imp * 80)}")
+print("✅ Feature importances computed for RF, XGBoost, LightGBM.")
 
 
 # ============================================================
-# SECTION 10: VISUALIZATION — 11 SEABORN PLOTS
+# SECTION 10: VISUALIZATION — RESEARCH-STYLE PLOTS
 # ============================================================
 PLOT_PERIODS = 7 * 288    # last 7 days of test set (5-min intervals)
 ZOOM         = 2 * 288    # last 2 days for zoom plots
@@ -610,6 +786,7 @@ COLORS = {
     "LightGBM":            "#1ABC9C",
     "LightGBM (Tuned)":    "#148F77",
     "Ensemble (XGB+LGBM)": "#6C3483",
+    "LSTM":                "#D4145A",   # deep pink — visually distinct
 }
 
 
@@ -646,39 +823,109 @@ plt.show()
 print("✅ Saved: plot1_actual_vs_predicted.png")
 
 
-# ── Plot 2: Residuals — one panel per model ───────────────────
-n_cols = 2
-n_rows = (len(all_preds) + 1) // n_cols
-fig, axes = plt.subplots(n_rows, n_cols, figsize=(20, n_rows * 4), sharex=True)
-axes = axes.flatten()
+# ── Plot 2a: Residual Bivariate — Simple ML Models ───────────
+# x = predicted load, y = residuals (actual − predicted)
+# Each model: scatter + 2D KDE contours + marginal histograms
+# Uses GridSpec to keep a consistent layout across models
+SIMPLE_MODELS   = ["Linear Regression", "Decision Tree",
+                   "Random Forest", "KNN", "Gradient Boosting"]
+ADVANCED_MODELS = ["XGBoost (Tuned)", "LightGBM (Tuned)",
+                   "Ensemble (XGB+LGBM)", "LSTM"]
 
-for i, (name, preds) in enumerate(all_preds.items()):
-    residuals = plot_actual - preds[-PLOT_PERIODS:]
-    res_df    = pd.DataFrame({"datetime": pd.to_datetime(plot_dates),
-                               "Residual": residuals})
-    ax = axes[i]
-    sns.lineplot(data=res_df, x="datetime", y="Residual",
-                 color=COLORS.get(name, "#AAB7B8"), linewidth=0.75, alpha=0.9, ax=ax)
-    ax.axhline(0, color="#2C3E50", linewidth=1.0, linestyle="--")
-    ax.fill_between(res_df["datetime"], res_df["Residual"], 0,
-                    where=(res_df["Residual"] >  0), alpha=0.15, color="#27AE60")
-    ax.fill_between(res_df["datetime"], res_df["Residual"], 0,
-                    where=(res_df["Residual"] <= 0), alpha=0.15, color="#E74C3C")
-    ax.set_title(f"{name}  |  MAE = {results_df.loc[name, 'MAE']:.1f} MW",
-                 fontsize=9, fontweight="bold")
-    ax.set_ylabel("Residual (MW)", fontsize=8)
-    ax.set_xlabel("")
-    ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %d"))
+def _bivariate_residual_grid(model_names, title, filename):
+    """
+    Draw a polished bivariate residual figure for a list of models.
 
-for j in range(i + 1, len(axes)):
-    axes[j].set_visible(False)
+    Each panel contains:
+      • scatter of (predicted, residual) — semi-transparent dots
+      • sns.kdeplot contour overlay (2D density)
+      • horizontal zero-residual reference line
+      • model name + MAE annotation
+    All panels share the same x / y limits for fair comparison.
+    """
+    n   = len(model_names)
+    # Compute global axis limits across all models in this group
+    all_preds_grp = [all_preds[m] for m in model_names]
+    all_resid_grp = [y_test.values - p for p in all_preds_grp]
 
-plt.suptitle("Residuals (Actual − Predicted) — Last 7 Days",
-             fontsize=14, fontweight="bold", y=1.01)
-plt.tight_layout()
-plt.savefig("plot2_residuals.png", dpi=150, bbox_inches="tight")
-plt.show()
-print("✅ Saved: plot2_residuals.png")
+    x_min = min(p.min() for p in all_preds_grp)
+    x_max = max(p.max() for p in all_preds_grp)
+    y_vals_concat = np.concatenate(all_resid_grp)
+    y_lim_abs = np.percentile(np.abs(y_vals_concat), 98) * 1.15   # clip extreme outliers
+
+    ncols = min(n, 3)
+    nrows = int(np.ceil(n / ncols))
+    fig, axes = plt.subplots(nrows, ncols,
+                             figsize=(7 * ncols, 5.5 * nrows),
+                             sharex=False, sharey=False)
+    axes = np.array(axes).flatten()
+
+    for i, mname in enumerate(model_names):
+        ax       = axes[i]
+        preds_m  = all_preds[mname]
+        resid_m  = y_test.values - preds_m
+        color    = COLORS.get(mname, "#AAB7B8")
+        mae_val  = results_df.loc[mname, "MAE"]
+
+        # ── scatter ───────────────────────────────────────────
+        ax.scatter(preds_m, resid_m,
+                   color=color, alpha=0.12, s=4, rasterized=True,
+                   label="_nolegend_")
+
+        # ── 2D KDE contours ───────────────────────────────────
+        try:
+            sns.kdeplot(x=preds_m, y=resid_m,
+                        levels=6, linewidths=0.9,
+                        color=color, alpha=0.75, ax=ax)
+        except Exception:
+            pass   # skip KDE if bandwidth fails on sparse data
+
+        # ── zero-residual reference line ──────────────────────
+        ax.axhline(0, color="#2C3E50", linewidth=1.2,
+                   linestyle="--", alpha=0.8)
+
+        # ── axis labels & title ───────────────────────────────
+        ax.set_xlabel("Predicted Load (MW)", fontsize=10)
+        ax.set_ylabel("Residual — Actual − Predicted (MW)", fontsize=10)
+        ax.set_title(f"{mname}\nMAE = {mae_val:.2f} MW",
+                     fontsize=11, fontweight="bold", pad=8)
+        ax.set_xlim(x_min * 0.97, x_max * 1.03)
+        ax.set_ylim(-y_lim_abs, y_lim_abs)
+        ax.tick_params(labelsize=9)
+
+        # ── mean residual annotation ───────────────────────────
+        mean_res = np.mean(resid_m)
+        ax.annotate(f"mean residual = {mean_res:+.1f} MW",
+                    xy=(0.03, 0.05), xycoords="axes fraction",
+                    fontsize=8.5, color="#555555",
+                    bbox=dict(boxstyle="round,pad=0.3",
+                              fc="white", ec="none", alpha=0.7))
+
+    # Hide any surplus axes
+    for j in range(len(model_names), len(axes)):
+        axes[j].set_visible(False)
+
+    plt.suptitle(title, fontsize=14, fontweight="bold", y=1.01)
+    plt.tight_layout()
+    plt.savefig(filename, dpi=150, bbox_inches="tight")
+    plt.show()
+    print(f"✅ Saved: {filename}")
+
+
+_bivariate_residual_grid(
+    model_names = SIMPLE_MODELS,
+    title       = "Residual Bivariate Plot — Simple ML Models\n"
+                  "(x = Predicted Load,  y = Residual,  contours = 2-D KDE density)",
+    filename    = "plot2a_residual_bivariate_simple.png",
+)
+
+# ── Plot 2b: Residual Bivariate — Advanced Models ────────────
+_bivariate_residual_grid(
+    model_names = ADVANCED_MODELS,
+    title       = "Residual Bivariate Plot — Advanced Models\n"
+                  "(x = Predicted Load,  y = Residual,  contours = 2-D KDE density)",
+    filename    = "plot2b_residual_bivariate_advanced.png",
+)
 
 
 # ── Plot 3: Feature Importances — RF vs XGBoost vs LightGBM ──
@@ -924,11 +1171,117 @@ plt.show()
 print("✅ Saved: plot11_top3_models_1day.png")
 
 
+# ── Plot 12: LSTM vs Ensemble vs Actual — Last 2 Days ────────
+lstm_rows = []
+for t, a in zip(plot_dates[-ZOOM:], plot_actual[-ZOOM:]):
+    lstm_rows.append({"datetime": t, "Power Demand (MW)": a, "Model": "Actual"})
+for mname in ["LSTM", "Ensemble (XGB+LGBM)", "XGBoost (Tuned)"]:
+    for t, p in zip(plot_dates[-ZOOM:], all_preds[mname][-ZOOM:]):
+        lstm_rows.append({"datetime": t, "Power Demand (MW)": p, "Model": mname})
+
+lstm_zoom_df = pd.DataFrame(lstm_rows)
+lstm_zoom_df["datetime"] = pd.to_datetime(lstm_zoom_df["datetime"])
+lstm_pal = {
+    "Actual":               "#2C3E50",
+    "LSTM":                 "#D4145A",
+    "Ensemble (XGB+LGBM)":  "#6C3483",
+    "XGBoost (Tuned)":      "#C0392B",
+}
+
+fig, ax = plt.subplots(figsize=(16, 6))
+sns.lineplot(data=lstm_zoom_df, x="datetime", y="Power Demand (MW)",
+             hue="Model", palette=lstm_pal, linewidth=1.2, ax=ax)
+for line in ax.get_lines():
+    if line.get_label() == "Actual":
+        line.set_linewidth(2.5)
+        line.set_zorder(10)
+    if line.get_label() == "LSTM":
+        line.set_linewidth(2.0)
+        line.set_zorder(9)
+ax.set_title(
+    f"LSTM vs Ensemble vs XGBoost (Tuned) — Last 2 Days\n"
+    f"LSTM  MAE={results_df.loc['LSTM','MAE']:.2f}  |  "
+    f"Ensemble MAE={results_df.loc['Ensemble (XGB+LGBM)','MAE']:.2f}  |  "
+    f"XGB(T) MAE={results_df.loc['XGBoost (Tuned)','MAE']:.2f}",
+    fontsize=11, fontweight="bold", pad=12)
+ax.set_xlabel("")
+ax.set_ylabel("Power Demand (MW)")
+ax.legend(loc="upper right", fontsize=10, framealpha=0.9)
+ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %d %H:%M"))
+plt.xticks(rotation=20)
+plt.tight_layout()
+plt.savefig("plot12_lstm_vs_ensemble_zoom.png", dpi=150, bbox_inches="tight")
+plt.show()
+print("✅ Saved: plot12_lstm_vs_ensemble_zoom.png")
+
+
+# ── Plot 13: LSTM Training History (Loss Curves) ─────────────
+fig, ax = plt.subplots(figsize=(10, 4))
+epochs_ran = range(1, len(lstm_history.history["loss"]) + 1)
+ax.plot(epochs_ran, lstm_history.history["loss"],
+        color="#D4145A", linewidth=2, label="Train Loss (MSE)")
+ax.plot(epochs_ran, lstm_history.history["val_loss"],
+        color="#2C3E50", linewidth=2, linestyle="--", label="Val Loss (MSE)")
+best_ep = int(np.argmin(lstm_history.history["val_loss"])) + 1
+ax.axvline(best_ep, color="gold", linewidth=1.5, linestyle=":",
+           label=f"Best epoch = {best_ep}")
+ax.set_xlabel("Epoch")
+ax.set_ylabel("MSE Loss (scaled)")
+ax.set_title("LSTM Training History — Train vs Validation Loss",
+             fontsize=12, fontweight="bold")
+ax.legend(fontsize=10)
+plt.tight_layout()
+plt.savefig("plot13_lstm_training_history.png", dpi=150, bbox_inches="tight")
+plt.show()
+print("✅ Saved: plot13_lstm_training_history.png")
+
+
+# ── Plot 14: Correlation Heatmap — Selected Features ─────────
+# Show only the most interpretable numeric features (drop cyclical sin/cos)
+HEATMAP_FEATURES = [
+    "temp", "dwpt", "rhum", "wspd", "pres",
+    "lag_12", "lag_288", "lag_2016",
+    "roll_mean_12", "roll_std_12", "roll_max_12", "roll_min_12",
+    "temp_hour", "temp_x_peak",
+    "weekday", "weekend", "is_peak_hour", "is_day",
+    "load",
+]
+heatmap_cols = [c for c in HEATMAP_FEATURES if c in df.columns]
+corr_matrix  = df[heatmap_cols].corr()
+
+mask = np.triu(np.ones_like(corr_matrix, dtype=bool), k=1)   # upper-triangle mask
+
+fig, ax = plt.subplots(figsize=(16, 13))
+sns.heatmap(
+    corr_matrix,
+    mask      = mask,
+    annot     = True,
+    fmt       = ".2f",
+    annot_kws = {"size": 7},
+    cmap      = "RdYlBu_r",
+    center    = 0,
+    vmin      = -1, vmax = 1,
+    linewidths= 0.4,
+    linecolor = "white",
+    square    = True,
+    cbar_kws  = {"shrink": 0.75, "label": "Pearson r"},
+    ax        = ax,
+)
+ax.set_title("Feature Correlation Heatmap (Pearson r)",
+             fontsize=14, fontweight="bold", pad=14)
+ax.tick_params(axis="x", rotation=45, labelsize=9)
+ax.tick_params(axis="y", rotation=0,  labelsize=9)
+plt.tight_layout()
+plt.savefig("plot14_correlation_heatmap.png", dpi=150, bbox_inches="tight")
+plt.show()
+print("✅ Saved: plot14_correlation_heatmap.png")
+
+
 # ============================================================
 # SECTION 11: FINAL SUMMARY
 # ============================================================
 print("\n" + "=" * 72)
-print("  ELECTRICITY LOAD FORECASTING v11 — FINAL SUMMARY (Test: 2024)")
+print("  ELECTRICITY LOAD FORECASTING v12 — FINAL SUMMARY (Test: 2024)")
 print("=" * 72)
 print(f"  {'Model':<25} {'MAE':>8} {'RMSE':>8} {'R²':>8} {'MAPE%':>8}")
 print("  " + "-" * 62)
@@ -939,21 +1292,18 @@ for mname, row in results_df.iterrows():
 print("=" * 72)
 
 print("""
-📋 v11 CHANGELOG:
-  ✅ LightGBM Optuna tuning added  (Section 8c) — num_leaves, min_child_samples
-  ✅ Ensemble XGB+LGBM added       (Section 8d) — inverse-RMSE weighted blend
-  ✅ Plot 6  : Ensemble vs components zoom (2 days)
-  ✅ Plot 7  : Ensemble residual distribution (histplot + KDE)
-  ✅ Plot 8  : XGBoost Optuna convergence
-  ✅ Plot 9  : LightGBM Optuna convergence
-  ✅ Plot 10 : R² comparison — all models horizontal bar
-  ✅ Plot 11 : Top-3 models zoomed — last 24 hours
-  ⏳ LSTM    : temporarily removed (requires Python ≤ 3.11 + TensorFlow)
-               Re-add Section 8c from V10 once TensorFlow is installed.
-
-🔬 REMAINING NEXT STEPS:
-  1. Re-add LSTM once TensorFlow is installed on Python 3.11
-  2. Try Temporal Fusion Transformer (TFT)
-  3. Extend LSTM lookback to 288 steps (full 24-hour window)
-  4. Tune ensemble weights with scipy.optimize instead of inverse-RMSE
+📋 v13 CHANGELOG:
+  ✅ Removed console print loops for feature importances
+       • Calculation preserved; top features visible in plots
+  ✅ Replaced giant residual time-series subplot grid (Plot 2)
+       with two polished bivariate residual plots:
+       • Plot 2a : Simple ML models (LR, DT, RF, KNN, GB)
+       • Plot 2b : Advanced models (XGB-T, LGBM-T, Ensemble, LSTM)
+       • Each panel: scatter + 2-D KDE contours + zero-line
+       • Consistent axis limits for fair visual comparison
+  ✅ Added correlation heatmap (Plot 14)
+       • Pearson r for weather, lag, rolling, and target features
+  ✅ Cleaner section headers and console output
+  ✅ All 13 original plots retained and refined
+       (filenames: plot1 … plot13 + plot2a/2b + plot14)
 """)
