@@ -30,7 +30,9 @@ int main()
     // 2. multi line comments 
     /* %d, %f,%c these are format specifiers 
     and printf funtion is a library function*/
+
     
+
 
 
 
