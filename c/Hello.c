@@ -28,7 +28,11 @@ int main()
     // comments are also of two types 
     // 1. single line commments 
     // 2. multi line comments 
+    /* %d, %f,%c these are format specifiers 
+    and printf funtion is a library function*/
     
+
+
 
 
     return 0;
