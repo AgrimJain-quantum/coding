@@ -18,13 +18,19 @@ int main()
     printf("the value of pi is %f\n" , pi);
     printf("the price is %d\n", final_price);
     printf("the g is %f\n", pi * 10);
+    
     /*the values that don't change are callled as constants */
     /* there are  3 types of constants 
        1. integer constants
        2. floating point constants
        3. character constants
-    */
-   
+    */;
+    // comments are also of two types 
+    // 1. single line commments 
+    // 2. multi line comments 
+    
+
+
     return 0;
 
 
