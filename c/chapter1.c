@@ -42,6 +42,13 @@ int main()
     // int sum = a + b;
     printf("the sum of a and b is %d\n", a + b);
 
+    // q1 write a program to calcualte the area of a square
+    int side;
+    printf("enter the side of the square :");
+    scanf("%d", &side);
+    printf("the area of the square is %d\n", side * side);
+    
+
 
 
 
