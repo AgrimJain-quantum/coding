@@ -1,9 +1,13 @@
 #include<stdio.h>
+#include<math.h>
 int main(){
     int a = 10;
     int b = 20;
     int sum = a + b;
     printf("The sum of %d and %d is %d\n", a, b, sum);
+    int power  = pow(a, b);
+    printf("%d raised to the power of %d is %d\n", a, b, power);
+    
     /* INSTRUCTIONS
     THESE ARE STATEMENTS IN A PROGRAM 
     IT CAN BE OF THREE TYPES 
@@ -14,10 +18,20 @@ int main(){
                 HENCE IT IS TELLING THAT THE VARIABLES 
                 A, B, SUM WITH HOLD INT VALUES WHICH RESERVES 
                 4 BYTES
+        rule = always declare the variable before using it 
+        
 
     2. ARITHMETIC INSTRUCTIONS
-            EG - ADDITION , SUBSTRACTION, MULTIPLICATION, DIVISION, MODULUS
+            EG - ADDITION 
+            , SUBSTRACTION, 
+            MULTIPLICATION, 
+            DIVISION, 
+            MODULUS
+            for power we use #include <math.h> and use pow() function
+            for increment and decrement we use ++ and -- operators respectively
     3. CONTROL INSTRUCTIONS
+            EG - IF ELSE, SWITCH CASE, FOR LOOP, WHILE LOOP, DO WHILE LOOP
+          
 
 
     */
