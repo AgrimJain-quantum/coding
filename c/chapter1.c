@@ -48,6 +48,14 @@ int main()
     scanf("%d", &side);
     printf("the area of the square is %d\n", side * side);
     
+    // q2 write a program to calculate the area of a circle;
+    float radius;
+    float pi = 3.14;
+    printf("enter the radius of the circle :");
+    scanf("%f", &radius);
+    printf("the area of the circle is %f\n", pi * radius  * radius);
+
+
 
 
 
