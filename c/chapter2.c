@@ -7,6 +7,10 @@ int main(){
     printf("The sum of %d and %d is %d\n", a, b, sum);
     int power  = pow(a, b);
     printf("%d raised to the power of %d is %d\n", a, b, power);
+    int c = 2;
+    float d = 2.0;
+    printf("%f", c*d);
+    
     
     /* INSTRUCTIONS
     THESE ARE STATEMENTS IN A PROGRAM 
@@ -26,15 +30,19 @@ int main(){
             , SUBSTRACTION, 
             MULTIPLICATION, 
             DIVISION, 
-            MODULUS
+            MODULUS = or modulo is used to find the remainder of a division operation
             for power we use #include <math.h> and use pow() function
             for increment and decrement we use ++ and -- operators respectively
     3. CONTROL INSTRUCTIONS
             EG - IF ELSE, SWITCH CASE, FOR LOOP, WHILE LOOP, DO WHILE LOOP
+       "^" this a xor operator which is used to compare two values and returns true if only one of the values is true
           
 
 
-    */
+    */;
+    
+
+
 
 
 
