@@ -47,13 +47,37 @@ int main()
     printf("enter the side of the square :");
     scanf("%d", &side);
     printf("the area of the square is %d\n", side * side);
-    
+
     // q2 write a program to calculate the area of a circle;
     float radius;
     float pi = 3.14;
     printf("enter the radius of the circle :");
     scanf("%f", &radius);
     printf("the area of the circle is %f\n", pi * radius  * radius);
+
+    // q3 wrtie a program to calcualte the perimenter of a rectangle 
+    int length, breadth;
+
+    printf("enter the length of the rectangle :");
+    scanf("%d", &length);
+    printf("enter the breadth of the rectangle :");
+    scanf("%d", &breadth);
+    int sum = length + breadth;
+    printf("the perimenter of the rectangle is %d\n", 2 * sum);
+
+    // q4 write a program to take the number fromt he user and outut its cube
+    float n;
+    printf("enter a number :");
+    scanf("%f", &n);
+    float cube = n * n * n;
+    printf("the cudbe of the number is %f\n", cube);
+
+    /* chapter 1 done */
+    
+
+    
+
+
 
 
 
