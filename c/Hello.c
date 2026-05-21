@@ -30,17 +30,17 @@ int main()
     2. multi line comments */
     /* %d, %f,%c these are format specifiers 
     and printf funtion is a library function*/
-    int number;
-    printf("enter a number :");
-    scanf("%d", &number);
-    printf("the number is %d\n" , number);
+    // int number;
+    // printf("enter a number :");
+    // scanf("%d", &number);
+    // printf("the number is %d\n" , number);
     int a, b;
     printf("enter a");
     scanf("%d", &a);
     printf("enter b");
     scanf("%d", &b);
-    int sum = a + b;
-    printf("the sum of a and b is %d\n", sum);
+    // int sum = a + b;
+    printf("the sum of a and b is %d\n", a + b);
 
 
 
