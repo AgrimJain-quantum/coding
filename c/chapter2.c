@@ -37,13 +37,13 @@ int main(){
     */;
 //     int q = 1.999999;
 //     printf("%d\n ", q);
-// //     /* operator precedence
-//         1. Parentheses ()
-//         2. Exponents
-//         3. Multiplication and Division
-//         4. Addition and Subtraction
-//         5. Assignment
-//     */
+    /* operator precedence
+        1. Parentheses ()
+        2. Exponents
+        3. Multiplication and Division
+        4. Addition and Subtraction
+        5. Assignment
+    */
 //    int x = 100;
 //    int y = 200;
 //    printf("%d\n", x * y / a * b); // associativity is left to right for multiplication and division
