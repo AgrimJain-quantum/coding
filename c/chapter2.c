@@ -9,9 +9,7 @@ int main(){
     printf("%d raised to the power of %d is %d\n", a, b, power);
     int c = 2;
     float d = 2.0;
-    printf("%f", c*d);
-    
-    
+    printf("%f\n", c*d);
     /* INSTRUCTIONS
     THESE ARE STATEMENTS IN A PROGRAM 
     IT CAN BE OF THREE TYPES 
@@ -36,10 +34,10 @@ int main(){
     3. CONTROL INSTRUCTIONS
             EG - IF ELSE, SWITCH CASE, FOR LOOP, WHILE LOOP, DO WHILE LOOP
        "^" this a xor operator which is used to compare two values and returns true if only one of the values is true
-          
-
-
     */;
+    int q = 1.999999;
+    printf("%d\n ", q);
+
     
 
 
