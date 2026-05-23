@@ -87,7 +87,22 @@ int main(){
    printf("%d\n", 4>3 && 5<4);
    printf("%d\n", 4>3 || 5<4);
    printf("%d\n", !(4<3));
+   printf("%d \n", ! (4>3 && 5<4));
+
+   /*   precedence order 
+        1.           !
+        2.           *, /, %(modulo operator)
+        3.           +,- 
+        4.           <, >, <=, >= (relational operators)
+        5.           ==, !=(equality operators)
+        6.           &&(logical AND operator)
+        7.           ||(logical OR operator)
+        8.           =  (assignment operator)
+    */
+   printf("%d\n", !(4*5 < 21) == (4*5 > 21));
    
+
+
 
 
 
