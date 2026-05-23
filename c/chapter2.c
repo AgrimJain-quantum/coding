@@ -84,10 +84,10 @@ int main(){
     //    printf("%d\n", 1 < 0);
     //    printf("%d\n", 1 >= 1);
     //    printf("%d\n", 1 <= 0);
-   printf("%d\n", 4>3 && 5<4);
-   printf("%d\n", 4>3 || 5<4);
-   printf("%d\n", !(4<3));
-   printf("%d \n", ! (4>3 && 5<4));
+    //    printf("%d\n", 4>3 && 5<4);
+    //    printf("%d\n", 4>3 || 5<4);
+    //    printf("%d\n", !(4<3));
+    //    printf("%d \n", ! (4>3 && 5<4));
 
    /*   precedence order 
         1.           !
@@ -99,8 +99,14 @@ int main(){
         7.           ||(logical OR operator)
         8.           =  (assignment operator)
     */
-   printf("%d\n", !(4*5 < 21) == (4*5 > 21));
+   // printf("%d\n", !(4*5 < 21) == (4*5 > 21));
+   int a = 10;
+   int b = 20;
+   a += b;
+   printf("%d\n", a);
    
+   
+
 
 
 
