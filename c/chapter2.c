@@ -100,23 +100,43 @@ int main(){
         8.           =  (assignment operator)
     */
    // printf("%d\n", !(4*5 < 21) == (4*5 > 21));
-   int a = 10;
-   int b = 20;
-   int c = 30;
-   int d = 40;
-   int e = 50;
-   int f = 60;
-   a += b; // 
-   b -= c;
-   c *= d;
-   d /= e;
-   e %= f;
+    //    int a = 10;
+    //    int b = 20;
+    //    int c = 30;
+    //    int d = 40;
+    //    int e = 50;
+    //    int f = 60;
+    //    a += b; // 
+    //    b -= c;
+    //    c *= d;
+    //    d /= e;
+    //    e %= f;
 
-   printf("%d\n", a);
-   printf("%d\n", b);
-   printf("%d\n", c);
-   printf("%d\n", d);
-   printf("%d\n", e);
+    //    printf("%d\n", a);
+    //    printf("%d\n", b);
+    //    printf("%d\n", c);
+    //    printf("%d\n", d);
+    //    printf("%d\n", e);
+    // q1 write a program to check if a number is divisible by 2 or not 
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    if(n % 2 == 0){
+        printf("%d is divisible by 2\n", n);
+    } else {
+        printf("%d is not divisible by 2\n", n);
+    }
+
+    // q2 write a program to check if a number is even or odd 
+    int m;
+    printf("enter a number:");
+    scanf("%d", &m);
+    if(m % 2 == 0){
+        printf("%d is even\n", m);
+    }
+    else{
+        printf("%d is odd\n", m);
+    }
 
 
    
