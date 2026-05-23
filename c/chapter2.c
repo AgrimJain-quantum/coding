@@ -60,6 +60,10 @@ int main(){
    int s = 4 + 9 * 10;
    printf("%d\n", s);
    // = is the assignment operator which is used to assign a value to a variable
+   // asssociativity is right to left for assignment operator
+   int t = 3 + 10 * 20;
+   printf("%d\n", t);
+
 
 
 
