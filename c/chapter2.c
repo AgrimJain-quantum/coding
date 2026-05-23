@@ -70,8 +70,15 @@ int main(){
    // 3. loop control } for and while loops  
    // 4. case control
    // operators 
-   // 
-
+   // relational operators - ==, !=, >, <, >=, <=
+   // logical operators - &&, ||, !
+   // bitwise operators - &, |, ^, ~, <<, >>
+   // aithmetic operators - +, -, *, /, %, ++, --
+   // assignment operators - =, +=, -=, *=, /=, %=
+   // ternary operator - ? :
+   printf("%d\n", 1 == 1);
+   printf("%d\n", 1 == 0);
+   
 
 
 
