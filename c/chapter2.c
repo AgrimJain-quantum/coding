@@ -67,7 +67,8 @@ int main(){
    // these are of four types 
    // 1. sequence control
    // 2. decision making control } if else will start form here
-   // 3. loop control
+   // 3. loop control } for and while loops 
+   
    // 4. case control
 
 
