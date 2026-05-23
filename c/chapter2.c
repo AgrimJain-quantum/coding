@@ -102,9 +102,23 @@ int main(){
    // printf("%d\n", !(4*5 < 21) == (4*5 > 21));
    int a = 10;
    int b = 20;
-   a += b;
+   int c = 30;
+   int d = 40;
+   int e = 50;
+   int f = 60;
+   a += b; // 
+   b -= c;
+   c *= d;
+   d /= e;
+   e %= f;
+
    printf("%d\n", a);
-   
+   printf("%d\n", b);
+   printf("%d\n", c);
+   printf("%d\n", d);
+   printf("%d\n", e);
+
+
    
 
 
