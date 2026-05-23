@@ -86,7 +86,9 @@ int main(){
     //    printf("%d\n", 1 <= 0);
    printf("%d\n", 4>3 && 5<4);
    printf("%d\n", 4>3 || 5<4);
+   printf("%d\n", !(4<3));
    
+
 
 
     return 0;
