@@ -63,6 +63,8 @@ int main(){
    // asssociativity is right to left for assignment operator
    int t = 3 + 10 * 20;
    printf("%d\n", t);
+   // control instructions can be used to determine the flow of the program 
+   
 
 
 
