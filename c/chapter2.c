@@ -64,9 +64,11 @@ int main(){
    int t = 3 + 10 * 20;
    printf("%d\n", t);
    // control instructions can be used to determine the flow of the program 
-   
-
-
+   // these are of four types 
+   // 1. sequence control
+   // 2. decision making control } if else will start form here
+   // 3. loop control
+   // 4. case control
 
 
 
