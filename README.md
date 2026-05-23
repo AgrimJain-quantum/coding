@@ -11,7 +11,7 @@ This repository is a personal coding workspace containing practice projects in *
 ## Notable Python Projects
 
 ### 1) Music Recommendation System
-Path: `/home/runner/work/coding/coding/python/music recommendation project`
+Path: `python/music recommendation project`
 
 - Streamlit-based content recommendation app
 - Includes its own README and requirements
@@ -19,18 +19,18 @@ Path: `/home/runner/work/coding/coding/python/music recommendation project`
 Run:
 
 ```bash
-cd "/home/runner/work/coding/coding/python/music recommendation project"
+cd "python/music recommendation project"
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
 ### 2) Energy Simulator App
-Path: `/home/runner/work/coding/coding/python/energy_simulator_app`
+Path: `python/energy_simulator_app`
 
 Run example script:
 
 ```bash
-cd "/home/runner/work/coding/coding/python/energy_simulator_app"
+cd "python/energy_simulator_app"
 python run_simulator.py
 ```
 
@@ -45,7 +45,7 @@ Examples:
 Most can be run by opening the folder and running `main.py`.
 
 ## C Practice
-Path: `/home/runner/work/coding/coding/c`
+Path: `c`
 
 Contains practice files like:
 - `chapter1.c`
@@ -54,13 +54,13 @@ Contains practice files like:
 Compile and run (example):
 
 ```bash
-cd /home/runner/work/coding/coding/c
+cd c
 gcc chapter1.c -o chapter1
 ./chapter1
 ```
 
 ## Portfolio Files
-Path: `/home/runner/work/coding/coding/portfolios`
+Path: `portfolios`
 
 Contains static HTML pages and images for portfolio presentation.
 
