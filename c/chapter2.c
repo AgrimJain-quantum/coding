@@ -44,25 +44,25 @@ int main(){
         4. Addition and Subtraction
         5. Assignment
     */
-//    int x = 100;
-//    int y = 200;
-//    printf("%d\n", x * y / a * b); // associativity is left to right for multiplication and division
-//    printf("%d\n", 5*2-2*3);
-//    printf("%d\n", 5*3/2*3);
-//    printf("%d\n", 5*(2/2)*3);
-//    printf("%d\n", 5+(2/2)*3);
-//    printf("%d\n", 4==4);
-//    printf("%d\n", 5<=4);
-//    printf("%f\n", 2.0/3);
-//    printf("%f\n", 3.0/2);
-   float r = 1.88888888;
-   printf("%f\n", r);
-   int s = 4 + 9 * 10;
-   printf("%d\n", s);
+    //    int x = 100;
+    //    int y = 200;
+    //    printf("%d\n", x * y / a * b); // associativity is left to right for multiplication and division
+    //    printf("%d\n", 5*2-2*3);
+    //    printf("%d\n", 5*3/2*3);
+    //    printf("%d\n", 5*(2/2)*3);
+    //    printf("%d\n", 5+(2/2)*3);
+    //    printf("%d\n", 4==4);
+    //    printf("%d\n", 5<=4);
+    //    printf("%f\n", 2.0/3);
+    //    printf("%f\n", 3.0/2);
+    //    float r = 1.88888888;
+    //    printf("%f\n", r);
+    //    int s = 4 + 9 * 10;
+    //    printf("%d\n", s);
    // = is the assignment operator which is used to assign a value to a variable
-   // asssociativity is right to left for assignment operator
-   int t = 3 + 10 * 20;
-   printf("%d\n", t);
+    // asssociativity is right to left for assignment operator
+    //    int t = 3 + 10 * 20;
+    //    printf("%d\n", t);
    // control instructions can be used to determine the flow of the program 
    // these are of four types 
    // 1. sequence control
@@ -76,14 +76,16 @@ int main(){
    // aithmetic operators - +, -, *, /, %, ++, --
    // assignment operators - =, +=, -=, *=, /=, %=
    // ternary operator - ? :
-   printf("%d\n", 1 == 1);
-   printf("%d\n", 1 == 0);
-   printf("%d\n", 1 != 1);
-   printf("%d\n", 1!= 0);
-   printf("%d\n", 1 > 0);
-   printf("%d\n", 1 < 0);
-   printf("%d\n", 1 >= 1);
-   printf("%d\n", 1 <= 0);
+    //    printf("%d\n", 1 == 1);
+    //    printf("%d\n", 1 == 0);
+    //    printf("%d\n", 1 != 1);
+    //    printf("%d\n", 1!= 0);
+    //    printf("%d\n", 1 > 0);
+    //    printf("%d\n", 1 < 0);
+    //    printf("%d\n", 1 >= 1);
+    //    printf("%d\n", 1 <= 0);
+   printf("%d\n", 4>3 && 5<4);
+   printf("%d\n", 4>3 || 5<4);
    
 
 
