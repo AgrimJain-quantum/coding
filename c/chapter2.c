@@ -47,12 +47,20 @@ int main(){
 //    int x = 100;
 //    int y = 200;
 //    printf("%d\n", x * y / a * b); // associativity is left to right for multiplication and division
-   printf("%d\n", 5*2-2*3);
-   printf("%d\n", 5*3/2*3);
-   printf("%d\n", 5*(2/2)*3);
-   printf("%d\n", 5+(2/2)*3);
-   printf("%d\n", 4==4);
-   printf("%d\n", 5<=4);
+//    printf("%d\n", 5*2-2*3);
+//    printf("%d\n", 5*3/2*3);
+//    printf("%d\n", 5*(2/2)*3);
+//    printf("%d\n", 5+(2/2)*3);
+//    printf("%d\n", 4==4);
+//    printf("%d\n", 5<=4);
+//    printf("%f\n", 2.0/3);
+//    printf("%f\n", 3.0/2);
+   float r = 1.88888888;
+   printf("%f\n", r);
+   int s = 4 + 9 * 10;
+   printf("%d\n", s);
+   // = is the assignment operator which is used to assign a value to a variable
+
 
 
 
