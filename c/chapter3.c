@@ -45,6 +45,10 @@ int main(){
     printf("enter a number: ");
     scanf("%d\n", &b);
     age >= 18 ? printf("you are an adult\n") : printf("you are not an adult\n");
-    
+
+    // switch case statements
+    // 
+
+
     return 0;
 }
