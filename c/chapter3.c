@@ -25,5 +25,26 @@ int main(){
 
     }
 
+
+    // using else if statements 
+    int a;
+    printf("enter a number: ");
+    scanf("%d", &a);
+    if (a >= 18){
+        printf("you are an adult\n");
+    } else if (a >= 13 && a < 18){
+        printf("you are a teenager\n");
+    } else {
+        printf("you are a child\n");
+    }
+    
+    // conditional operators 
+    //  we use this in the operators ?, :
+    // these are ternary operators which are used to evaluate a condition and return a value based on the conditions 
+    int b ;
+    printf("enter a number: ");
+    scanf("%d\n", &b);
+    age >= 18 ? printf("you are an adult\n") : printf("you are not an adult\n");
+    
     return 0;
 }
