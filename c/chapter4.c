@@ -43,7 +43,12 @@ int main(){
 
     // printf("%d\n", --i);
     // printf("%d\n", i);
-    
+    for (float i = 1.0; i <= 5.0; i += 0.5){
+        printf("%.1f\n", i);
+    }
+    for(char c = 'a'; c <= 'z'; c += 1){
+        printf("%c\n", c);
+    }
 
 
 
