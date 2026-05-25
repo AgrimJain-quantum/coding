@@ -27,7 +27,7 @@ int main(){
     //     printf("%d\n", i);
     // }
 
-    int i = 1;
+    // int i = 1;
     // printf("%d\n", i++);
     // printf("%d\n", i);
 
@@ -38,11 +38,12 @@ int main(){
     // i-- or --i
     // i-- is post decrement operator which means it will return the value of i before decrementing it
     // --i is pre decrement operator which means it will return the value of i after decrementing it
-    printf("%d\n", i--);
-    printf("%d\n", i);
+    // printf("%d\n", i--);
+    // printf("%d\n", i);
 
-    printf("%d\n", --i);
-    printf("%d\n", i);
+    // printf("%d\n", --i);
+    // printf("%d\n", i);
+    
 
 
 
