@@ -76,22 +76,44 @@ int main(){
     //         printf("invalid input\n");
     // };
 
-    int m;
-    printf("enter a num(1 - 100): ");
-    scanf("%d", &m);
-    if (m <= 30){
-        printf("FAIL\n");   
-    } else if (m > 30 && m <= 60){
-        printf("PASS\n");
-        } else if (m > 60 && m <= 80){
-            printf("GOOD\n");
-        } else if (m > 80 && m <= 90){
-            printf("VERY GOOD\n");
-        } else if (m > 90 && m <= 100){
-            printf("EXCELLENT\n");
-        } else {
-            printf("invalid input\n");
+    // int m;
+    // printf("enter a num(1 - 100): ");
+    // scanf("%d", &m);
+    // if (m <= 30){
+    //     printf("FAIL\n");   
+    // } else if (m > 30 && m <= 60){
+    //     printf("PASS\n");
+    //     } else if (m > 60 && m <= 80){
+    //         printf("GOOD\n");
+    //     } else if (m > 80 && m <= 90){
+    //         printf("VERY GOOD\n");
+    //     } else if (m > 90 && m <= 100){
+    //         printf("EXCELLENT\n");
+    //     } else {
+    //         printf("invalid input\n");
+    // }
+
+    // q - write a program to check is a number id positive , negetive or zero
+    char character;
+    printf("enter a charater:");
+    scanf("%c", &character);
+    if (character >= 'a' && character <= 'z'){
+        printf("you have given a lowercase letter");
+    } else if (character >= 'A' && character <= 'Z'){
+        printf("you have given an uppercase letter");
+    }else{
+        printf("you have given a non alphabet character\n");
+        if (character>= '0' && character <= '9'){
+            printf("you have given a digit\n");
+
+        } else{
+            printf("you have given a special character");
+        }
     }
+
+    // chapter 3 finished
+    
+        
 
     return 0;
 }
