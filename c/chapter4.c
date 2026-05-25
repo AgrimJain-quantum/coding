@@ -33,7 +33,19 @@ int main(){
 
     printf("%d\n", ++i);
     printf("%d\n", i);
+
+    // decrement operators 
+    // i-- or --i
+    // i-- is post decrement operator which means it will return the value of i before decrementing it
+    // --i is pre decrement operator which means it will return the value of i after decrementing it
+    printf("%d\n", i--);
+    printf("%d\n", i);
+
+    printf("%d\n", --i);
+    printf("%d\n", i);
+
     
+
 
 
 
