@@ -28,11 +28,11 @@ int main(){
     // }
 
     int i = 1;
-    printf("%d\n", i++);
-    printf("%d\n", i);
+    // printf("%d\n", i++);
+    // printf("%d\n", i);
 
-    printf("%d\n", ++i);
-    printf("%d\n", i);
+    // printf("%d\n", ++i);
+    // printf("%d\n", i);
 
     // decrement operators 
     // i-- or --i
@@ -44,7 +44,7 @@ int main(){
     printf("%d\n", --i);
     printf("%d\n", i);
 
-    
+
 
 
 
