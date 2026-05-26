@@ -98,19 +98,28 @@ int main(){
 
 
     // suming loop
-    int n;
-    printf("enter a number:");
-    scanf("%d" , &n);
-    int sum = 0;
-    for(int i = 1; i <= n; i++){
-        sum += i;
-        do{
-            printf("%d\n", i);
-            i++ ;
-        }while(i <= n);
-    }
-    printf("the sum of first %d natural numbers is %d\n ", n, sum);
+    // int n;
+    // printf("enter a number:");
+    // scanf("%d" , &n);
+    // int sum = 0;
+    // for(int i = 1; i <= n; i++){
+    //     sum += i;
+    //     do{
+    //         printf("%d\n", i);
+    //         i++ ;
+    //     }while(i <= n);
+    // }
+    // printf("the sum of first %d natural numbers is %d\n ", n, sum);
     
+    int n,i;
+    printf("enter a number:");
+    scanf("%d", &n);
+    for (i = 1; i <= 10; i++){
+        printf("%d * %d = %d\n", n, i, n*i);
+    }
+
+
+
 
 
 
