@@ -95,6 +95,17 @@ int main(){
         printf("%d\n", f);
         f--;
     } while (f >= 1);
+
+
+    // suming loop
+    int n;
+    printf("enter a number:");
+    scanf("%d" , &n);
+    int sum = 0;
+    for(int i = 1; i <= n; i++){
+        sum += i;
+    }
+    printf("the sum of first %d natural numbers is %d\n ", n, sum);
     
 
 
@@ -105,7 +116,7 @@ int main(){
 
 
 
-    
+
 
 
 
