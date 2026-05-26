@@ -95,9 +95,20 @@ int main(){
         printf("%d\n", f);
         f--;
     } while (f >= 1);
+    
+
+
+
+
+
+
+
 
 
     
+
+
+
 
     return 0;
 
