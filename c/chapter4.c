@@ -111,12 +111,20 @@ int main(){
     // }
     // printf("the sum of first %d natural numbers is %d\n ", n, sum);
     
-    int n,i;
-    printf("enter a number:");
-    scanf("%d", &n);
-    for (i = 1; i <= 10; i++){
-        printf("%d * %d = %d\n", n, i, n*i);
+    // int n,i;
+    // printf("enter a number:");
+    // scanf("%d", &n);
+    // for (i = 1; i <= 10; i++){
+    //     printf("%d * %d = %d\n", n, i, n*i);
+    // }
+
+    for (int i = 1; i <= 5; i++){
+        if (i == 3){
+            break;
+        }
+        printf("%d\n", i);
     }
+    printf("end");
 
 
 
