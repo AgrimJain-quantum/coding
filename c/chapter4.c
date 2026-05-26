@@ -106,7 +106,9 @@ int main(){
         sum += i;
     }
     printf("the sum of first %d natural numbers is %d\n ", n, sum);
+
     
+
 
 
 
