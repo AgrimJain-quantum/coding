@@ -46,9 +46,21 @@ int main(){
     // for (float i = 1.0; i <= 5.0; i += 0.5){
     //     printf("%f\n", i);
     // }
-    for(char c = 'a'; c <= 'z'; c += 1){
-        printf("%c\n", c);
-    }
+    // for(char c = 'a'; c <= 'z'; c += 1){
+    //     printf("%c\n", c);
+    // }
+    // for (int i = 1; ; i++){
+    //     printf("hello world\n");
+    // }
+    // this is an infinite loop because the condition is always true
+
+    // while loop
+    int i  =  1;
+    while (i <= 5){
+        printf("%d\n", i);
+        i += 1;
+    }       
+
 
 
 
