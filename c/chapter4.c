@@ -65,25 +65,36 @@ int main(){
     //     printf("%d\n", i);
     //     i++;
     // }
-    // or the code can lok like 
-    int n;
-    printf("enter a number:");
-    scanf("%d", &n);
-    int j = 0;
-    while (j <= n){
-        printf("%d\n", j);
-        j++;
-    }
+    // // or the code can lok like 
+    // int n;
+    // printf("enter a number:");
+    // scanf("%d", &n);
+    // int j = 0;
+    // while (j <= n){
+    //     printf("%d\n", j);
+    //     j++;
+    // }
 
-    // same code using for loop
+    // // same code using for loop
 
-    int a;
-    printf("enter a number:");
-    scanf("%d", &a);
-    for (int b = 0; b <= a; b++){
-        printf("%d\n", b);
-    }
+    // int a;
+    // printf("enter a number:");
+    // scanf("%d", &a);
+    // for (int b = 0; b <= a; b++){
+    //     printf("%d\n", b);
+    // }
 
+    // do while loops 
+    int i = 1;
+    do {
+        printf("%d\n", i);
+        i++;
+    } while (i <= 5);
+    int f = 5;
+    do{
+        printf("%d\n", f);
+        f--;
+    } while (f >= 1);
 
 
 
