@@ -85,16 +85,16 @@ int main(){
     // }
 
     // do while loops 
-    int i = 1;
-    do {
-        printf("%d\n", i);
-        i++;
-    } while (i <= 5);
-    int f = 5;
-    do{
-        printf("%d\n", f);
-        f--;
-    } while (f >= 1);
+    // int i = 1;
+    // do {
+    //     printf("%d\n", i);
+    //     i++;
+    // } while (i <= 5);
+    // int f = 5;
+    // do{
+    //     printf("%d\n", f);
+    //     f--;
+    // } while (f >= 1);
 
 
     // suming loop
@@ -104,10 +104,15 @@ int main(){
     int sum = 0;
     for(int i = 1; i <= n; i++){
         sum += i;
+        do{
+            printf("%d\n", i);
+            i++ ;
+        }while(i <= n);
     }
     printf("the sum of first %d natural numbers is %d\n ", n, sum);
-
     
+
+
 
 
 
