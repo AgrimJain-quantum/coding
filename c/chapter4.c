@@ -160,13 +160,28 @@ int main(){
     // printf("thank you");
 
     // continue statement 
-    for (int i = 1; i <= 10; i++){
-        if (i % 2 == 0){
-            continue;
-        }
-        printf("%d\n", i);
-    }
-     
+    // for (int i = 1; i <= 10; i++){
+    //     if (i % 2 == 0){
+    //         continue;
+    //     }
+    //     printf("%d\n", i);
+    // }
+    // q print all the numbers from 1 to 10 except 6
+    // for (int l = 1; l <= 10; l++){
+    //     if (l == 6){
+    //         continue;
+    //     }
+    //     printf("%d\n", l);
+    // }
+    // print all the odd numbers from 5 to 50 
+    // for (int m = 5; m <= 50; m++){
+    //     if (m % 2 == 0){
+    //         continue;
+    //     }
+    //     printf("%d\n", m);
+    // }
+    
+
 
 
 
