@@ -180,7 +180,16 @@ int main(){
     //     }
     //     printf("%d\n", m);
     // }
+    int n;
+    printf("enter a number:");
+    scanf("%d", &n);
+    int fact  = 1;
+    for (int i = 1; i <= n; i++){
+        fact *= i;
+    }
+    printf("the factorial of %d is %d\n", n, fact);
     
+
 
 
 
