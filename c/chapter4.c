@@ -146,13 +146,13 @@ int main(){
     /*keep taking numbers as the input from the user until
     user enters a number which is a multiple of 7.
     */
-    int n;
+    int g;
     do{
         printf("enter a number:");
-        scanf("%d", &n);
-        printf("%d\n", n);
+        scanf("%d", &g);
+        printf("%d\n", g);
 
-        if(n % 7 == 0){
+        if(g % 7 == 0){
             break;
         }
 
