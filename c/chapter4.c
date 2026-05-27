@@ -125,6 +125,10 @@ int main(){
     //     printf("%d\n", i);
     // }
     // printf("end");
+    /*q write a program where the user is asked to enter a number 
+    and the program will print the number until the user enters an odd number 
+    and then the program will print "thank you" and exit
+    */ 
 
     int n;
     do{
@@ -133,6 +137,22 @@ int main(){
         printf("%d\n", n);
 
         if(n % 2 != 0){
+            break;
+        }
+
+    }while(1);
+    printf("thank you");
+
+    /*keep taking numbers as the input from the user until
+    user enters a number which is a multiple of 7.
+    */
+    int n;
+    do{
+        printf("enter a number:");
+        scanf("%d", &n);
+        printf("%d\n", n);
+
+        if(n % 7 == 0){
             break;
         }
 
