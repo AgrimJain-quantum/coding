@@ -180,19 +180,32 @@ int main(){
     //     }
     //     printf("%d\n", m);
     // }
-    int n;
-    printf("enter a number:");
-    scanf("%d", &n);
-    int fact  = 1;
-    for (int i = 1; i <= n; i++){
-        fact *= i;
+    // int n;
+    // printf("enter a number:");
+    // scanf("%d", &n);
+    // int fact  = 1;
+    // for (int i = 1; i <= n; i++){
+    //     fact *= i;
+    // }
+    // printf("the factorial of %d is %d\n", n, fact);
+
+    // q print reverse of the table for a number n
+    // int e;
+    // printf("enter a number:");
+    // scanf("%d", &e);
+    // for (int i = 10; i >= 1; i--){
+    //     printf("%d * %d = %d\n", e, i, e * i);
+    // }
+
+    // q print the sum of first n even numbers 
+    int sum = 0 ;
+    for (int r = 5; r <= 50; r++){
+        sum += r;
     }
-    printf("the factorial of %d is %d\n", n, fact);
+    printf("sum is %d\n", sum);
+
+    // chapter4 finished
     
-
-
-
-
 
 
     
