@@ -130,34 +130,42 @@ int main(){
     and then the program will print "thank you" and exit
     */ 
 
-    int n;
-    do{
-        printf("enter a number:");
-        scanf("%d", &n);
-        printf("%d\n", n);
+    // int n;
+    // do{
+    //     printf("enter a number:");
+    //     scanf("%d", &n);
+    //     printf("%d\n", n);
 
-        if(n % 2 != 0){
-            break;
+    //     if(n % 2 != 0){
+    //         break;
+    //     }
+
+    // }while(1);
+    // printf("thank you");
+
+     /*keep taking numbers as the input from the user until
+       user enters a number which is a multiple of 7.
+     */
+    // int g;
+    // do{
+    //     printf("enter a number:");
+    //     scanf("%d", &g);
+    //     printf("%d\n", g);
+
+    //     if(g % 7 == 0){
+    //         break;
+    //     }
+
+    // }while(1);
+    // printf("thank you");
+
+    // continue statement 
+    for (int i = 1; i <= 10; i++){
+        if (i % 2 == 0){
+            continue;
         }
-
-    }while(1);
-    printf("thank you");
-
-    /*keep taking numbers as the input from the user until
-    user enters a number which is a multiple of 7.
-    */
-    int g;
-    do{
-        printf("enter a number:");
-        scanf("%d", &g);
-        printf("%d\n", g);
-
-        if(g % 7 == 0){
-            break;
-        }
-
-    }while(1);
-    printf("thank you");
+        printf("%d\n", i);
+    }
      
 
 
