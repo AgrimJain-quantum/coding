@@ -118,13 +118,16 @@ int main(){
     //     printf("%d * %d = %d\n", n, i, n*i);
     // }
 
-    for (int i = 1; i <= 5; i++){
-        if (i == 3){
-            break;
-        }
-        printf("%d\n", i);
-    }
-    printf("end");
+    // for (int i = 1; i <= 5; i++){
+    //     if (i == 3){
+    //         break;
+    //     }
+    //     printf("%d\n", i);
+    // }
+    // printf("end");
+
+    int n;
+
 
     
 
