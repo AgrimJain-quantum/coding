@@ -25,6 +25,7 @@
 
 void namaste();
 void bonjour();
+void print_hello(int n);
 int main(){
     printf("enter i for namaste and f for bonjour\n:");
     char ch;
@@ -36,6 +37,8 @@ int main(){
         bonjour();
 
     }
+
+    print_hello(3);
    
 
     return 0;
@@ -46,4 +49,10 @@ void namaste(){
 }
 void bonjour(){
     printf("Bonjour\n");
+}
+
+void print_hello(int n){
+    for (int i = 0; i<n; i++){
+        printf("Hello\n");
+    }
 }
