@@ -146,19 +146,54 @@
 // }
 
 // q factorial of a number n
-int fact(int n);
+// int fact(int n);
+// int main(){
+//     printf("Factorial is : %d" , fact(5));
+
+//     return 0;
+// }
+
+// int fact(int n){
+//     if (n == 1){
+//         return 1;
+//     }
+//     int factnm1 = fact(n-1);
+//     int factn  = factnm1 * n;
+//     return factn;
+// }
+
+// q conversion of celsius to fahrenheit
+// float ctf(float c);
+// int main(){
+//     printf(" temperature in fahrenheit is : %.2f", ctf(0.0));
+
+//     return 0;
+// }
+// float ctf(float c){
+//     printf("Enter temperature in celsius: ");
+//     scanf("%f", &c);
+//     float f = (c*(9.0/5.0)) + 32.0;
+//     return f;
+
+// }
+
+// q write a program to find the percentage  of a student from marks in science, math, and sanskirt
+int percentage(int s, int m, int sa);
 int main(){
-    printf("Factorial is : %d" , fact(5));
+    printf("percentage is : %d", percentage(0,0,0));
 
     return 0;
 }
+int percentage(int s, int m, int sa){
+    printf("enter marks in science:");
+    scanf("%d", &s);
+    printf("enter marks in math:");
+    scanf("%d", &m);
+    printf("enter marks in sanskirt:");
+    scanf("%d", &sa);
+    int total_marks = s + m + sa;
+    int percentage = (total_marks/300.0)*100;
+    return percentage;  
 
-int fact(int n){
-    if (n == 1){
-        return 1;
-    }
-    int factnm1 = fact(n-1);
-    int factn  = factnm1 * n;
-    return factn;
 }
 
