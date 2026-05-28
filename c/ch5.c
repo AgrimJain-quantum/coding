@@ -26,6 +26,7 @@
 void namaste();
 void bonjour();
 void print_hello(int n);
+void sum(int a, int b);
 int main(){
     printf("enter i for namaste and f for bonjour\n:");
     char ch;
@@ -39,6 +40,7 @@ int main(){
     }
 
     print_hello(3);
+    sum(0,0);   
    
 
     return 0;
@@ -56,3 +58,10 @@ void print_hello(int n){
         printf("Hello\n");
     }
 }
+void sum(int a, int b){
+    printf("Enter two numbers : \n");
+    scanf("%d %d",&a,&b);
+    int s = a+b;
+    printf("The sum is %d\n",s);
+}
+
