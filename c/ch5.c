@@ -93,24 +93,39 @@
 // }   
 
 
-float area_of_circle(float r);
-float area_of_rectangle(float l, float b);
-float area_of_square(float h);
+// float area_of_circle(float r);
+// float area_of_rectangle(float l, float b);
+// float area_of_square(float h);
+// int main(){
+//     float l = 4.0, b = 5.0, h = 3.0, r = 2.0;
+//     printf("Area of square is %.2f\n", area_of_square(h));
+//     printf("Area of rectangle is %.2f\n", area_of_rectangle(l,b));
+//     printf("Area of circle is %.2f\n", area_of_circle(r));
+
+
+//     return 0;
+// }
+// float area_of_square(float h){
+//     return h*h;
+// }
+// float area_of_rectangle(float l, float b){
+//     return l*b;
+// }
+// float area_of_circle(float r){
+//     return 3.14*pow(r,2);
+// }
+
+void printhw(int count);
 int main(){
-    float l = 4.0, b = 5.0, h = 3.0, r = 2.0;
-    printf("Area of square is %.2f\n", area_of_square(h));
-    printf("Area of rectangle is %.2f\n", area_of_rectangle(l,b));
-    printf("Area of circle is %.2f\n", area_of_circle(r));
-
-
+    printhw(5);
+    
     return 0;
 }
-float area_of_square(float h){
-    return h*h;
-}
-float area_of_rectangle(float l, float b){
-    return l*b;
-}
-float area_of_circle(float r){
-    return 3.14*pow(r,2);
+// recursive fuction
+void printhw(int count){
+    if (count == 0){
+        return;
+    }
+    printf("Hello, World!\n");
+    printhw(count - 1);
 }
