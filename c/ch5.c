@@ -121,7 +121,7 @@
 
 //     return 0;
 // }
-// // recursive fuction
+// recursive fuction
 // void printhw(int count){
 //     if (count == 0){
 //         return;
@@ -146,5 +146,19 @@
 // }
 
 // q factorial of a number n
+int fact(int n);
+int main(){
+    printf("Factorial is : %d" , fact(5));
 
+    return 0;
+}
+
+int fact(int n){
+    if (n == 1){
+        return 1;
+    }
+    int factnm1 = fact(n-1);
+    int factn  = factnm1 * n;
+    return factn;
+}
 
