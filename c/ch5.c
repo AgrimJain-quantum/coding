@@ -27,6 +27,9 @@ void namaste();
 void bonjour();
 void print_hello(int n);
 void sum(int a, int b);
+void print_table(int y);
+
+
 int main(){
     printf("enter i for namaste and f for bonjour\n:");
     char ch;
@@ -40,12 +43,14 @@ int main(){
     }
 
     print_hello(3);
-    sum(0,0);   
+    sum(0,0); 
+    print_table(0);
    
 
     return 0;
 
 }
+
 void namaste(){
     printf("Namaste\n"); // function definition
 }
@@ -63,5 +68,13 @@ void sum(int a, int b){
     scanf("%d %d",&a,&b);
     int s = a+b;
     printf("The sum is %d\n",s);
+}
+
+void print_table(int y){
+    printf("Enter a number : \n");
+    scanf("%d", &y);
+    for( int i = 1; i<=10; i++){
+        printf("%d * %d = %d\n", y, i, y*i);
+    }
 }
 
