@@ -178,22 +178,26 @@
 // }
 
 // q write a program to find the percentage  of a student from marks in science, math, and sanskirt
-int percentage(int s, int m, int sa);
-int main(){
-    printf("percentage is : %d", percentage(0,0,0));
+// int percentage(int s, int m, int sa);
+// int main(){
+//     printf("percentage is : %d", percentage(0,0,0));
 
-    return 0;
-}
-int percentage(int s, int m, int sa){
-    printf("enter marks in science:");
-    scanf("%d", &s);
-    printf("enter marks in math:");
-    scanf("%d", &m);
-    printf("enter marks in sanskirt:");
-    scanf("%d", &sa);
-    int total_marks = s + m + sa;
-    int percentage = (total_marks/300.0)*100;
-    return percentage;  
+//     return 0;
+// }
+// int percentage(int s, int m, int sa){
+//     printf("enter marks in science:");
+//     scanf("%d", &s);
+//     printf("enter marks in math:");
+//     scanf("%d", &m);
+//     printf("enter marks in sanskirt:");
+//     scanf("%d", &sa);
+//     int total_marks = s + m + sa;
+//     int percentage = (total_marks/300.0)*100;
+//     return percentage;  
 
-}
+// }
+
+// chapter 5 - functions in c and recursion
+
+
 
