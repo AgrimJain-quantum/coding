@@ -93,3 +93,24 @@
 // }   
 
 
+float area_of_circle(float r);
+float area_of_rectangle(float l, float b);
+float area_of_square(float h);
+int main(){
+    float l = 4.0, b = 5.0, h = 3.0, r = 2.0;
+    printf("Area of square is %.2f\n", area_of_square(h));
+    printf("Area of rectangle is %.2f\n", area_of_rectangle(l,b));
+    printf("Area of circle is %.2f\n", area_of_circle(r));
+
+
+    return 0;
+}
+float area_of_square(float h){
+    return h*h;
+}
+float area_of_rectangle(float l, float b){
+    return l*b;
+}
+float area_of_circle(float r){
+    return 3.14*pow(r,2);
+}
