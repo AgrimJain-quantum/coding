@@ -24,70 +24,72 @@
 //     printf("Goodbye\n");
 // }
 
-void namaste();
-void bonjour();
-void print_hello(int n);
-void sum(int a, int b);
-void print_table(int y);
-void price(float t);
+// void namaste();
+// void bonjour();
+// void print_hello(int n);
+// void sum(int a, int b);
+// void print_table(int y);
+// void price(float t);
 
 
-int main(){
-    printf("enter i for namaste and f for bonjour\n:");
-    char ch;
-    scanf("%c",&ch);
-    if(ch=='i'){
-        namaste();
-    }
-    else if(ch=='f'){
-        bonjour();
+// int main(){
+//     printf("enter i for namaste and f for bonjour\n:");
+//     char ch;
+//     scanf("%c",&ch);
+//     if(ch=='i'){
+//         namaste();
+//     }
+//     else if(ch=='f'){
+//         bonjour();
 
-    }
+//     }
 
-    print_hello(3);
-    sum(0,0); 
-    print_table(0);
-    price(0.0);
+//     print_hello(3);
+//     sum(0,0); 
+//     print_table(0);
+//     price(0.0);
 
-    int l = 4;
-    printf("%f", pow(l,2));
+//     int l = 4;
+//     printf("%f", pow(l,2));
 
-    return 0;
+//     return 0;
 
-}
+// }
 
-void namaste(){
-    printf("Namaste\n"); // function definition
-}
-void bonjour(){
-    printf("Bonjour\n");
-}
+// void namaste(){
+//     printf("Namaste\n"); // function definition
+// }
+// void bonjour(){
+//     printf("Bonjour\n");
+// }
 
-void print_hello(int n){
-    for (int i = 0; i<n; i++){
-        printf("Hello\n");
-    }
-}
-void sum(int a, int b){
-    printf("Enter 1'st number: ");
-    scanf("%d",&a);
-    printf("Enter 2'nd number: ");
-    scanf("%d",&b);
-    int s = a+b;
-    printf("The sum is %d\n",s);
-}
+// void print_hello(int n){
+//     for (int i = 0; i<n; i++){
+//         printf("Hello\n");
+//     }
+// }
+// void sum(int a, int b){
+//     printf("Enter 1'st number: ");
+//     scanf("%d",&a);
+//     printf("Enter 2'nd number: ");
+//     scanf("%d",&b);
+//     int s = a+b;
+//     printf("The sum is %d\n",s);
+// }
 
-void print_table(int y){
-    printf("Enter a number :");
-    scanf("%d", &y);
-    for( int i = 1; i<=10; i++){
-        printf("%d * %d = %d\n", y, i, y*i);
-    }
-}
-void price(float t){
-    printf("Enter the price of the item: ");
-    scanf("%f", &t);
-    float tax = 0.18*t;
-    float total_price = t + tax;
-    printf("The total price is %.2f\n", total_price);
-}   
+// void print_table(int y){
+//     printf("Enter a number :");
+//     scanf("%d", &y);
+//     for( int i = 1; i<=10; i++){
+//         printf("%d * %d = %d\n", y, i, y*i);
+//     }
+// }
+// void price(float t){
+//     printf("Enter the price of the item: ");
+//     scanf("%f", &t);
+//     float tax = 0.18*t;
+//     float total_price = t + tax;
+//     printf("The total price is %.2f\n", total_price);
+// }   
+
+
