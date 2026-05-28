@@ -28,6 +28,7 @@ void bonjour();
 void print_hello(int n);
 void sum(int a, int b);
 void print_table(int y);
+void price(float t);
 
 
 int main(){
@@ -45,6 +46,7 @@ int main(){
     print_hello(3);
     sum(0,0); 
     print_table(0);
+    price(0.0);
     return 0;
 
 }
@@ -77,4 +79,10 @@ void print_table(int y){
         printf("%d * %d = %d\n", y, i, y*i);
     }
 }
-
+void price(float t){
+    printf("Enter the price of the item: ");
+    scanf("%f", &t);
+    float tax = 0.18*t;
+    float total_price = t + tax;
+    printf("The total price is %.2f\n", total_price);
+}   
