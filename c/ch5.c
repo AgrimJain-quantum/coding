@@ -1,5 +1,6 @@
 #include<stdio.h>
 void print_hello(); // declaration
+void goodbye();
 int main(){
     // print_hello(); // fuction call
 
@@ -8,6 +9,7 @@ int main(){
     // parameter list - void (will not take any parameters) 
     for (int i = 0; i<5; i++){
         print_hello();
+        goodbye();
     }
    
 
@@ -15,5 +17,8 @@ int main(){
 
 }
 void print_hello(){
-    printf("Hello World\n"); // function definition
+    printf("Hello\n"); // function definition
+}
+void goodbye(){
+    printf("Goodbye\n");
 }
