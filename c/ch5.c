@@ -45,8 +45,6 @@ int main(){
     print_hello(3);
     sum(0,0); 
     print_table(0);
-   
-
     return 0;
 
 }
@@ -64,14 +62,16 @@ void print_hello(int n){
     }
 }
 void sum(int a, int b){
-    printf("Enter two numbers : \n");
-    scanf("%d %d",&a,&b);
+    printf("Enter 1'st number: ");
+    scanf("%d",&a);
+    printf("Enter 2'nd number: ");
+    scanf("%d",&b);
     int s = a+b;
     printf("The sum is %d\n",s);
 }
 
 void print_table(int y){
-    printf("Enter a number : \n");
+    printf("Enter a number :");
     scanf("%d", &y);
     for( int i = 1; i<=10; i++){
         printf("%d * %d = %d\n", y, i, y*i);
