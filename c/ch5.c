@@ -1,24 +1,49 @@
 #include<stdio.h>
-void print_hello(); // declaration
-void goodbye();
-int main(){
+// void print_hello(); // declaration
+// void goodbye();
+// int main(){
     // print_hello(); // fuction call
 
     // return type - void(will not return anything)
     // function name - main
     // parameter list - void (will not take any parameters) 
-    for (int i = 0; i<5; i++){
-        print_hello();
-        goodbye();
+    // for (int i = 0; i<5; i++){
+    //     print_hello();
+    //     goodbye();
+    // }
+   
+
+//     return 0;
+
+// }
+// void print_hello(){
+//     printf("Hello\n"); // function definition
+// }
+// void goodbye(){
+//     printf("Goodbye\n");
+// }
+
+void namaste();
+void bonjour();
+int main(){
+    printf("enter i for namaste and f for bonjour\n:");
+    char ch;
+    scanf("%c",&ch);
+    if(ch=='i'){
+        namaste();
+    }
+    else if(ch=='f'){
+        bonjour();
+
     }
    
 
     return 0;
 
 }
-void print_hello(){
-    printf("Hello\n"); // function definition
+void namaste(){
+    printf("Namaste\n"); // function definition
 }
-void goodbye(){
-    printf("Goodbye\n");
+void bonjour(){
+    printf("Bonjour\n");
 }
