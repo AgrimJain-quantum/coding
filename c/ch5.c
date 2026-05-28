@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<math.h>
 // void print_hello(); // declaration
 // void goodbye();
 // int main(){
@@ -47,6 +48,10 @@ int main(){
     sum(0,0); 
     print_table(0);
     price(0.0);
+
+    int l = 4;
+    printf("%f", pow(l,2));
+
     return 0;
 
 }
