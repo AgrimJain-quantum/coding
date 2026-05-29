@@ -19,6 +19,11 @@ int main(){
     printf("the value of the w is: %d\n", *r);
     // %u is for unsigned int , 
     // %p is for pointer address = will print a address in a hexa decimal format 
+    printf("%d\n", w);
+    printf("%d\n", *r);
+    printf("%d\n", *(&w));
+    
+
 
     return 0;
 }
