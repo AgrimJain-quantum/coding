@@ -15,9 +15,10 @@ int main(){
     int w = 20;
     int *r = &w;
     printf("the value of w is: %p\n", r);
+    printf("the value of w in the signed format is: %u\n", r);
     printf("the value of the w is: %d\n", *r);
-     // %u is for unsigned int , 
-     // %p is for pointer address = will print a address in a hexa decimal format 
+    // %u is for unsigned int , 
+    // %p is for pointer address = will print a address in a hexa decimal format 
 
     return 0;
 }
