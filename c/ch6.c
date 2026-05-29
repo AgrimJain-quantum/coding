@@ -39,7 +39,18 @@ int main(){
     (*ptr)++;
     printf("x = %d\n", x);
     printf("*ptr = %d\n", *ptr);
-    
+
+    float f = 3.14;
+    float *fp = &f;
+    float **fpp = &fp;
+    printf("The value of f is: %f\n", f);
+    printf("The value of fp is: %p\n", fp); 
+    printf("The value of fpp is: %p\n", fpp);
+    printf("The value of *fp is: %f\n", *fp);
+    printf("The value of **fpp is: %f\n", **fpp);
+
+
+
     
 
 
