@@ -11,6 +11,11 @@ int main(){
     printf("The value of p is: %p\n", p);
     printf("The value of _age is: %d\n", _age);
     printf("The value of q is: %p\n", q);
+
+    int w = 20;
+    int *r = &w;
+    printf("the value of w is: %p\n", r);
+    
      
 
     return 0;
