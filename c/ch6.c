@@ -22,7 +22,16 @@ int main(){
     printf("%d\n", w);
     printf("%d\n", *r);
     printf("%d\n", *(&w));
+
+    // practice q 36
+    int *ptr;
+    int x;
+
+    ptr = &x;
+    *ptr = 0;
+    printf("x = %d\n", x);
     
+
 
 
     return 0;
