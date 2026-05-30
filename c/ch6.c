@@ -65,11 +65,17 @@
 
 
 void square(int n);
+
 int main(){
+    int number = 5;
+    square(number);
+    printf("number = %d\n", number);
+
 
     return 0;
 }
+// call by value = we pass value of the variable as argument
 void square(int n){
     n = n * n;
-    printf("square = %d\n", n)
+    printf("square = %d\n", n);
 }
