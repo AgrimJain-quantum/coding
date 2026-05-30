@@ -124,11 +124,11 @@
 void printAddress(int n);
 int main(){
     int n = 5;
-    printf("%p\n", &n);
+    printf("%u\n", &n);
     printAddress(n);
 
     return 0;
 }
 void printAddress(int n){
-    printf("The address of n is: %p\n", &n);
+    printf("The address of n is: %u\n", &n);
 }
