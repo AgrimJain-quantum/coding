@@ -121,14 +121,38 @@
 // }
  
 // q will th address output be the same ?
-void printAddress(int n);
+// void printAddress(int n);
+// int main(){
+//     int n = 5;
+//     printf("%u\n", &n);
+//     printAddress(n);
+
+//     return 0;
+// }
+// void printAddress(int n){
+//     printf("The address of n is: %u\n", &n);
+// }
+
+
+// q write a function to calculate the sum , product, and average of 2 numbers . print that average, product, sum in the main fuction
+void calculate(int a, int b, int *sum, int *product, float *average);
 int main(){
-    int n = 5;
-    printf("%u\n", &n);
-    printAddress(n);
+    int a = 3, b = 5;
+    int sum, product, average;
+    calculate(a, b, &sum, &product, &average);
+    printf("sum = %d, product = %d, average = %.2f", sum, product, average);
+    
+
+
 
     return 0;
 }
-void printAddress(int n){
-    printf("The address of n is: %u\n", &n);
+void calculate(int a, int b , int *sum, int *product, float *average){
+    *sum = a + b;
+    *product = a * b;
+    *average = (float)*sum / 2;
+    printf(" the sum of %d and %d is: %d\n", a, b, *sum);
+    printf(" the product of %d and %d is: %d\n", a, b, *product);
+    printf(" the average of %d and %d is: %.2f\n", a, b, *average);
+
 }
