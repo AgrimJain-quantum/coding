@@ -98,10 +98,9 @@ int main(){
     _swap(&x, &y);
     printf("x = %d, y = %d\n", x, y);
 
-
-
     return 0;
 }
+
 // call by refrence
 void _swap(int *a, int *b){
     int t = *a;
