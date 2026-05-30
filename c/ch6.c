@@ -135,24 +135,21 @@
 
 
 // q write a function to calculate the sum , product, and average of 2 numbers . print that average, product, sum in the main fuction
-void calculate(int a, int b, int *sum, int *product, float *average);
+void calculate(int a, int b, int *sum, int *product, int *average);
 int main(){
     int a = 3, b = 5;
     int sum, product, average;
     calculate(a, b, &sum, &product, &average);
-    printf("sum = %d, product = %d, average = %.2f", sum, product, average);
+    printf("sum = %d, product = %d, average = %d", sum, product, average);
     
 
 
 
     return 0;
 }
-void calculate(int a, int b , int *sum, int *product, float *average){
+void calculate(int a, int b , int *sum, int *product, int *average){
     *sum = a + b;
     *product = a * b;
-    *average = (float)*sum / 2;
-    printf(" the sum of %d and %d is: %d\n", a, b, *sum);
-    printf(" the product of %d and %d is: %d\n", a, b, *product);
-    printf(" the average of %d and %d is: %.2f\n", a, b, *average);
-
+    *average = *sum / 2;
+    
 }
