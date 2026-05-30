@@ -89,33 +89,46 @@
 // }
 
 // q swap 2 numbers using a, b
-void swap (int a, int b);
-void _swap (int *a, int *b);
-int main(){
-    int x = 5, y = 10;
-    swap(x, y);
-    printf("x = %d, y = %d\n", x, y);
-    _swap(&x, &y);
-    printf("x = %d, y = %d\n", x, y);
+// void swap (int a, int b);
+// void _swap (int *a, int *b);
+// int main(){
+//     int x = 5, y = 10;
+//     swap(x, y);
+//     printf("x = %d, y = %d\n", x, y);
+//     _swap(&x, &y);
+//     printf("x = %d, y = %d\n", x, y);
 
-    return 0;
-}
+//     return 0;
+// }
 
 // call by refrence
-void _swap(int *a, int *b){
-    int t = *a;
-    *a = *b;
-    *b =t;
-    printf("a = %d, b = %d\n", *a, *b);
-}
+// void _swap(int *a, int *b){
+//     int t = *a;
+//    / *a = *b;
+//   /  *b =t;
+//     printf("a = %d, b = %d\n", *a, *b);
+// }
 
 
 // call by value
-void swap (int a, int b){
-    int t = a;
-    a = b;
-    b = t;
-    printf("a = %d, b = %d\n", a, b);
+// void swap (int a, int b){
+//     int t = a;
+//     a = b;
+//     b = t;
+//     printf("a = %d, b = %d\n", a, b);
 
 
+// }
+ 
+// q will th address output be the same ?
+void printAddress(int n);
+int main(){
+    int n = 5;
+    printf("%p\n", &n);
+    printAddress(n);
+
+    return 0;
+}
+void printAddress(int n){
+    printf("The address of n is: %p\n", &n);
 }
