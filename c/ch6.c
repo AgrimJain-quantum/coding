@@ -1,5 +1,7 @@
 // pointers - a variable that stores the memory address of another variable
 #include<stdio.h>
+
+void square(int n);
 int main(){
     // int a = 10;
     // int *p = &a; // "*" is the dereference operator, it gives us the value stored at the memory address that p is pointing to
@@ -28,11 +30,13 @@ int main(){
     // int x;
 
     // ptr = &x;
-    // *ptr = 0;
+    // =*ptr = 0;
     // printf("x = %d\n", x);
     // printf("*ptr = %d\n", *ptr);
     
-    // *ptr += 5;
+    /*
+    =*ptr += 5;
+    */ 
     // printf("x = %d\n", x);
     // printf("*ptr = %d\n", *ptr);
 
@@ -47,16 +51,18 @@ int main(){
     // printf("The value of fp is: %p\n", fp); 
     // printf("The value of fpp is: %p\n", fpp);
     // printf("The value of *fp is: %f\n", *fp);
-    // printf("The value of **fpp is: %f\n", **fpp);
-
+    // printf("The value of **fpp is: %f\n", **fpp)
+    square(5);
     
 
 
-
-    
 
 
 
     return 0;
+}
+
+void square(int n){
+    printf("The square of %d is %d\n", n, n*n);
 }
 
