@@ -23,7 +23,22 @@ int main(){
     printf("final cost of item 2 with gst: %f\n", price[1] + (price[1] * 0.18));
     printf("final cost of item 3 with gst: %f\n", price[2] + (price[2] * 0.18));
 
-    
+    // initialization of array
+    int arr[5] = {0}; // all elements will be initialized to 0
+    int arr2[5] = {1, 2}; // first two elements will be initialized to 1 and 2, rest will be initialized to 0
+    int arr3[5] = {1, 2, 3, 4, 5}; // all elements will be initialized to 1, 2, 3, 4, 5
+    int arr5[] = {1, 2, 3, 4, 5}; // size of the array will be determined by the number of initializers
+    printf("arr[0] = %d, arr[1] = %d, arr[2] = %d, arr[3] = %d, arr[4] = %d\n", arr[0], arr[1], arr[2], arr[3], arr[4]);
+
+
+    // pointer arithmetic 
+    int a =  10;
+    int *p = &a;
+    printf("p = %u", p);
+    p++;
+    printf("p = %u", p);
+
+
 
     return 0;
 }
