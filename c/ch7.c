@@ -11,7 +11,7 @@ int main(){
     // printf("m[3] = {10, 20, 30}\n");
     
     // q write a program to enter price of 3 items and print there final cost with gst of 18%
-    float price[3] = {10, 20, 30};
+    // float price[3] = {10, 20, 30};
     // printf("enter price for item 1 : ");   /*
     // scanf("%f", &price[0]);
     // printf("enter price for item 2 :");             used for taking input from user
@@ -19,9 +19,9 @@ int main(){
     // printf("enter price for item 3 : ");
     // scanf("%f", &price[2]);                /*
     
-    printf("final cost of item 1 with gst: %f\n", price[0] + (price[0] * 0.18));
-    printf("final cost of item 2 with gst: %f\n", price[1] + (price[1] * 0.18));
-    printf("final cost of item 3 with gst: %f\n", price[2] + (price[2] * 0.18));
+    // printf("final cost of item 1 with gst: %f\n", price[0] + (price[0] * 0.18));
+    // printf("final cost of item 2 with gst: %f\n", price[1] + (price[1] * 0.18));
+    // printf("final cost of item 3 with gst: %f\n", price[2] + (price[2] * 0.18));
 
     // initialization of array
     int arr[5] = {0}; // all elements will be initialized to 0
@@ -32,6 +32,8 @@ int main(){
 
 
     // pointer arithmetic 
+
+    // case1
     int a =  10;
     int *p = &a;
     printf("p = %u\n", p);
@@ -39,6 +41,16 @@ int main(){
     printf("p = %u\n", p);
     p--;
     printf("p = %u\n", p);
+
+    // case2
+    float f = 3.14;
+    float *fp = &f;
+    printf("fp = %u\n", fp);
+    fp++;
+    printf("fp = %u\n", fp);
+    fp--;
+    printf("fp = %u\n", fp);
+    
 
 
 
