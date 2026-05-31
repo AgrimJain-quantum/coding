@@ -24,35 +24,49 @@ int main(){
     // printf("final cost of item 3 with gst: %f\n", price[2] + (price[2] * 0.18));
 
     // initialization of array
-    int arr[5] = {0}; // all elements will be initialized to 0
-    int arr2[5] = {1, 2}; // first two elements will be initialized to 1 and 2, rest will be initialized to 0
-    int arr3[5] = {1, 2, 3, 4, 5}; // all elements will be initialized to 1, 2, 3, 4, 5
-    int arr5[] = {1, 2, 3, 4, 5}; // size of the array will be determined by the number of initializers
-    printf("arr[0] = %d, arr[1] = %d, arr[2] = %d, arr[3] = %d, arr[4] = %d\n", arr[0], arr[1], arr[2], arr[3], arr[4]);
+    // int arr[5] = {0}; // all elements will be initialized to 0
+    // int arr2[5] = {1, 2}; // first two elements will be initialized to 1 and 2, rest will be initialized to 0
+    // int arr3[5] = {1, 2, 3, 4, 5}; // all elements will be initialized to 1, 2, 3, 4, 5
+    // int arr5[] = {1, 2, 3, 4, 5}; // size of the array will be determined by the number of initializers
+    // printf("arr[0] = %d, arr[1] = %d, arr[2] = %d, arr[3] = %d, arr[4] = %d\n", arr[0], arr[1], arr[2], arr[3], arr[4]);
 
 
     // pointer arithmetic 
 
     // case1
-    int a =  10;
-    int *p = &a;
-    printf("p = %u\n", p);
-    p++;
-    printf("p = %u\n", p);
-    p--;
-    printf("p = %u\n", p);
+    // int a =  10;
+    // int *p = &a;
+    // printf("p = %u\n", p);
+    // p++;
+    // printf("p = %u\n", p);
+    // p--;
+    // printf("p = %u\n", p);
 
-    // case2
-    float f = 3.14;
-    float *fp = &f;
-    printf("fp = %u\n", fp);
-    fp++;
-    printf("fp = %u\n", fp);
-    fp--;
-    printf("fp = %u\n", fp);
-    
+    // \// case2
+    // float f = 3.14;
+    // float *fp = &f;
+    // printf("fp = %u\n", fp);
+    // fp++;
+    // printf("fp = %u\n", fp);
+    // fp--;
+    // printf("fp = %u\n", fp);
 
+    //\ // case3
+    // char c = 'a';
+    // char *cp = &c;
+    // printf("cp = %u\n", cp);
+    // cp++;
+    // printf("cp = %u\n", cp);
+    // cp--;
+    // printf("cp = %u\n", cp);
 
+    int age = 25;
+    int _age = 30;
+    int *q = &age;
+    int *r = &_age;
+    printf("%u, %u, difference = %u\n", q, r, q - r);
+    r = &age;
+    printf("comparison = %u\n" , q == r);
 
     return 0;
 }
