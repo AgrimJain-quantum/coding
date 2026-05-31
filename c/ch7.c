@@ -34,9 +34,11 @@ int main(){
     // pointer arithmetic 
     int a =  10;
     int *p = &a;
-    printf("p = %u", p);
+    printf("p = %u\n", p);
     p++;
-    printf("p = %u", p);
+    printf("p = %u\n", p);
+    p--;
+    printf("p = %u\n", p);
 
 
 
