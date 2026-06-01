@@ -69,14 +69,14 @@ int main(){
     // printf("comparison = %u\n" , q == r);
 
 
-    // .// array is a pointer 
-    // int arr[5] = {1, 2, 3, 4, 5};
-    // int *p = arr; // p points to the first element of the array
-    // printf("p = %u\n", p);
-    // p++;
-    // printf("p = %u\n", p);
-    // p--;
-    // printf("p = %u\n", p);
+    // array is a pointer 
+    int arr[5] = {1, 2, 3, 4, 5};
+    int *p = arr; // p points to the first element of the array
+    printf("p = %u\n", p);
+    p++;
+    printf("p = %u\n", p);
+    p--;
+    printf("p = %u\n", p);
 
     printf("size of char = %u\n", sizeof(char));
     printf("size of int = %u\n", sizeof(int));
