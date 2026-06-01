@@ -83,14 +83,31 @@ int main(){
     // printf("size of float = %u\n", sizeof(float));
     // printf("size of double = %u\n", sizeof(double));
 
-    int addhar[5];
-    int *p = &addhar[0];
-    for (int i = 0; i < 5; i++){
-        printf("%d index : ", i);
-        scanf("%d",(p + i));
-    }
-    for ( int i = 0; i < 5; i++){
-        printf("%d index : %d\n", i, *(p + i));
+    // int addhar[5];
+    // int *p = &addhar[0];
+    // for (int i = 0; i < 5; i++){
+    //     printf("%d index : ", i);
+    //     scanf("%d",(p + i));
+    // }
+    // for ( int i = 0; i < 5; i++){
+    //     printf("%d index : %d\n", i, *(p + i));
+    // }
+    // for (int i = 0; i < 5; i++){
+    //     printf("%d index : ", i);
+    //     scanf("%d",&addhar[i]);
+    // }
+    // for ( int i = 0; i < 5; i++){
+    //     printf("%d index : %d\n", i, addhar[i]);
+    // }
+
+    // arrays as function arguments 
+    void printn(int arr[], int n);
+    int main(){
+
+
+        
+        return 0;
+
     }
 
 
