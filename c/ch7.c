@@ -60,27 +60,28 @@ int main(){
     // cp--;
     // printf("cp = %u\n", cp);
 
-    int age = 25;
-    int _age = 30;
-    int *q = &age;
-    int *r = &_age;
-    printf("%u, %u, difference = %u\n", q, r, q - r);
-    r = &age;
-    printf("comparison = %u\n" , q == r);
+    // int age = 25;
+    // int _age = 30;
+    // int *q = &age;
+    // int *r = &_age;
+    // printf("%u, %u, difference = %u\n", q, r, q - r);
+    // r = &age;
+    // printf("comparison = %u\n" , q == r);
 
 
-    // array is a pointer 
-    int arr[5] = {1, 2, 3, 4, 5};
-    int *p = arr; // p points to the first element of the array
-    printf("p = %u\n", p);
-    p++;
-    printf("p = %u\n", p);
-    p--;
-    printf("p = %u\n", p);
+    // .// array is a pointer 
+    // int arr[5] = {1, 2, 3, 4, 5};
+    // int *p = arr; // p points to the first element of the array
+    // printf("p = %u\n", p);
+    // p++;
+    // printf("p = %u\n", p);
+    // p--;
+    // printf("p = %u\n", p);
 
-
-
-
+    printf("size of char = %u\n", sizeof(char));
+    printf("size of int = %u\n", sizeof(int));
+    printf("size of float = %u\n", sizeof(float));
+    printf("size of double = %u\n", sizeof(double));
 
     return 0;
 }
