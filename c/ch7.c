@@ -1,5 +1,4 @@
 #include<stdio.h>
-int main(){
 
     // int m1 = 10;
     // int m2 = 20;
@@ -101,45 +100,15 @@ int main(){
     // }
 
     // arrays as function arguments 
-    void printn(int arr[], int n);
+    void printn(int *arr, int n);
     int main(){
-        int arr[] = {1, 2, 3, 4, 5, 6};
+        int arr[6] = {1, 2, 3, 4, 5, 6};
         printn(arr, 6);
-
-
-
         return 0;
-
     }
-    void printn(int arr[], int n){
+    void printn(int *arr, int n){
         for (int i = 0; i < n; i++){
             printf("%d \t", arr[i]);
         }
-        printf("\n")
+        printf("\n");
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-    return 0;
-}
