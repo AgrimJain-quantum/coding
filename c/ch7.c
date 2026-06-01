@@ -70,18 +70,49 @@ int main(){
 
 
     // array is a pointer 
-    int arr[5] = {1, 2, 3, 4, 5};
-    int *p = &arr[0]; // p points to the first element of the array
-    printf("p = %u\n", p);
-    p++;
-    printf("p = %u\n", p);
-    p--;
-    printf("p = %u\n", p);
+    // int arr[5] = {1, 2, 3, 4, 5};
+    // int *p = &arr[0]; // p points to the first element of the array
+    // printf("p = %u\n", p);
+    // p++;
+    // printf("p = %u\n", p);
+    // p--;
+    // printf("p = %u\n", p);
 
-    printf("size of char = %u\n", sizeof(char));
-    printf("size of int = %u\n", sizeof(int));
-    printf("size of float = %u\n", sizeof(float));
-    printf("size of double = %u\n", sizeof(double));
+    // printf("size of char = %u\n", sizeof(char));
+    // printf("size of int = %u\n", sizeof(int));
+    // printf("size of float = %u\n", sizeof(float));
+    // printf("size of double = %u\n", sizeof(double));
+
+    int addhar[5];
+    int *p = &addhar[0];
+    for (int i = 0; i < 5; i++){
+        printf("%d index : ", i);
+        scanf("%d",(p + i));
+    }
+    for ( int i = 0; i < 5; i++){
+        printf("%d index : %d\n", i, *(p + i));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
 
 
 
