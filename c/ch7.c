@@ -102,6 +102,7 @@
     // arrays as function arguments 
     void printn(int *arr, int n);
     int countodd(int r[], int n);
+    int reverse(int r[], int n);
 
 
 
@@ -120,6 +121,7 @@
         printf("Number of odd elements: %d\n", oddCount);
         printf("%d\n", *(r + 2));
         printf("%d\n", *(r + 5));
+        for ()
         
 
 
