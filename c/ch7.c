@@ -71,7 +71,7 @@ int main(){
 
     // array is a pointer 
     int arr[5] = {1, 2, 3, 4, 5};
-    int *p = arr; // p points to the first element of the array
+    int *p = &arr[0]; // p points to the first element of the array
     printf("p = %u\n", p);
     p++;
     printf("p = %u\n", p);
@@ -82,6 +82,8 @@ int main(){
     printf("size of int = %u\n", sizeof(int));
     printf("size of float = %u\n", sizeof(float));
     printf("size of double = %u\n", sizeof(double));
+
+
 
     return 0;
 }
