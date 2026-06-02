@@ -121,7 +121,9 @@
         printf("Number of odd elements: %d\n", oddCount);
         printf("%d\n", *(r + 2));
         printf("%d\n", *(r + 5));
-        for ()
+        reverse(r, 5);
+        printn(r, 5);
+        
         
 
 
@@ -131,6 +133,17 @@
 
 
         return 0;
+    }
+
+    int reverse(int r[], int n){
+        for (int i = 0; i < n / 2; i++){
+            int firstval = r[i];
+            int secondval = r[n - i - 1];
+            r[i] = secondval;
+            r[n - i - 1] = firstval;
+
+
+        }
     }
 
 
