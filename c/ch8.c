@@ -5,6 +5,9 @@ int main(){
     // char class[] = "C Programming";
     // printf("%s\n", name);
     // printf("%s\n", class);
+    char firstname[] = "Agrim";
+    char lastname[] = "Jain";
+    
 
 
 
