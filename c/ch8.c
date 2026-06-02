@@ -35,6 +35,14 @@ int main(){
     scanf("%s", str);
     printf("You entered : %s\n", str);
 
+    // gets and puts fuctions 
+    char str1[100];
+    gets(str1);
+    printf("You entered : ");
+    puts(str1);
+    printf("you entered : %s\n", str1);
+    
+
 
 
 
