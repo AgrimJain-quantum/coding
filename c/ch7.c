@@ -100,9 +100,9 @@
     // }
 
     // arrays as function arguments 
-    void printn(int *arr, int n);
-    int countodd(int r[], int n);
-    int reverse(int r[], int n);
+    // void printn(int *arr, int n);
+    // int countodd(int r[], int n);
+    // int reverse(int r[], int n);
 
 
 
@@ -110,58 +110,63 @@
 
 
     int main(){
-        int arr[6] = {1, 2, 3, 4, 5, 6};
-        printn(arr, 6);
+        // int arr[6] = {1, 2, 3, 4, 5, 6};
+        // printn(arr, 6);
         // int array[2][3] = {{1, 2, 3}, {4, 5, 6}};
         // printf("array[0][0] = %d, array[0][1] = %d, array[0][2] = %d\n", array[0][0], array[0][1], array[0][2]);
         // printf("array[1][0] = %d, array[1][1] = %d, array[1][2] = %d\n", array[1][0], array[1][1], array[1][2]);
         // printf("array[2][3] = %d\n", array[2][3]);
-        int r[5] = {1, 2, 3, 4, 5};
-        int oddCount = countodd(r, 5);
-        printf("Number of odd elements: %d\n", oddCount);
-        printf("%d\n", *(r + 2));
-        printf("%d\n", *(r + 5));
-        reverse(r, 5);
-        printn(r, 5);
+        // int r[5] = {1, 2, 3, 4, 5};
+        // int oddCount = countodd(r, 5);
+        // printf("Number of odd elements: %d\n", oddCount);
+        // printf("%d\n", *(r + 2));
+        // printf("%d\n", *(r + 5));
+        // reverse(r, 5);
+        // printn(r, 5);
+        int n ;
+        printf("enter n(n>2) : ");
+        scanf("%d", &n);
+        int fib[n];
+        fib[0] = 0;
+        fib[1] = 1;
+        for (int i = 2; i < n; i++){
+            fib[i] = fib[i - 1] + fib[i - 2];
+            printf("%d \t", fib[i]);
+
+        }
+        printf("\n");
+
         
-        
-
-
-
-
-
-
-
         return 0;
     }
 
-    int reverse(int r[], int n){
-        for (int i = 0; i < n / 2; i++){
-            int firstval = r[i];
-            int secondval = r[n - i - 1];
-            r[i] = secondval;
-            r[n - i - 1] = firstval;
+    // int reverse(int r[], int n){
+    //     for (int i = 0; i < n / 2; i++){
+    //         int firstval = r[i];
+    //         int secondval = r[n - i - 1];
+    //         r[i] = secondval;
+    //         r[n - i - 1] = firstval;
 
 
-        }
-    }
+    //     }
+    // }
 
 
 
-    void printn(int *arr, int n){
-        for (int i = 0; i < n; i++){
-            printf("%d \t", arr[i]);
-        }
-        printf("\n");
-    }
+    // void printn(int *arr, int n){
+    //     for (int i = 0; i < n; i++){
+    //         printf("%d \t", arr[i]);
+    //     }
+    //     printf("\n");
+    // }
 
-    int countodd(int r[], int n){
-        int count = 0;
-        for (int i = 0; i < n; i++){
-            if (r[i] % 2 != 0){
-                count++;        
-            }
-        }
-        return count;
+    // int countodd(int r[], int n){
+    //     int count = 0;
+    //     for (int i = 0; i < n; i++){
+    //         if (r[i] % 2 != 0){
+    //             count++;        
+    //         }
+    //     }
+    //     return count;
 
-    }
+    // }
