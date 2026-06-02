@@ -24,7 +24,16 @@ int main(){
    // now writing the above program using fuctions
     printstring(firstname);
     printstring(lastname);
-    
+
+    // string format specifier
+    char n[] = "Agrim";
+    printf("%s\n", n);
+
+
+    char str[100];
+    printf("Enter a string : ");
+    scanf("%s", str);
+    printf("You entered : %s\n", str);
 
 
 
