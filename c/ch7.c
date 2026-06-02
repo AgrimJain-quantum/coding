@@ -103,8 +103,8 @@
     // void printn(int *arr, int n);
     // int countodd(int r[], int n);
     // int reverse(int r[], int n);
-    void storetable(int table[10][10], int n);
-    
+    void storetable(int table[0][10], int n, int m, int no);
+
 
 
 
@@ -125,22 +125,57 @@
         // printf("%d\n", *(r + 5));
         // reverse(r, 5);
         // printn(r, 5);
-        int n ;
-        printf("enter n(n>2) : ");
-        scanf("%d", &n);
-        int fib[n];
-        fib[0] = 0;
-        fib[1] = 1;
-        for (int i = 2; i < n; i++){
-            fib[i] = fib[i - 1] + fib[i - 2];
-            printf("%d \t", fib[i]);
+        // int n ;
+        // printf("enter n(n>2) : ");
+        // scanf("%d", &n);
+        // int fib[n];
+        // fib[0] = 0;
+        // fib[1] = 1;
+        // for (int i = 2; i < n; i++){
+        //     fib[i] = fib[i - 1] + fib[i - 2];
+        //     printf("%d \t", fib[i]);
 
+        // }
+        // printf("\n");
+        int tables[2][10];
+        storetable(tables, 0, 10, 2);
+        storetable(tables, 1, 10, 3);
+        for (int i = 0; i < 10; i++){
+            printf("%d\t", tables[0][i]);
+        }
+        printf("\n");
+        for (int i = 0; i < 10; i++){
+            printf("%d\t", tables[1][i]);
         }
         printf("\n");
 
 
+
+
+
+
+
+
         return 0;
     }
+
+    void storetable(int table[0][10], int n, int m, int no){
+        for (int i = 0; i < m; i++){
+            table[n][i] = no * (i + 1);
+        }  
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     // int reverse(int r[], int n){
     //     for (int i = 0; i < n / 2; i++){
