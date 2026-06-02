@@ -1,4 +1,6 @@
 #include<stdio.h>
+
+void printstring(char str[]);
 int main(){
 
     // char name[] = {'a','g','r','i','m','\0'};
@@ -15,6 +17,13 @@ int main(){
         printf("%c\t", lastname[i]);
     }
     printf("\n");
+
+    /* so \t is a tab character - gives space between characters 
+    and \n is a new line character - gives space between lines
+    */
+   // now writing the above program using fuctions
+    printstring(firstname);
+    printstring(lastname);
     
 
 
@@ -29,9 +38,11 @@ int main(){
 
 
 
-
-
-
-
     return 0;
+}
+void printstring(char str[]){
+    for(int i = 0; str[i] != '\0'; i++){
+        printf("%c\t", str[i]);
+    }
+    printf("\n");
 }
