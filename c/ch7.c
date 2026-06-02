@@ -103,6 +103,8 @@
     // void printn(int *arr, int n);
     // int countodd(int r[], int n);
     // int reverse(int r[], int n);
+    void storetable(int table[10][10], int n);
+    
 
 
 
@@ -136,7 +138,7 @@
         }
         printf("\n");
 
-        
+
         return 0;
     }
 
