@@ -54,9 +54,9 @@ int main(){
     //     printf("Odd\n");
     // }
 
-    char firstname[50];
-    scanf("%s", firstname);
-    printf("The first name is : %s\n", firstname);
+    // char firstname[50];
+    // scanf("%s", firstname);
+    // printf("The first name is : %s\n", firstname);
 
 
     /* when ever we want to input a string with spaces we have to use some functions apart 
@@ -68,14 +68,11 @@ int main(){
     fgets() = it reads a line from the specified stream and stores it into the string pointed to by str until 
     either a newline character is found, the end of file is reached, or the specified number of characters has been read.
 
-
-
-
-
-
-
-
     */
+   char n[100];
+   gets(n);
+   puts(n);
+
 
 
     
