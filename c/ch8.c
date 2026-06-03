@@ -72,7 +72,8 @@ int main(){
      stdout = standard output stream (console)
     */
    char n[100];
-   gets(n);
+   fgets(n, 100, stdin);
+   //gets(n);
    puts(n);
 
 
