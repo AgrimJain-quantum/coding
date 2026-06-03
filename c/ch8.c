@@ -43,16 +43,41 @@ int main(){
     // printf("you entered : %s\n", str1);
 
 
-    int a,x;
-    printf("Enter a number : ");
-    scanf("%d", &a);
-    x=a%2;
-    if(x==0){
-        printf("Even\n");
-    }
-    else{
-        printf("Odd\n");
-    }
+    // int a,x;
+    // printf("Enter a number : ");
+    // scanf("%d", &a);
+    // x=a%2;
+    // if(x==0){
+    //     printf("Even\n");
+    // }
+    // else{
+    //     printf("Odd\n");
+    // }
+
+    char firstname[50];
+    scanf("%s", firstname);
+    printf("The first name is : %s\n", firstname);
+
+
+    /* when ever we want to input a string with spaces we have to use some functions apart 
+    from scanf as it only prints the string untill the first space is reached.
+    so we can use like gets() , puts() or fgets()
+    gets() = it reads a line from stdin and stores it into the string pointed to by str until
+     either a newline character is found or the end of file is reached.
+    puts() = it writes the string str and a trailing newline to stdout.
+    fgets() = it reads a line from the specified stream and stores it into the string pointed to by str until 
+    either a newline character is found, the end of file is reached, or the specified number of characters has been read.
+
+
+
+
+
+
+
+
+    */
+
+
     
 
 
