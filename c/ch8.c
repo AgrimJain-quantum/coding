@@ -66,12 +66,16 @@ int main(){
      either a newline character is found or the end of file is reached.
     puts() = it writes the string str and a trailing newline to stdout.
     fgets() = it reads a line from the specified stream and stores it into the string pointed to by str until 
-    either a newline character is found, the end of file is reached, or the specified number of characters has been read.
-
+    either
+    a newline character is found, the end of file is reached, or the specified number of characters has been read.
+     stdin = standard input stream (keyboard)
+     stdout = standard output stream (console)
     */
    char n[100];
    gets(n);
    puts(n);
+
+
 
 
 
