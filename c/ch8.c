@@ -71,10 +71,21 @@ int main(){
      stdin = standard input stream (keyboard)
      stdout = standard output stream (console)
     */
-   char n[100];
-   fgets(n, 100, stdin);
+   //char n[100];
+   //fgets(n, 100, stdin);
    //gets(n);
-   puts(n);
+   //puts(n);
+   //char *str = "agrim jain";
+   //puts(str);
+   char *canchange = "agrim jain";
+   puts(canchange);
+   canchange = "hello world";
+   puts(canchange);
+
+   char cannotchange[] = "agrim jain";
+   puts(cannotchange);
+  
+
 
 
 
