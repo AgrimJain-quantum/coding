@@ -92,7 +92,16 @@ int main(){
     // printf("The length of the string is : %d\n", countLength(name));
     char name[] = "agrim jain";
     printf("The length of the string is : %d\n", strlen(name));
+    char oldstr[] = "agrim jain";
+    char newstr[] = "hello world";
+    strcpy(newstr, oldstr);
+    puts(newstr);
 
+    char firststring[100] = "hello ";
+    char secondstring[] = "world";
+    strcat(firststring, secondstring);
+    puts(firststring);
+    
 
   
 
