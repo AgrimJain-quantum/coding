@@ -101,7 +101,8 @@ int main(){
     char secondstring[] = "world";
     strcat(firststring, secondstring);
     puts(firststring);
-    
+    printf("%d", strcmp(firststring, secondstring));
+
 
   
 
