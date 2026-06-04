@@ -2,7 +2,7 @@
 #include<string.h>
 
 // void printstring(char str[]);
-int countLength(char arr[]);
+// int countLength(char arr[]);
 int main(){
 
     // char name[] = {'a','g','r','i','m','\0'};
@@ -90,18 +90,33 @@ int main(){
     // char name[100];
     // fgets(name, 100, stdin);
     // printf("The length of the string is : %d\n", countLength(name));
-    char name[] = "agrim jain";
-    printf("The length of the string is : %d\n", strlen(name));
-    char oldstr[] = "agrim jain";
-    char newstr[] = "hello world";
-    strcpy(newstr, oldstr);
-    puts(newstr);
+    // char name[] = "agrim jain";
+    // printf("The length of the string is : %d\n", strlen(name));
+    // char oldstr[] = "agrim jain";
+    // char newstr[] = "hello world";
+    // strcpy(newstr, oldstr);
+    // puts(newstr);
 
-    char firststring[100] = "hello ";
-    char secondstring[] = "world";
-    strcat(firststring, secondstring);
-    puts(firststring);
-    printf("%d", strcmp(firststring, secondstring));
+    // char firststring[100] = "hello ";
+    // char secondstring[] = "world";
+    // strcat(firststring, secondstring);
+    // puts(firststring);
+    // printf("%d", strcmp(firststring, secondstring));
+    char str[100];
+    char ch;
+    int i = 0;
+    while(ch != '\n'){
+        scanf("%c", &ch);
+        str[i] = ch;
+        i++;
+
+    }
+    str[i] = '\0';
+    
+
+
+
+
 
 
   
@@ -118,10 +133,10 @@ int main(){
 //     printf("\n");
 // }
 
-int countLength(char arr[]){
-    int count = 0;
-    for(int i = 0; arr[i] != '\0'; i++){
-        count++;
-    }
-    return count - 1;
-}
+    // int countLength(char arr[]){
+    //     int count = 0;
+    //     for(int i = 0; arr[i] != '\0'; i++){
+    //         count++;
+    //     }
+    //     return count - 1;
+    // }
