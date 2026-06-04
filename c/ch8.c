@@ -1,6 +1,7 @@
 #include<stdio.h>
 
 // void printstring(char str[]);
+void countLenght(char arr[]);
 int main(){
 
     // char name[] = {'a','g','r','i','m','\0'};
@@ -77,30 +78,18 @@ int main(){
    //puts(n);
    //char *str = "agrim jain";
    //puts(str);
-   char *canchange = "agrim jain";
-   puts(canchange);
-   canchange = "hello world";
-   puts(canchange);
+//    char *canchange = "agrim jain";
+//    puts(canchange);
+//    canchange = "hello world";
+//    puts(canchange);
 
-   char cannotchange[] = "agrim jain";
-   puts(cannotchange);
+//    char cannotchange[] = "agrim jain";
+//    puts(cannotchange);
+
+    char name[100];
+    fgets(name, 100, stdin);
+
   
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
 
 
 
@@ -113,3 +102,11 @@ int main(){
 //     }
 //     printf("\n");
 // }
+
+void countLength(char arr[]){
+    int count = 0;
+    for(int i = 0; arr[i] != '\0'; i++){
+        count++;
+    }
+    printf("The length of the string is : %d\n", count);
+}
