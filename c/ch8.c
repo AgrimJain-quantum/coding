@@ -114,6 +114,7 @@ int main(){
     str[i] = '\0';
     puts(str);
     
+    // q find the salted form of a pass word entered by the user if the salt is 123 and added 
 
 
 
