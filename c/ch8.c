@@ -112,7 +112,9 @@ int main(){
 
     }
     str[i] = '\0';
+    puts(str);
     
+
 
 
 
