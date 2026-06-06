@@ -116,9 +116,10 @@ int main(){
     // str[i] = '\0';
     // puts(str);
     
-    char firstStr[] = "apple";
-    char secStr[] = "banana";
-    printf("%d\n", strcmp(firstStr, secStr));
+    // char firstStr[] = "apple";
+    // char secStr[] = "banana";
+    // printf("%d\n", strcmp(firstStr, secStr));
+    char password[100];
     
 
 
