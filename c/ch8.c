@@ -3,6 +3,7 @@
 
 // void printstring(char str[]);
 // int countLength(char arr[]);
+void salting(char password[]);
 int main(){
 
     // char name[] = {'a','g','r','i','m','\0'};
@@ -120,7 +121,9 @@ int main(){
     // char secStr[] = "banana";
     // printf("%d\n", strcmp(firstStr, secStr));
     char password[100];
-    
+    scanf("%s", password);
+
+
 
 
 
@@ -136,6 +139,26 @@ int main(){
 
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // void printstring(char str[]){
 //     for(int i = 0; str[i] != '\0'; i++){
 //         printf("%c\t", str[i]);
