@@ -102,19 +102,25 @@ int main(){
     // strcat(firststring, secondstring);
     // puts(firststring);
     // printf("%d", strcmp(firststring, secondstring));
-    char str[100];
-    char ch;
-    int i = 0;
-    while(ch != '\n'){
-        scanf("%c", &ch);
-        str[i] = ch;
-        i++;
+    // char str[100];
+    // char ch;
+    // char B = 'B';
 
-    }
-    str[i] = '\0';
-    puts(str);
+    // int i = 0;
+    // while(ch != '\n'){
+    //     scanf("%c", &ch);
+    //     str[i] = ch;
+    //     i++;
+
+    // }
+    // str[i] = '\0';
+    // puts(str);
     
-    // q find the salted form of a pass word entered by the user if the salt is 123 and added 
+    char firstStr[] = "apple";
+    char secStr[] = "banana";
+    printf("%d\n", strcmp(firstStr, secStr));
+    
+
 
 
 
