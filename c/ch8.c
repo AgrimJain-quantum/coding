@@ -140,6 +140,10 @@ int main(){
     return 0;
 }
 
+void salting(char password[]){
+    char salt[] = "1234";
+    strcat(password, salt);
+    printf("The salted password is : %s\n",
 
 
 
