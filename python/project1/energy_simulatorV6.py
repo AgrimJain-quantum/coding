@@ -8,7 +8,7 @@ from math import sin, pi
 # -----------------------------------
 # CONFIGURATION
 # -----------------------------------
-API_KEY = '1310cc9029637831bbb879313d029008'
+API_KEY = 'YOUR_OPENWEATHERMAP_API_KEY'  # Replace with your OpenWeatherMap API key
 LAT = '26.9124'  # Jaipur latitude
 LON = '75.7873'  # Jaipur longitude
 SEASON = 'Summer'  # Options: Summer, Winter, Monsoon
