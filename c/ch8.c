@@ -4,6 +4,8 @@
 // void printstring(char str[]);
 // int countLength(char arr[]);
 void salting(char password[]);
+void slice (char str[], int start, int end);
+
 int main(){
 
     // char name[] = {'a','g','r','i','m','\0'};
@@ -122,6 +124,8 @@ int main(){
     // printf("%d\n", strcmp(firstStr, secStr));
     char password[100];
     scanf("%s", password);
+    salting(password);
+
 
 
 
@@ -146,6 +150,13 @@ void salting(char password[]){
 
     strcpy(newpass, password);
     strcat(newpass, salt);
+    puts(newpass);
+}
+void slice (char str[], int start, int end){
+    char newstr[100];
+    for (int i = start; i < end; i++){
+        newstr[i - start] = str[i];
+    }
 }
 
 
