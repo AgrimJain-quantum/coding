@@ -5,6 +5,8 @@
 // int countLength(char arr[]);
 // void salting(char password[]);
 // void slice (char str[], int start, int end);
+int countVowels(char str[]);
+
 
 int main(){
 
@@ -127,6 +129,12 @@ int main(){
     // salting(password);
     // char str[] = "HelloWorld";
     // slice(str, 3, 6);
+    char str[100];
+    printf("Enter a string : ");
+    fgets(str, 100, stdin);
+
+    printf("%d", countVowels(str));
+
 
 
 
@@ -147,6 +155,23 @@ int main(){
     return 0;
 }
 
+int countVowels(char str[]){
+    int count = 0;
+    for(int i = 0; str[i] != '\0'; i++){
+        if(str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u' ||
+           str[i] == 'A' || str[i] == 'E' || str[i] == 'I' || str[i] == 'O' || str[i] == 'U'){
+            count++;
+        }
+    }
+    return count;
+}
+
+
+
+
+
+
+
 // void salting(char password[]){
 //     char salt[] = "1234";
 //     char newpass[200];
@@ -164,25 +189,6 @@ int main(){
 //     newstr[j] = '\0';
 //     puts(newstr);
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // void printstring(char str[]){
 //     for(int i = 0; str[i] != '\0'; i++){
 //         printf("%c\t", str[i]);
