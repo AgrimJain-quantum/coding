@@ -3,8 +3,8 @@
 
 // void printstring(char str[]);
 // int countLength(char arr[]);
-void salting(char password[]);
-void slice (char str[], int start, int end);
+// void salting(char password[]);
+// void slice (char str[], int start, int end);
 
 int main(){
 
@@ -122,9 +122,12 @@ int main(){
     // char firstStr[] = "apple";
     // char secStr[] = "banana";
     // printf("%d\n", strcmp(firstStr, secStr));
-    char password[100];
-    scanf("%s", password);
-    salting(password);
+    // char password[100];
+    // scanf("%s", password);
+    // salting(password);
+    // char str[] = "HelloWorld";
+    // slice(str, 3, 6);
+
 
 
 
@@ -144,20 +147,23 @@ int main(){
     return 0;
 }
 
-void salting(char password[]){
-    char salt[] = "1234";
-    char newpass[200];
+// void salting(char password[]){
+//     char salt[] = "1234";
+//     char newpass[200];
 
-    strcpy(newpass, password);
-    strcat(newpass, salt);
-    puts(newpass);
-}
-void slice (char str[], int start, int end){
-    char newstr[100];
-    for (int i = start; i < end; i++){
-        newstr[i - start] = str[i];
-    }
-}
+//     strcpy(newpass, password);
+//     strcat(newpass, salt);
+//     puts(newpass);
+// }
+// void slice (char str[], int start, int end){
+//     char newstr[100];
+//     int j = 0;
+//     for (int i = start; i < end; i++, j++){
+//         newstr[j] = str[i];
+//      }
+//     newstr[j] = '\0';
+//     puts(newstr);
+// }
 
 
 
