@@ -142,8 +142,11 @@ int main(){
 
 void salting(char password[]){
     char salt[] = "1234";
-    strcat(password, salt);
-    printf("The salted password is : %s\n",
+    char newpass[200];
+
+    strcpy(newpass, password);
+    strcat(newpass, salt);
+}
 
 
 
