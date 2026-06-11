@@ -136,22 +136,6 @@ int main(){
     printf("%d", countVowels(str));
 
 
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
     return 0;
 }
 

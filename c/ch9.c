@@ -1,11 +1,11 @@
 #include<stdio.h>
 #include<string.h>
 
-struct car{
-    char name[100];
-    int year;
-    float hp;
-};
+// struct car{
+//     char name[100];
+//     int year;
+//     float hp;
+// };
 
 
 int main(){
@@ -37,6 +37,11 @@ int main(){
     // printf("The model of the car is : %s", c1.model);
     // printf("The year of the car is : %d\n", c1.year);
     // printf("The horsepower of the car is : %f hp\n", c1.hp);
+    int age;
+    printf("Enter your age : ");
+    scanf("%d", &age);
+    (age >= 18) ? (printf("You are eligible to vote.\n")) :(printf("You are not eligible to vote.\n"));
+
     
 
 
