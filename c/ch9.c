@@ -1,12 +1,14 @@
 #include<stdio.h>
 #include<string.h>
-void printcar(struct car c);
+
 struct car{
     char name[100];
     char model[100];
     int year;
     float hp;
 };
+
+void printcar(struct car c);
 
 int main(){
     // struct car c1;
@@ -46,33 +48,31 @@ int main(){
     // printf("The model of the car is : %s\n", c1.model);
     // printf("The year of the car is : %d\n", c1.year);
     // printf("The horsepower of the car is : %.2f hp\n", c1.hp);
-    struct car s1 = {"Toyota", "Camry", 2020, 150.5};
-    printf("The name of the car is : %s\n", s1.name);
+    // struct car s1 = {"Toyota", "Camry", 2020, 150.5};
+    // printf("The name of the car is : %s\n", s1.name);
 
-    struct car *ptr = &s1;
-    printf("the name of the car =  %s\n", (*ptr).name);
-    printf("the horsepower of the car =  %.2f hp\n", (*ptr).hp);
+    // struct car *ptr = &s1;
+    // printf("the name of the car =  %s\n", (*ptr).name);
+    // printf("the horsepower of the car =  %.2f hp\n", (*ptr).hp);
     // arrow operator
     // (*ptr).code -> code
-    printf("student -> roll = %s\n", ptr->name);
-    printf("student -> hp = %.2f hp\n", ptr->hp);
+    // printf("student -> roll = %s\n", ptr->name);
+    // printf("student -> hp = %.2f hp\n", ptr->hp);
 
     // passing structure toi function
-    printcar(s1);
-
-
-    
-
-
-    
-
-
-
+    struct car c1 = {"toyota", "camry", 2020, 160.5};
+    printcar(c1);
+    struct car c2 = {"honda", "civic", 2022, 180.5};
+    printcar(c2);
+    struct car c3 = {"bmw", "m3 competition", 2023, 503.0};
+    printcar(c3);
     return 0;
 }
 void printcar(struct car c){
+    printf("car information : \n");
     printf("The name of the car is : %s\n", c.name);
-    printf("The model of the car is : %s\n", c.model);
+    printf("the model of the car is : %s\n", c.model);
     printf("The year of the car is : %d\n", c.year);
     printf("The horsepower of the car is : %.2f hp\n", c.hp);
+
 }
