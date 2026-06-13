@@ -1,12 +1,12 @@
 #include<stdio.h>
 #include<string.h>
 
-// struct car{
-//     char name[100];
-//     int year;
-//     float hp;
-// };
-
+struct car{
+    char name[100];
+    char model[100];
+    int year;
+    float hp;
+};
 
 int main(){
     // struct car c1;
@@ -41,6 +41,8 @@ int main(){
     printf("Enter your age : ");
     scanf("%d", &age);
     (age >= 18) ? (printf("You are eligible to vote.\n")) :(printf("You are not eligible to vote.\n"));
+    struct car c1 = {"Toyota", "Camry", 2020, 150.5};
+    
 
     
 
