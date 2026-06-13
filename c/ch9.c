@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<string.h>
-
+void printcar(struct car c);
 struct car{
     char name[100];
     char model[100];
@@ -57,6 +57,10 @@ int main(){
     printf("student -> roll = %s\n", ptr->name);
     printf("student -> hp = %.2f hp\n", ptr->hp);
 
+    // passing structure toi function
+    printcar(s1);
+
+
     
 
 
@@ -65,4 +69,10 @@ int main(){
 
 
     return 0;
+}
+void printcar(struct car c){
+    printf("The name of the car is : %s\n", c.name);
+    printf("The model of the car is : %s\n", c.model);
+    printf("The year of the car is : %d\n", c.year);
+    printf("The horsepower of the car is : %.2f hp\n", c.hp);
 }
