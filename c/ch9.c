@@ -37,12 +37,28 @@ int main(){
     // printf("The model of the car is : %s", c1.model);
     // printf("The year of the car is : %d\n", c1.year);
     // printf("The horsepower of the car is : %f hp\n", c1.hp);
-    int age;
-    printf("Enter your age : ");
-    scanf("%d", &age);
-    (age >= 18) ? (printf("You are eligible to vote.\n")) :(printf("You are not eligible to vote.\n"));
-    struct car c1 = {"Toyota", "Camry", 2020, 150.5};
+    // int age;
+    // printf("Enter your age : ");
+    // scanf("%d", &age);
+    // (age >= 18) ? (printf("You are eligible to vote.\n")) :(printf("You are not eligible to vote.\n"));
+    // struct car c1 = {"Toyota", "Camry", 2020, 150.5};
+    // printf("The name of the car is : %s\n", c1.name);
+    // printf("The model of the car is : %s\n", c1.model);
+    // printf("The year of the car is : %d\n", c1.year);
+    // printf("The horsepower of the car is : %.2f hp\n", c1.hp);
+    struct car s1 = {"Toyota", "Camry", 2020, 150.5};
+    printf("The name of the car is : %s\n", s1.name);
+
+    struct car *ptr = &s1;
+    printf("the name of the car =  %s\n", (*ptr).name);
+    printf("the horsepower of the car =  %.2f hp\n", (*ptr).hp);
+    // arrow operator
+    // (*ptr).code -> code
+    printf("student -> roll = %s\n", ptr->name);
+    printf("student -> hp = %.2f hp\n", ptr->hp);
+
     
+
 
     
 
