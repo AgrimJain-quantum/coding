@@ -10,25 +10,28 @@
 // };
 // void printaddress(struct address add);
 
-struct vector{
-    int x;
-    int y;
-};
-void calcsum(struct vector v1, struct vector v2, struct vector sum);
+// struct vector{
+//     int x;
+//     int y;
+// };
+// void calcsum(struct vector v1, struct vector v2, struct vector sum);
 
-struct complex {
-    float real;
-    float img;
-};
+// struct complex {
+//     float real;
+//     float img;
+// };
+
+struct bankaccount{
+    int account_no;
+    char name[100];
+    float balance;
+}acc;
 
 int main(){
-
-
-
-    struct complex n1 = {4, 5};
-    struct complex *ptr = &n1;
-    printf("The real part of the complex number is : %.2f\n", ptr->real);
-    printf("The imaginary part of the complex number is : %.2f\n", ptr->img);
+    // struct complex n1 = {4, 5};
+    // struct complex *ptr = &n1;
+    // printf("The real part of the complex number is : %.2f\n", ptr->real);
+    // printf("The imaginary part of the complex number is : %.2f\n", ptr->img);
     
     // enter the address of 5 users {house no.,block no., city, state}
     // struct address users[5];
@@ -51,27 +54,33 @@ int main(){
     // }
     
     // create a structure to store veectors . then make a fuction to return sum of 2 vectors
-    struct vector v1; 
-    printf("Enter the values of vector 1 : \n");
-    scanf("%d %d", &v1.x, &v1.y);
-    struct vector v2;
-    printf("Enter the values of vector 2 : \n");
-    scanf("%d %d", &v2.x, &v2.y);
-    struct vector sum = {0};
-    calcsum(v1, v2, sum);
+    // struct vector v1; 
+    // printf("Enter the values of vector 1 : \n");
+    // scanf("%d %d", &v1.x, &v1.y);
+    // struct vector v2;
+    // printf("Enter the values of vector 2 : \n");
+    // scanf("%d %d", &v2.x, &v2.y);
+    // struct vector sum = {0};
+    // calcsum(v1, v2, sum);
+
+    
+
+
+
+
 
 
 
     return 0;
 }
 
-void calcsum(struct vector v1, struct vector v2, struct vector sum){
-    sum.x = v1.x + v2.x;
-    sum.y = v1.y + v2.y;
-    printf("The sum of x is : %d\n", sum.x);
-    printf("The sum of y is : %d\n", sum.y);
+// void calcsum(struct vector v1, struct vector v2, struct vector sum){
+//     sum.x = v1.x + v2.x;
+//     sum.y = v1.y + v2.y;
+//     printf("The sum of x is : %d\n", sum.x);
+//     printf("The sum of y is : %d\n", sum.y);
 
-}
+// }
 
 // void printaddress(struct address add){
 //     printf("The address is : %d, %d, %s, %s\n", add.house_no, add.block_no, add.city, add.state);
