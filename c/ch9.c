@@ -21,10 +21,9 @@
 //     float img;
 // };
 
-struct bankaccount{
+typedef struct bankaccount{
     int account_no;
     char name[100];
-    float balance;
 }acc;
 
 int main(){
@@ -63,7 +62,13 @@ int main(){
     // struct vector sum = {0};
     // calcsum(v1, v2, sum);
 
-    
+    acc acc1 = {123, "agrimjain"};
+    printf("The account number is : %d\n", acc1.account_no);
+    printf("The name of the account holder is : %s\n", acc1.name);
+
+
+
+
 
 
 
