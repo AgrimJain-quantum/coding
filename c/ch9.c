@@ -1,6 +1,242 @@
 #include<stdio.h>
 #include<string.h>
 
+// struct address{
+//     int house_no;
+//     int block_no;
+//     char city[100];
+//     char state[100];
+
+// };
+// void printaddress(struct address add);
+
+struct vector{
+    int x;
+    int y;
+};
+void calcsum(struct vector v1, struct vector v2, struct vector sum);
+
+
+int main(){
+    // enter the address of 5 users {house no.,block no., city, state}
+    // struct address users[5];
+    // printf("Enter the address of 5 users : \n");
+    // for(int i = 0; i < 5; i++){
+    //     printf("Enter the house number for user %d : ", i+1);
+    //     scanf("%d", &users[i].house_no);
+    //     printf("Enter the block number for user %d : ", i+1);
+    //     scanf("%d", &users[i].block_no);
+    //     printf("Enter the city for user %d : ", i+1);
+    //     scanf("%s", users[i].city);
+    //     printf("Enter the state for user %d : ", i+1);
+    //     scanf("%s", users[i].state);
+    // }
+
+    // print the addresses of all users
+    // printf("The addresses of all users are : \n");
+    // for(int i = 0; i < 5; i++){
+    //     printaddress(users[i]);
+    // }
+
+
+    // create a structure to store veectors . then make a fuction to return sum of 2 vectors 
+    struct vector v1 = {2, 3};
+    struct vector v2 = {4, 5};
+    struct vector sum = {0};\
+    calcsum(v1, v2, sum);
+
+
+
+    return 0;
+}
+
+void calcsum(struct vector v1, struct vector v2, struct vector sum){
+    sum.x = v1.x + v2.x;
+    sum.y = v1.y + v2.y;
+    printf("The sum of x is : %d\n", sum.x);
+    printf("The sum of y is : %d\n", sum.y);
+    
+}
+
+// void printaddress(struct address add){
+//     printf("The address is : %d, %d, %s, %s\n", add.house_no, add.block_no, add.city, add.state);
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // struct car{
 //     char name[100];
 //     char model[100];
@@ -8,18 +244,18 @@
 //     float hp;
 // };
 
- typedef struct carr{
-    char name[100];
-    char model[100];
-    int year;
-    float hp;
-}volk;
+//  typedef struct carr{
+//     char name[100];
+//     char model[100];
+//     int year;
+//     float hp;
+// }volk;
 
 
 // void printcar(struct car c);
 
-int main(){
-    // struct car c1;
+
+// struct car c1;
     // c1.year = 2020;
     // c1.hp = 150.5;
     // strcpy(c1.name, "Toyota");
@@ -78,36 +314,11 @@ int main(){
 
     // typedef keywords 
     
-    volk v1 = {"volkswagen", "golf", 2021, 170.5};
-    printf("The name of the car is : %s\n", v1.name);
-    printf("The model of the car is : %s\n", v1.model);
-    printf("The year of the car is : %d\n", v1.year);
-    printf("The horsepower of the car is : %.2f hp\n", v1.hp);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    return 0;
-}
+    // volk v1 = {"volkswagen", "golf", 2021, 170.5};
+    // printf("The name of the car is : %s\n", v1.name);
+    // printf("The model of the car is : %s\n", v1.model);
+    // printf("The year of the car is : %d\n", v1.year);
+    // printf("The horsepower of the car is : %.2f hp\n", v1.hp);
 // void printcar(struct car c){
 //     printf("car information : \n");
 //     printf("The name of the car is : %s\n", c.name);
