@@ -16,8 +16,20 @@ struct vector{
 };
 void calcsum(struct vector v1, struct vector v2, struct vector sum);
 
+struct complex {
+    float real;
+    float img;
+};
 
 int main(){
+
+
+
+    struct complex n1 = {4, 5};
+    struct complex *ptr = &n1;
+    printf("The real part of the complex number is : %.2f\n", ptr->real);
+    printf("The imaginary part of the complex number is : %.2f\n", ptr->img);
+    
     // enter the address of 5 users {house no.,block no., city, state}
     // struct address users[5];
     // printf("Enter the address of 5 users : \n");
