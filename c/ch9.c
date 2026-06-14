@@ -37,12 +37,15 @@ int main(){
     // for(int i = 0; i < 5; i++){
     //     printaddress(users[i]);
     // }
-
-
-    // create a structure to store veectors . then make a fuction to return sum of 2 vectors 
-    struct vector v1 = {2, 3};
-    struct vector v2 = {4, 5};
-    struct vector sum = {0};\
+    
+    // create a structure to store veectors . then make a fuction to return sum of 2 vectors
+    struct vector v1; 
+    printf("Enter the values of vector 1 : \n");
+    scanf("%d %d", &v1.x, &v1.y);
+    struct vector v2;
+    printf("Enter the values of vector 2 : \n");
+    scanf("%d %d", &v2.x, &v2.y);
+    struct vector sum = {0};
     calcsum(v1, v2, sum);
 
 
