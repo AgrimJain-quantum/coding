@@ -18,15 +18,3 @@
 //     return 0;
 // }
 
-#include <stdio.h>
-
-int main(){
-    int a = 10;
-    void f1(){
-        printf("%d", a);  
-    }
-    f1();
-    return 0;
-
-    
-}
