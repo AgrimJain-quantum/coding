@@ -13,6 +13,8 @@ class main {
         */
        System.out.println("this is a multi line comment");
        System.out.println("this is a single line comment");
+       int x = 10;
+       System.out.println("the value of x is: " + x);
        
     }
 }
