@@ -16,6 +16,9 @@ class main {
        int x = 10;
        System.out.println("the value of x is: " + x);
        int age = 20;
+       int year = 2005;
+       System.out.println("my age is: " + age);
+       System.out.println("the current year is: " + year);
        
     }
 }
