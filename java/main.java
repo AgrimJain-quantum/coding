@@ -19,6 +19,14 @@ class main {
        int year = 2005;
        System.out.println("my age is: " + age);
        System.out.println("the current year is: " + year);
+       char grade = 'A';
+       System.out.println("my grade is : " + grade);
+       System.out.println("the value of x is: " + x + " and my age is: " + age + " and the current year is: " + year + " and my grade is: " + grade);
+       System.out.println("the value of x is: " + x + " and my age is: " + age + " and the current year is: " + year + " and my grade is: " + grade);
+
+       boolean fun = true;
+       System.out.println("is coding fun? " + fun);
        
+
     }
 }
