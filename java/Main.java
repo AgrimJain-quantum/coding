@@ -31,8 +31,31 @@ class main {
       // varirble =  a reusable container that holds data in memory
       //             a variable behaves 
       int age = 20;
-     
+      int year = 2005;
+      int quantity = 1;
 
+      double price = 10.99;
+      double gpa = 3.5;
+      double temperature = 98.6;
+
+      System.out.println("my age is: " + age);
+      System.out.println("the current year is: " + year);
+      System.out.println("the quantity is: " + quantity);
+      System.out.println("the price is: " + price);
+      System.out.println("my gpa is: " + gpa);
+      System.out.println("the temperature is: " + temperature);
+
+      char grade = 'A';
+      char symbol = '$';
+      char letter = 'B';
+      System.out.println("my grade is: " + grade);
+      System.out.println("the symbol is: " + symbol);
+      System.out.println("the letter is: " + letter);
+
+      boolean isStudent = true;
+      boolean isGraduated = false;
+      System.out.println("is student? " + isStudent);
+      System.out.println("is graduated? " + isGraduated);
 
 
     }
