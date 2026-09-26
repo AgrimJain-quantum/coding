@@ -66,6 +66,9 @@ class Main {
       String school = "muj";
       System.out.println("my name is: " + name);
       System.out.println("my school is: " + school);
+      System.out.println(69+1);
+      
+
       
 
 
