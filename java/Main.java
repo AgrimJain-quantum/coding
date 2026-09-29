@@ -1,3 +1,4 @@
+import java.util.Scanner;
 class Main {
     public static void main (String[] args) {
         System.out.println("Hello world");
@@ -69,11 +70,16 @@ class Main {
       System.out.println(69+1);
       
       // task1 
-      String name =  "Bro code";
+      String Name =  "Bro code";
       int gta = 6;
       double pi = 3.14;
       char gender = 'M';
       boolean isMale = true;
+      // System.out.println("the name is " + name + " the gta is " + gta + " the pi is " + pi + " the gender is " + gender + " is male? " + isMale);;
+      Scanner scanner = new Scanner(System.in);
+      System.out.print("Enter your name: ");
+      String userName = scanner.nextLine();
+      System.out.print("Enter your age: ");
       
     }
 }
