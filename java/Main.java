@@ -68,6 +68,12 @@ class Main {
       System.out.println("my school is: " + school);
       System.out.println(69+1);
       
-
+      // task1 
+      String name =  "Bro code";
+      int gta = 6;
+      double pi = 3.14;
+      char gender = 'M';
+      boolean isMale = true;
+      
     }
 }
