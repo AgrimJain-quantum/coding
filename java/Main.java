@@ -67,9 +67,7 @@ class Main {
       System.out.println("my name is: " + name);
       System.out.println("my school is: " + school);
       System.out.println(69+1);
-      System.out.println(45-1);
-      System.out.println(10*2);
-      System.out.println(20/2);
+      
 
     }
 }
