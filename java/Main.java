@@ -1,9 +1,9 @@
 import java.util.Scanner;
 class Main {
     public static void main (String[] args) {
-        System.out.println("Hello world");
-        System.out.println("hi my name is agrim jain");
-        System.out.println("i am a student of muj\n");
+      //   System.out.println("Hello world");
+      //   System.out.println("hi my name is agrim jain");
+      //   System.out.println("i am a student of muj\n");
         // single line comment
         /*
           this 
@@ -12,8 +12,8 @@ class Main {
           multi line 
           comment
         */
-       System.out.println("this is a multi line comment");
-       System.out.println("this is a single line comment");
+      //  System.out.println("this is a multi line comment");
+      //  System.out.println("this is a single line comment");
       //  int x = 10;
       //  System.out.println("the value of x is: " + x);
       //  int age = 20;
@@ -31,55 +31,47 @@ class Main {
       
       // varirble =  a reusable container that holds data in memory
       //             a variable behaves 
-      int age = 20;
-      int year = 2005;
-      int quantity = 1;
+      // int age = 20;
+      // int year = 2005;
+      // int quantity = 1;
 
-      double price = 10.99;
-      double gpa = 3.5;
-      double temperature = 98.6;
+      // double price = 10.99;
+      // double gpa = 3.5;
+      // double temperature = 98.6;
 
-      System.out.println("my age is: " + age);
-      System.out.println("the current year is: " + year);
-      System.out.println("the quantity is: " + quantity);
-      System.out.println("the price is: " + price);
-      System.out.println("my gpa is: " + gpa);
-      System.out.println("the temperature is: " + temperature);
+      // System.out.println("my age is: " + age);
+      // System.out.println("the current year is: " + year);
+      // System.out.println("the quantity is: " + quantity);
+      // System.out.println("the price is: " + price);
+      // System.out.println("my gpa is: " + gpa);
+      // System.out.println("the temperature is: " + temperature);
 
-      char grade = 'A';
-      char symbol = '$';
-      char letter = 'B';
-      System.out.println("my grade is: " + grade);
-      System.out.println("the symbol is: " + symbol);
-      System.out.println("the letter is: " + letter);
+      // char grade = 'A';
+      // char symbol = '$';
+      // char letter = 'B';
+      // System.out.println("my grade is: " + grade);
+      // System.out.println("the symbol is: " + symbol);
+      // System.out.println("the letter is: " + letter);
 
-      boolean isStudent = true;
-      boolean isGraduated = false;
-      System.out.println("is student? " + isStudent);
-      System.out.println("is graduated? " + isGraduated);
+      // boolean isStudent = true;
+      // boolean isGraduated = false;
+      // System.out.println("is student? " + isStudent);
+      // System.out.println("is graduated? " + isGraduated);
 
-      if(isStudent){
-        System.out.println("i am a student");
-      } else {
-        System.out.println("i am not a student");
-      }
-      String name = "agrim jain";
-      String school = "muj";
-      System.out.println("my name is: " + name);
-      System.out.println("my school is: " + school);
-      System.out.println(69+1);
+      // if(isStudent){
+      //   System.out.println("i am a student");
+      // } else {
+      //   System.out.println("i am not a student");
+      // }
+      // String name = "agrim jain";
+      // String school = "muj";
+      // System.out.println("my name is: " + name);
+      // System.out.println("my school is: " + school);
+      // System.out.println(69+1);
       
-      // task1 
-      String Name =  "Bro code";
-      int gta = 6;
-      double pi = 3.14;
-      char gender = 'M';
-      boolean isMale = true;
-      // System.out.println("the name is " + name + " the gta is " + gta + " the pi is " + pi + " the gender is " + gender + " is male? " + isMale);;
+      
       Scanner scanner = new Scanner(System.in);
-      System.out.print("Enter your name: ");
-      String userName = scanner.nextLine();
-      System.out.print("Enter your age: ");
+      
       
     }
 }
