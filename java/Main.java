@@ -74,5 +74,6 @@ class Main {
       
       String name = scanner.nextLine();
       System.out.println("your name is: " + name);
+      
     }
 }
