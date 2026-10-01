@@ -71,12 +71,8 @@ class Main {
       
       
       Scanner scanner = new Scanner(System.in);
-      System.out.println("enter your name: ");
-      String name = scanner.nextLine();
-      System.out.println("enter your age: ");
-      int age = scanner.nextInt();
-      System.out.println("your name is: " + name);
-      System.out.println("your age is: " + age);
       
+      String name = scanner.nextLine();
+      System.out.println("your name is: " + name);
     }
 }
