@@ -5,6 +5,9 @@ public class Test {
         System.out.println("enter your name: ");
         String name = Scanner.nextLine();
         System.out.println("Hello, " + name + "!");
+        System.out.println("enter your age: ");
+        int age = Scanner.nextInt();
+        System.out.println("You are " + age + " years old.");
         Scanner.close();
     }
 }
