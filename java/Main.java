@@ -68,12 +68,7 @@ class Main {
       // System.out.println("my name is: " + name);
       // System.out.println("my school is: " + school);
       // System.out.println(69+1);
-      
-      
-      Scanner scanner = new Scanner(System.in);
-      
-      String name = scanner.nextLine();
-      System.out.println("your name is: " + name);
+
       
     }
 }
