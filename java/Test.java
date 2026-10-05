@@ -11,6 +11,7 @@ public class Test {
 
         System.out.println("enter your gender: ");
         String gender = Scanner.nextLine();
+        
 
         
         
