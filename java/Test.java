@@ -8,6 +8,10 @@ public class Test {
 
         System.out.println("enter your age: ");
         int age = Scanner.nextInt();
+
+        System.out.println("enter your gender: ");
+        String gender = Scanner.nextLine();
+
         
         
 
@@ -15,6 +19,7 @@ public class Test {
         
         System.out.println("Hello, " + name + "!"); 
         System.out.println("You are " + age + " years old.");
+        System.out.println("Your gender is " + gender + ".");
         Scanner.close();
     }
 }
