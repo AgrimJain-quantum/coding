@@ -19,6 +19,7 @@ public class Test {
         System.out.println("You are " + age + " years old.");
         System.out.println("Your gender is " + gender + ".");
         System.out.println("Your GPA is " + gpa + ".");
+        
         Scanner.close();
     }
 }
