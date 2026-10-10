@@ -20,6 +20,7 @@ public class Test {
         System.out.println("Your gender is " + gender + ".");
         System.out.println("Your GPA is " + gpa + ".");
         
+        
         Scanner.close();
     }
 }
