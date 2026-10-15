@@ -26,3 +26,17 @@ weight = 70.5
 
 print(f"my height is {height} feet")
 print(f"my weight is {weight} kg")
+
+#booleans
+is_student = True
+if is_student:
+    print("I am a student")
+else:
+    print("I am not a student")
+    
+for_sale = True
+if for_sale:
+    print("This item is for sale")
+else:
+    print("This item is not for sale")
+    
