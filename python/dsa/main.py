@@ -43,3 +43,10 @@
 name = input("Enter your name: ")
 print(f"Hello, {name}!")
 
+## typecasting 
+name = input("Enter your name: ")
+name = str(name)
+print(name)
+
+age = 25
+print(f"My age is {age}")
