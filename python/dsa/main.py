@@ -43,10 +43,13 @@
 name = input("Enter your name: ")
 print(f"Hello, {name}!")
 
-## typecasting 
+## typecasting  =  converting the data type of a value to another data type
 name = input("Enter your name: ")
-name = str(name)
+name = bool(name)
 print(name)
 
 age = 25
 print(f"My age is {age}")
+print(type(age))  # Output: <class 'int'>
+
+#input() = 
