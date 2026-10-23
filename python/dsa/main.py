@@ -52,4 +52,7 @@ age = 25
 print(f"My age is {age}")
 print(type(age))  # Output: <class 'int'>
 
-#input() = 
+#input() = a fucntion that prompts the user to enter data
+#          returns the entered data as a string
+
+           

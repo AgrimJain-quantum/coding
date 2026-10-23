@@ -1,0 +1,92 @@
+name,artist,danceability,energy,tempo,valence,loudness,acousticness,instrumentalness,genre
+Blinding Lights,The Weeknd,0.514,0.730,171.0,0.334,-5.934,0.00146,0.000095,pop
+Save Your Tears,The Weeknd,0.641,0.837,118.1,0.644,-5.399,0.00137,0.000001,pop
+Starboy,The Weeknd,0.679,0.581,186.0,0.492,-7.005,0.00312,0.000019,pop
+After Hours,The Weeknd,0.652,0.549,107.7,0.200,-8.675,0.00168,0.000028,pop
+Can't Feel My Face,The Weeknd,0.706,0.644,107.0,0.551,-5.639,0.00212,0.000000,pop
+Shape of You,Ed Sheeran,0.825,0.652,95.9,0.931,-3.183,0.58100,0.000000,pop
+Perfect,Ed Sheeran,0.502,0.430,95.0,0.956,-6.862,0.42800,0.000000,pop
+Bad Habits,Ed Sheeran,0.807,0.897,126.0,0.603,-3.712,0.00545,0.000000,pop
+Shivers,Ed Sheeran,0.834,0.910,160.8,0.916,-4.041,0.00219,0.000000,pop
+Photograph,Ed Sheeran,0.574,0.447,108.0,0.529,-6.958,0.49800,0.000000,pop
+Levitating,Dua Lipa,0.702,0.762,103.0,0.915,-3.786,0.01510,0.000014,pop
+Don't Start Now,Dua Lipa,0.815,0.777,124.0,0.567,-4.368,0.00801,0.000000,pop
+Physical,Dua Lipa,0.877,0.839,122.0,0.823,-5.267,0.00462,0.000000,pop
+New Rules,Dua Lipa,0.767,0.622,116.0,0.620,-6.188,0.02790,0.000001,pop
+Future Nostalgia,Dua Lipa,0.740,0.808,118.0,0.637,-5.455,0.01230,0.000002,pop
+Rolling in the Deep,Adele,0.734,0.896,105.0,0.537,-6.203,0.04720,0.000000,soul
+Someone Like You,Adele,0.214,0.127,136.0,0.104,-14.930,0.90300,0.000001,soul
+Hello,Adele,0.359,0.309,82.0,0.200,-7.592,0.37000,0.000000,soul
+Easy On Me,Adele,0.363,0.251,138.0,0.134,-8.726,0.86100,0.000000,soul
+Skyfall,Adele,0.306,0.321,78.0,0.0927,-10.220,0.03220,0.000000,soul
+Uptown Funk,Bruno Mars,0.896,0.834,115.0,0.960,-4.593,0.09490,0.000000,funk
+24K Magic,Bruno Mars,0.820,0.768,106.0,0.769,-4.649,0.04310,0.000001,funk
+Grenade,Bruno Mars,0.572,0.770,111.0,0.315,-5.022,0.00952,0.000000,pop
+Just The Way You Are,Bruno Mars,0.750,0.549,109.0,0.838,-7.231,0.23400,0.000000,pop
+Treasure,Bruno Mars,0.848,0.873,117.0,0.891,-5.282,0.04840,0.000000,funk
+Bohemian Rhapsody,Queen,0.399,0.615,71.0,0.242,-11.200,0.20400,0.000000,rock
+We Will Rock You,Queen,0.515,0.534,81.0,0.440,-8.953,0.00228,0.000000,rock
+Don't Stop Me Now,Queen,0.633,0.879,156.0,0.872,-6.059,0.00572,0.000000,rock
+Somebody To Love,Queen,0.569,0.766,138.0,0.569,-7.481,0.01350,0.000000,rock
+Radio Ga Ga,Queen,0.542,0.610,122.0,0.435,-9.228,0.02710,0.012200,rock
+Smells Like Teen Spirit,Nirvana,0.498,0.980,116.0,0.347,-9.438,0.00123,0.000000,rock
+Come As You Are,Nirvana,0.531,0.649,120.0,0.374,-9.750,0.00325,0.000156,rock
+Hotel California,Eagles,0.472,0.415,73.0,0.412,-12.680,0.09640,0.001110,rock
+Stairway to Heaven,Led Zeppelin,0.342,0.345,82.0,0.256,-15.090,0.39800,0.004300,rock
+Back In Black,AC/DC,0.557,0.954,92.0,0.502,-6.095,0.00109,0.000000,rock
+God's Plan,Drake,0.754,0.449,77.0,0.357,-9.211,0.26200,0.000006,hiphop
+Hotline Bling,Drake,0.644,0.346,100.0,0.204,-10.590,0.25900,0.000002,hiphop
+One Dance,Drake,0.793,0.625,104.0,0.780,-5.981,0.02110,0.000000,hiphop
+Started From the Bottom,Drake,0.773,0.679,140.0,0.568,-6.032,0.05310,0.000000,hiphop
+HUMBLE.,Kendrick Lamar,0.906,0.621,150.0,0.421,-6.726,0.00186,0.000012,hiphop
+DNA.,Kendrick Lamar,0.780,0.726,154.0,0.484,-5.899,0.06960,0.000019,hiphop
+Alright,Kendrick Lamar,0.778,0.507,97.0,0.588,-9.461,0.16900,0.000000,hiphop
+Sicko Mode,Travis Scott,0.734,0.799,155.0,0.286,-5.635,0.01660,0.000012,hiphop
+Mo Bamba,Sheck Wes,0.695,0.757,138.0,0.300,-6.222,0.04490,0.000000,hiphop
+Lose Yourself,Eminem,0.660,0.619,171.0,0.266,-5.843,0.00384,0.000000,hiphop
+Watermelon Sugar,Harry Styles,0.548,0.816,95.0,0.556,-4.209,0.12300,0.000000,pop
+As It Was,Harry Styles,0.520,0.731,174.0,0.662,-5.338,0.04000,0.000003,pop
+Golden,Harry Styles,0.628,0.732,144.0,0.631,-5.247,0.01620,0.000000,pop
+Adore You,Harry Styles,0.531,0.530,164.0,0.523,-7.192,0.02200,0.000000,pop
+Dynamite,BTS,0.737,0.765,114.0,0.737,-5.446,0.00661,0.000000,kpop
+Butter,BTS,0.849,0.765,110.0,0.762,-5.374,0.00404,0.000000,kpop
+Boy With Luv,BTS,0.764,0.648,140.0,0.715,-6.183,0.01220,0.000000,kpop
+DNA,BTS,0.806,0.858,127.0,0.822,-4.825,0.00617,0.000000,kpop
+Happier,Marshmello,0.621,0.642,100.0,0.519,-7.384,0.02750,0.000000,edm
+Alone,Marshmello,0.794,0.868,128.0,0.512,-4.818,0.00296,0.000000,edm
+Sunflower,Post Malone,0.763,0.581,93.0,0.937,-5.023,0.23700,0.000000,pop
+Circles,Post Malone,0.695,0.762,120.0,0.553,-5.654,0.11900,0.000000,pop
+Rockstar,Post Malone,0.696,0.547,160.0,0.117,-8.139,0.07360,0.000001,pop
+White Iverson,Post Malone,0.665,0.614,134.0,0.386,-7.892,0.14400,0.000000,hiphop
+Senorita,Shawn Mendes,0.749,0.747,117.0,0.750,-5.608,0.07280,0.000000,pop
+Stitches,Shawn Mendes,0.758,0.636,148.0,0.544,-5.145,0.01790,0.000000,pop
+Treat You Better,Shawn Mendes,0.716,0.793,152.0,0.752,-5.432,0.00589,0.000000,pop
+There's Nothing Holdin' Me Back,Shawn Mendes,0.829,0.879,135.0,0.760,-5.286,0.00327,0.000000,pop
+Closer,The Chainsmokers,0.747,0.779,95.0,0.500,-7.236,0.04790,0.000000,edm
+Something Just Like This,The Chainsmokers,0.617,0.625,103.0,0.394,-7.234,0.03650,0.000000,edm
+Roses,The Chainsmokers,0.721,0.747,125.0,0.393,-7.095,0.05540,0.000000,edm
+Let Me Love You,DJ Snake,0.803,0.778,99.0,0.573,-6.249,0.01380,0.000001,edm
+Lean On,Major Lazer,0.746,0.839,98.0,0.578,-6.134,0.01070,0.000000,edm
+Titanium,David Guetta,0.631,0.762,126.0,0.467,-5.971,0.00698,0.000000,edm
+Animals,Martin Garrix,0.797,0.963,128.0,0.544,-3.712,0.01400,0.003360,edm
+Thinking Out Loud,Ed Sheeran,0.776,0.444,79.0,0.623,-8.093,0.45200,0.000000,pop
+Cheap Thrills,Sia,0.726,0.636,126.0,0.779,-6.219,0.21700,0.000000,pop
+Chandelier,Sia,0.361,0.575,129.0,0.116,-6.876,0.04020,0.000000,pop
+Elastic Heart,Sia,0.511,0.539,130.0,0.203,-10.360,0.12100,0.000000,pop
+Pompeii,Bastille,0.623,0.795,127.0,0.465,-4.884,0.00218,0.000000,pop
+Stay With Me,Sam Smith,0.455,0.340,83.0,0.294,-9.283,0.38400,0.000000,soul
+In The Name Of Love,Martin Garrix,0.641,0.740,128.0,0.487,-6.371,0.00403,0.000004,edm
+Blue (Da Ba Dee),Eiffel 65,0.641,0.892,136.0,0.642,-6.453,0.06620,0.000013,edm
+Stereo Hearts,Gym Class Heroes,0.732,0.524,101.0,0.561,-9.145,0.17500,0.000000,pop
+Mr. Brightside,The Killers,0.347,0.956,148.0,0.297,-4.220,0.00121,0.000000,rock
+Somebody That I Used To Know,Gotye,0.695,0.560,129.0,0.296,-8.023,0.31200,0.000000,pop
+Taki Taki,DJ Snake,0.792,0.788,97.0,0.680,-5.440,0.18300,0.000000,latin
+Despacito,Luis Fonsi,0.694,0.815,89.0,0.813,-5.627,0.23700,0.000000,latin
+Shakira: Bzrp Music Sessions,Bizarrap,0.816,0.662,98.0,0.683,-7.234,0.05010,0.000000,latin
+Flowers,Miley Cyrus,0.678,0.752,118.0,0.869,-4.993,0.06750,0.000000,pop
+Midnight Rain,Taylor Swift,0.613,0.455,78.0,0.421,-8.362,0.07350,0.000000,pop
+Anti-Hero,Taylor Swift,0.644,0.661,97.0,0.514,-7.022,0.01280,0.000000,pop
+Shake It Off,Taylor Swift,0.647,0.777,160.0,0.937,-5.697,0.07340,0.000000,pop
+Love Story,Taylor Swift,0.617,0.706,119.0,0.769,-5.700,0.04100,0.000000,pop
+Blank Space,Taylor Swift,0.758,0.645,96.0,0.612,-6.583,0.06180,0.000000,pop
+Bad Blood,Taylor Swift,0.796,0.863,172.0,0.502,-5.215,0.00296,0.000000,pop
