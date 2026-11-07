@@ -1,3 +1,4 @@
+import math
 # print ("hello world")
 
 # # variable = a container for a value( string , integer , float , boolean). it behaves as if it was the value that it contains 
@@ -94,12 +95,17 @@ x = 3.14
 y = 2
 z = 5
 
-r = round(x) # rounding off the value of x to the nearest integer
-t = abs(y) # absolute value of y
-print(r)
+# result = round(x)  # Round x to the nearest integer
+# result = round(x, 1)  # Round x to 1 decimal place
+# result = abs(x)
+# result = pow(y, z)  # Calculate y raised to the power of z (y^z)
+# result = min(x , y, z)
+# result = max(x , y, z)
+result = math.sqrt(z)  # Calculate the square root of z
 
-u = abs(x) # absolute value of x
-print(u)    
+print(result)
 
-result = pow(z,y) # pow is used to calculate the power of a number. In this case, it calculates z raised to the power of y (5^2).
-print(result) # Output: 25
+
+
+
+
