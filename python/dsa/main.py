@@ -142,27 +142,44 @@ import math
 #     print("out of stock")
     
 # python calculator 
-operator = input("enter the operator (+, -, *, /):")
-n1 = float(input("enter the first no. :  "))
-n2 = float(input("enter the second no. :"))
+# operator = input("enter the operator (+, -, *, /):")
+# n1 = float(input("enter the first no. :  "))
+# n2 = float(input("enter the second no. :"))
 
-if operator == "+":
-    result = n1 + n2
-    print(f"the result is {result}")
-elif operator == "-":
-    result = n1 - n2
-    print(f"the result is {result}")
-elif operator == "*":
-    result = n1 * n2
-    print(f"the result is {result}")
-elif operator == "/":
-    if n2 != 0:
-        result = n1 / n2
-        print(f"the result is {result}")
-    else:
-        print("Error: Division by zero is not allowed.")
+# if operator == "+":
+#     result = n1 + n2
+#     print(f"the result is {result}")
+# elif operator == "-":
+#     result = n1 - n2
+#     print(f"the result is {result}")
+# elif operator == "*":
+#     result = n1 * n2
+#     print(f"the result is {result}")
+# elif operator == "/":
+#     if n2 != 0:
+#         result = n1 / n2
+#         print(f"the result is {result}")
+#     else:
+#         print("Error: Division by zero is not allowed.")
     
-    
+# weight convertor
+
+weight = float(input("enter your weight :"))
+unit = input("enter the unit (kg or lb) :")
+if unit == "kg":
+    weight = weight * 2.20462
+    unit = "lb"
+elif unit == "lb":
+    weight = weight / 2.20462
+    unit  = "kg"
+else:
+    print(f"{unit} was not valid")
+
+print(f"your weight is {weight} {unit}")
+
+# heat temperature convertor 
+
+
 
 
 
