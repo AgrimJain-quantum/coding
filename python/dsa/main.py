@@ -103,19 +103,36 @@ k = 5.6
 # result = pow(y, z)  # Calculate y raised to the power of z (y^z)
 # result = min(x , y, z)
 # result = max(x , y, z)
-result = math.sqrt(z)  # Calculate the square root of z
-result_1 = math.ceil(l)  # Calculate the ceiling of l
-result_2 = math.floor(k)
-print(result)
-print(result_1)
-print(result_2)
+# result = math.sqrt(z)  # Calculate the square root of z
+# result_1 = math.ceil(l)  # Calculate the ceiling of l
+# result_2 = math.floor(k)
+# print(result)
+# print(result_1)
+# print(result_2)
 
 
-# perimeter of circle = 2 * math.pi * r
-radius = float(input("enter the radius of the circle:"))
-p = 2 * math.pi * radius
-print(f"the perimeter is {round(p)}")
+# # perimeter of circle = 2 * math.pi * r
+# radius = float(input("enter the radius of the circle:"))
+# p = 2 * math.pi * radius
+# print(f"the perimeter is {round(p)}")
 
+# # hypotenuse calculation 
+
+# a = float(input("enter the lenght of side a:"))
+# b = float(input("enter the lenght of side b:"))
+
+# c = math.sqrt(pow(a, 2) + pow(b, 2))
+# print(f"the hypotenuse is {round(c)}")
+
+age = int(input("enter your age:"))
+if age >= 18:
+    print("you are eligible to vote")
+elif age < 0:
+    print("invalid age")
+else:
+    print("you are not eligible to vote")
+    
+    
 
 
 
