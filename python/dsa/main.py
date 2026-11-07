@@ -94,6 +94,8 @@ import math
 x = 3.14
 y = 2
 z = 5
+l = 64.345678
+k = 5.6
 
 # result = round(x)  # Round x to the nearest integer
 # result = round(x, 1)  # Round x to 1 decimal place
@@ -102,8 +104,18 @@ z = 5
 # result = min(x , y, z)
 # result = max(x , y, z)
 result = math.sqrt(z)  # Calculate the square root of z
-
+result_1 = math.ceil(l)  # Calculate the ceiling of l
+result_2 = math.floor(k)
 print(result)
+print(result_1)
+print(result_2)
+
+
+# perimeter of circle = 2 * math.pi * r
+radius = float(input("enter the radius of the circle:"))
+p = 2 * math.pi * radius
+print(f"the perimeter is {round(p)}")
+
 
 
 
