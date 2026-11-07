@@ -91,11 +91,11 @@ import math
 
 # SOME OTHER AIRTHEMETIC OPERATOR 
 
-x = 3.14
-y = 2
-z = 5
-l = 64.345678
-k = 5.6
+# x = 3.14
+# y = 2
+# z = 5
+# l = 64.345678
+# k = 5.6
 
 # result = round(x)  # Round x to the nearest integer
 # result = round(x, 1)  # Round x to 1 decimal place
