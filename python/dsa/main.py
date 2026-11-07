@@ -164,20 +164,35 @@ import math
     
 # weight convertor
 
-weight = float(input("enter your weight :"))
-unit = input("enter the unit (kg or lb) :")
-if unit == "kg":
-    weight = weight * 2.20462
-    unit = "lb"
-elif unit == "lb":
-    weight = weight / 2.20462
-    unit  = "kg"
-else:
-    print(f"{unit} was not valid")
+# weight = float(input("enter your weight :"))
+# unit = input("enter the unit (kg or lb) :")
+# if unit == "kg":
+#     weight = weight * 2.20462
+#     unit = "lb"
+# elif unit == "lb":
+#     weight = weight / 2.20462
+#     unit  = "kg"
+# else:
+#     print(f"{unit} was not valid")
 
-print(f"your weight is {weight} {unit}")
+# print(f"your weight is {weight} {unit}")
 
 # heat temperature convertor 
+
+unit =  input("enter the unit (c or f):")
+temp = float(input("enter the temperature:"))
+
+if unit == "c":
+    temp = (temp * 9/5) + 32
+    unit = "fahrenheit"
+    print(f"the temperature is {temp} {unit}")
+elif unit == "f":
+    temp = (temp - 32) * 5/9
+    unit = "celsius"
+    print(f"the temperature is {temp} {unit}")
+else:
+    print(f"{unit} was not valid")
+    
 
 
 
