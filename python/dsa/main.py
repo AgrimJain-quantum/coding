@@ -40,20 +40,29 @@
 # else:
 #     print("This item is not for sale")
     
-name = input("Enter your name: ")
-print(f"Hello, {name}!")
+# name = input("Enter your name: ")
+# print(f"Hello, {name}!")
 
 ## typecasting  =  converting the data type of a value to another data type
-name = input("Enter your name: ")
-name = bool(name)
-print(name)
+# name = input("Enter your name: ")
+# name = bool(name)
+# print(name)
 
-age = 25
-print(f"My age is {age}")
-print(type(age))  # Output: <class 'int'>
+# age = 25
+# print(f"My age is {age}")
+# print(type(age))  # Output: <class 'int'>
 
 #input() = a fucntion that prompts the user to enter data
 #          returns the entered data as a string
-name = input("Enter your name:")
-print(f"Hello, {name}!")
-           
+# name = input("Enter your name:")
+# print(f"Hello, {name}!")
+
+
+age = input("Enter your age: ")
+age = int(age)  # Convert the input string to an integer
+age += 1
+
+print(f"happy birthday! you are now {age} years old")  # Use f-string for concatenation
+
+year = int(input("Enter the current year: "))
+print(f"Next year will be {year + 1}")  # Use f-string for concatenation
