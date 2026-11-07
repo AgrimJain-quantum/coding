@@ -100,3 +100,6 @@ print(r)
 
 u = abs(x) # absolute value of x
 print(u)    
+
+result = pow(z,y) # pow is used to calculate the power of a number. In this case, it calculates z raised to the power of y (5^2).
+print(result) # Output: 25
