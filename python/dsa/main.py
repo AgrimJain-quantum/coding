@@ -58,19 +58,45 @@
 # print(f"Hello, {name}!")
 
 
-age = input("Enter your age: ")
-age = int(age)  # Convert the input string to an integer
-age += 1
+# age = input("Enter your age: ")
+# age = int(age)  # Convert the input string to an integer
+# age += 1
 
-print(f"happy birthday! you are now {age} years old")  # Use f-string for concatenation
+# print(f"happy birthday! you are now {age} years old")  # Use f-string for concatenation
 
-year = int(input("Enter the current year: "))
-print(f"Next year will be {year + 1}")  # Use f-string for concatenation
+# year = int(input("Enter the current year: "))
+# print(f"Next year will be {year + 1}")  # Use f-string for concatenation
 
-# ecercise 1
-# find the area of a rectangle
+# # exercise 1
+# # find the area of a rectangle
 
-l = float(input("Enter the length of the rectangle: "))
-w = float(input("Enter the width of the rectangle: "))
-area = l * w
-print(f"The area of the rectangle is {area}")
+# l = float(input("Enter the length of the rectangle: "))
+# w = float(input("Enter the width of the rectangle: "))
+# area = l * w
+# print(f"The area of the rectangle is {area} cm²")
+
+# # exercise 2 shopping cart 
+
+# item  = input("Enter the item you want to buy: ")
+# price = float(input(f"Enter the price of {item}: "))
+# quantity = int(input(f"Enter the quantity of {item}: "))
+
+# total = price * quantity
+# print(f"The total cost of {quantity} {item}(s) is ${total:.2f}")  # Format total to 2 decimal places
+
+# #subscripting
+# name = "agrim jain"
+# print(name[0])  # Output: a
+
+# SOME OTHER AIRTHEMETIC OPERATOR 
+
+x = 3.14
+y = 2
+z = 5
+
+r = round(x) # rounding off the value of x to the nearest integer
+t = abs(y) # absolute value of y
+print(r)
+
+u = abs(x) # absolute value of x
+print(u)    
