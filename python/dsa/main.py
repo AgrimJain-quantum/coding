@@ -66,3 +66,11 @@ print(f"happy birthday! you are now {age} years old")  # Use f-string for concat
 
 year = int(input("Enter the current year: "))
 print(f"Next year will be {year + 1}")  # Use f-string for concatenation
+
+# ecercise 1
+# find the area of a rectangle
+
+l = float(input("Enter the length of the rectangle: "))
+w = float(input("Enter the width of the rectangle: "))
+area = l * w
+print(f"The area of the rectangle is {area}")
