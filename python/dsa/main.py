@@ -124,13 +124,43 @@ k = 5.6
 # c = math.sqrt(pow(a, 2) + pow(b, 2))
 # print(f"the hypotenuse is {round(c)}")
 
-age = int(input("enter your age:"))
-if age >= 18:
-    print("you are eligible to vote")
-elif age < 0:
-    print("invalid age")
-else:
-    print("you are not eligible to vote")
+# age = int(input("enter your age:"))
+# if age >= 18:
+#     print("you are eligible to vote")
+# elif age < 0:
+#     print("invalid age")
+# else:
+#     print("you are not eligible to vote")
+    
+# for_sale = bool(input("is the item for sale? (True/False): "))
+
+# if for_sale == True:
+#     print("This item is for sale")
+# elif for_sale == False:
+#     print("This item is not for sale")
+# else:
+#     print("out of stock")
+    
+# python calculator 
+operator = input("enter the operator (+, -, *, /):")
+n1 = float(input("enter the first no. :  "))
+n2 = float(input("enter the second no. :"))
+
+if operator == "+":
+    result = n1 + n2
+    print(f"the result is {result}")
+elif operator == "-":
+    result = n1 - n2
+    print(f"the result is {result}")
+elif operator == "*":
+    result = n1 * n2
+    print(f"the result is {result}")
+elif operator == "/":
+    if n2 != 0:
+        result = n1 / n2
+        print(f"the result is {result}")
+    else:
+        print("Error: Division by zero is not allowed.")
     
     
 
