@@ -111,7 +111,13 @@
                             step = the number of steps to take while traversing the string
                             '''
 
-credit_card_number = input("Enter your credit card number: ")
-print("First 4 digits:", credit_card_number[:4])
-last_4_digits = credit_card_number[-4:]
-print("Last 4 digits:", last_4_digits)
+# credit_card_number = input("Enter your credit card number: ")
+# print("First 4 digits:", credit_card_number[:4])
+# last_4_digits = credit_card_number[-4:]
+# print("Last 4 digits:", last_4_digits)
+
+price1 = 3.14245678
+
+print(f"Price1: {price1:.2f}")
+print(f"price2: {price1:.3f}")
+
