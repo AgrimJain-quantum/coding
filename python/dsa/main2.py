@@ -145,3 +145,8 @@
 #     print("wrong guess")
 #     guess_no = int(input("enter the number between 1 and 100 : "))
 # print("you guessed corectly")
+
+
+# compound interest
+
+principle = 0
