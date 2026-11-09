@@ -120,4 +120,6 @@ price1 = 3.14245678
 
 print(f"Price1: {price1:.2f}")
 print(f"price2: {price1:.3f}")
+print(f"price3: {price1:.4f}")
+
 
