@@ -71,11 +71,11 @@
 # lower_case_letter = name.lower()
 # digit_checker = name.isdigit()
 
-phone_number = input("enter your phone number:")
-result = phone_number.count("9")
-print(result)
+# phone_number = input("enter your phone number:")
+# result = phone_number.count(input("enter a digit to find:"))
+# print("the digit is found", result, "times in the phone number")
 
-
+# print(help(str))
 
 
 # print("length of name is:", length)
@@ -85,3 +85,11 @@ print(result)
 # print("full capitalized name is:", full_capital_letter)
 # print("lower case name is:", lower_case_letter)
 # print("is the digit: ", digit_checker)
+
+
+
+# program
+
+# have to validate the username is no more than 12 characters 
+# username = must not contain any spaces
+# must not contain not contain digits
