@@ -104,3 +104,12 @@
 #     print("Username is valid. here is your username:", username)
 
 
+''' indexing = the process of finding a particular character in a string
+        here the [] is used to find the index of the character in the string    
+        [start:stop:step] = start = starting index of the string
+                            stop = ending index of the string   
+                            step = the number of steps to take while traversing the string
+                            '''
+
+credit_card_number = input("Enter your credit card number: ")
+print("First 4 digits:", credit_card_number[:4])
