@@ -62,20 +62,26 @@
 
 
 
-name  = input("name :")
-length = len(name)
-letter_find = name.find(input("enter a letter to find:"))      # first occurence of the letter will be found
-letter_rfind = name.rfind(input("enter a letter to find:"))    # last occurence of the letter will be found
-capital_letter = name.capitalize()  # first letter of the string will be capitalized
-full_capital_letter = name.upper()  # all letters of the string will be capitalized
-lower_case_letter = name.lower()
+# name  = input("name :")
+# length = len(name)
+# letter_find = name.find(input("enter a letter to find:"))      # first occurence of the letter will be found
+# letter_rfind = name.rfind(input("enter a letter to find:"))    # last occurence of the letter will be found
+# capital_letter = name.capitalize()  # first letter of the string will be capitalized
+# full_capital_letter = name.upper()  # all letters of the string will be capitalized
+# lower_case_letter = name.lower()
+# digit_checker = name.isdigit()
+
+phone_number = input("enter your phone number:")
+result = phone_number.count("9")
+print(result)
 
 
 
 
-print("length of name is:", length)
-print("letter found at index:", letter_find)
-print("letter found at index:", letter_rfind)
-print("capitalized name is:", capital_letter)
-print("full capitalized name is:", full_capital_letter)
-print("lower case name is:", lower_case_letter)
+# print("length of name is:", length)
+# print("letter found at index:", letter_find)
+# print("letter found at index:", letter_rfind)
+# print("capitalized name is:", capital_letter)
+# print("full capitalized name is:", full_capital_letter)
+# print("lower case name is:", lower_case_letter)
+# print("is the digit: ", digit_checker)
