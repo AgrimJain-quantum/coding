@@ -125,15 +125,23 @@
 # print(f"Price4: ${price1:10.2f}")
 # print(f"price5: ${price1:010.2f}")
 
-access_code = input("Enter your access code: ")
-while access_code == "":
-    print("Access code cannot be empty. Please try again.")
-    access_code = input("Enter your access code: ")
-print("Access code accepted.")
+# access_code = input("Enter your access code: ")
+# while access_code == "":
+#     print("Access code cannot be empty. Please try again.")
+#     access_code = input("Enter your access code: ")
+# print("Access code accepted.")
 
 
-name = input("Enter your name: ")
-while not name.isalpha():
-    print("Name must contain only letters. Please try again.")
-    name = input("Enter your name: ")
-print(f"Name accepted. your name is {name}") 
+# name = input("Enter your name: ")
+# while not name.isalpha():
+#     print("Name must contain only letters. Please try again.")
+#     name = input("Enter your name: ")
+# print(f"Name accepted. your name is {name}") 
+
+
+
+# guess_no = int(input("enter the number between 1 and 100 : "))
+# while guess_no != 11 :
+#     print("wrong guess")
+#     guess_no = int(input("enter the number between 1 and 100 : "))
+# print("you guessed corectly")
